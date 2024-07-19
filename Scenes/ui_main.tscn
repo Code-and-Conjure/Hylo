@@ -27,25 +27,21 @@ collision_mask = 0
 
 [node name="Top Wall" type="CollisionShape2D" parent="Walls"]
 position = Vector2(-33.4464, -394.669)
-scale = Vector2(1, 1)
 shape = SubResource("WorldBoundaryShape2D_srtfr")
 
 [node name="Bottom Wall" type="CollisionShape2D" parent="Walls"]
 position = Vector2(1.85813, 395.891)
 rotation = 3.14159
-scale = Vector2(1, 1)
 shape = SubResource("WorldBoundaryShape2D_srtfr")
 
 [node name="Left Wall" type="CollisionShape2D" parent="Walls"]
 position = Vector2(-532.355, -26.8815)
 rotation = -1.5708
-scale = Vector2(1, 1)
 shape = SubResource("WorldBoundaryShape2D_srtfr")
 
 [node name="Right Wall" type="CollisionShape2D" parent="Walls"]
 position = Vector2(537, 7.3313)
 rotation = 1.5708
-scale = Vector2(1, 1)
 shape = SubResource("WorldBoundaryShape2D_srtfr")
 
 [node name="Lamp Light" type="PointLight2D" parent="."]

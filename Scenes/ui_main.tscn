@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdtgiy7qx62ki"]
+
+[ext_resource type="Texture2D" uid="uid://2akic2mmx262" path="res://Assets/UI-main.png" id="1_unxjh"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_srtfr"]
+normal = Vector2(0.0061815, 0.999981)
+
+[sub_resource type="Gradient" id="Gradient_5a8gy"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3xykp"]
+gradient = SubResource("Gradient_5a8gy")
+width = 512
+height = 512
+use_hdr = true
+fill = 1
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0.277778, 0.730769)
+
+[node name="Ui-main" type="Sprite2D"]
+position = Vector2(576, 324)
+scale = Vector2(1.07635, 0.818408)
+texture = ExtResource("1_unxjh")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="Top Wall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-33.4464, -394.669)
+scale = Vector2(1, 1)
+shape = SubResource("WorldBoundaryShape2D_srtfr")
+
+[node name="Bottom Wall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1.85813, 395.891)
+rotation = 3.14159
+scale = Vector2(1, 1)
+shape = SubResource("WorldBoundaryShape2D_srtfr")
+
+[node name="Left Wall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-532.355, -26.8815)
+rotation = -1.5708
+scale = Vector2(1, 1)
+shape = SubResource("WorldBoundaryShape2D_srtfr")
+
+[node name="Right Wall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(537, 7.3313)
+rotation = 1.5708
+scale = Vector2(1, 1)
+shape = SubResource("WorldBoundaryShape2D_srtfr")
+
+[node name="Lamp Light" type="PointLight2D" parent="."]
+position = Vector2(537, -395.891)
+scale = Vector2(0.714945, 0.854365)
+energy = 0.75
+range_layer_max = 1
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_3xykp")
+offset = Vector2(-256, 256)
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 422.0
+offset_top = -288.0
+offset_right = 493.0
+offset_bottom = -204.0

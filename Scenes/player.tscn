@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh4sora4bn0gg"]
+
+[ext_resource type="Texture2D" uid="uid://bh686eoeclt0c" path="res://Assets/player.png" id="1_6x2no"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_y8sua"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fivid"]
+radius = 11.0
+height = 52.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7o274"]
+polygon = PackedVector2Array(-11, 27, -12, -18, -2, -25, 10, -19, 9, 25)
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+floor_stop_on_slope = false
+platform_wall_layers = 1
+script = ExtResource("1_y8sua")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("CapsuleShape2D_fivid")
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(5, 1)
+texture = ExtResource("1_6x2no")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_7o274")
+occluder_light_mask = 2

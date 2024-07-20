@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cai87gf32caml"
+path="res://.godot/imported/SLow Lead2.ogg-32800a36e20eb37775e6b3373c789388.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/SLow Lead2.ogg"
+dest_files=["res://.godot/imported/SLow Lead2.ogg-32800a36e20eb37775e6b3373c789388.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

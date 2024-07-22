@@ -20,8 +20,7 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bf2ss"]
 
-[node name="PlayerSeekingProjectile" type="RigidBody2D"]
-gravity_scale = 0.0
+[node name="PlayerSeekingProjectile" type="CharacterBody2D"]
 script = ExtResource("1_6o171")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -31,3 +30,13 @@ sprite_frames = SubResource("SpriteFrames_6t45i")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_bf2ss")
 disabled = true
+
+[node name="TargetTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Remove" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
+[connection signal="timeout" from="TargetTimer" to="." method="_on_target_timer_timeout"]
+[connection signal="timeout" from="Remove" to="." method="_on_remove_timeout"]

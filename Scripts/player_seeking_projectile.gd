@@ -1,8 +1,26 @@
 class_name PlayerSeekingProjectile
-extends RigidBody2D
+extends CharacterBody2D
 
 @onready var player: PlatformingPlayer = get_tree().get_nodes_in_group("Player")[0]  
+var target: Vector2
+
+
+func _ready():
+	target = player.position
 
 func _physics_process(delta):
-	position.x = move_toward(position.x, player.position.x, player.SPEED*.95*delta)
-	position.y = move_toward(position.y, player.position.y, player.SPEED*.95*delta)
+	if position == target:
+		target = player.position
+	
+	var dir = position.direction_to(target)
+	var distance = position.distance_to(target)
+	velocity = dir * (player.SPEED + 5)
+	move_and_slide()
+
+
+func _on_target_timer_timeout():
+	target = player.position
+
+
+func _on_remove_timeout():
+	queue_free()

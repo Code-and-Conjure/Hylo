@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckdhpkx1rioox"]
+
+[ext_resource type="Script" path="res://Scripts/player_seeking_projectile.gd" id="1_6o171"]
+[ext_resource type="Texture2D" uid="uid://c0a5ekoyrr61w" path="res://Assets/Sprites/slime_purple.png" id="1_x3kxv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jx2wk"]
+atlas = ExtResource("1_x3kxv")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6t45i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jx2wk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bf2ss"]
+
+[node name="PlayerSeekingProjectile" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_6o171")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -6)
+sprite_frames = SubResource("SpriteFrames_6t45i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bf2ss")
+disabled = true

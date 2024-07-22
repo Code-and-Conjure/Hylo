@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cus51t2r477xe"]
+
+[ext_resource type="Script" path="res://Scripts/platforming_player.gd" id="1_elrc7"]
+[ext_resource type="Texture2D" uid="uid://bh686eoeclt0c" path="res://Assets/player.png" id="1_s2fsh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66msu"]
+height = 54.0
+
+[node name="PlatformingPlayer" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_elrc7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_66msu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7, -4)
+texture = ExtResource("1_s2fsh")
+
+[node name="FallTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="FallTimer" to="." method="_on_fall_timer_timeout"]

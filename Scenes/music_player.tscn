@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://buhsie0j3iiud"]
+
+[ext_resource type="Script" path="res://Scripts/MusicPlayer.gd" id="1_1cyf5"]
+[ext_resource type="AudioStream" uid="uid://cjekqhtjrlvj8" path="res://Assets/Audio/SLow Chords.ogg" id="2_5mchg"]
+[ext_resource type="AudioStream" uid="uid://cdf5wldasnm74" path="res://Assets/Audio/SLow AmbientBrush.ogg" id="3_ei2w0"]
+[ext_resource type="AudioStream" uid="uid://jje1d30rxejm" path="res://Assets/Audio/SLow Lead1.ogg" id="4_x4to6"]
+[ext_resource type="AudioStream" uid="uid://cai87gf32caml" path="res://Assets/Audio/SLow Lead2.ogg" id="5_uqqk1"]
+[ext_resource type="AudioStream" uid="uid://txx7k0lilek2" path="res://Assets/Audio/SLow OffHats.ogg" id="6_lchis"]
+
+[node name="MusicPlayer" type="Node"]
+script = ExtResource("1_1cyf5")
+
+[node name="Chords" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_5mchg")
+autoplay = true
+
+[node name="AmbientBrush" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ei2w0")
+
+[node name="Lead1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_x4to6")
+
+[node name="Lead2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_uqqk1")
+
+[node name="OffHats" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_lchis")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://txx7k0lilek2"
+path="res://.godot/imported/SLow OffHats.ogg-eefb39dc85e15f26fa0fe34488c41bd6.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Audio/SLow OffHats.ogg"
+dest_files=["res://.godot/imported/SLow OffHats.ogg-eefb39dc85e15f26fa0fe34488c41bd6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

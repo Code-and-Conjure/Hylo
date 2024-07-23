@@ -27,9 +27,7 @@ func _process(delta):
 	var time = chords.get_playback_position() + AudioServer.get_time_since_last_mix()
 	# Compensate for output latency.
 	time -= AudioServer.get_output_latency()
-	if floor(time) < floor(prevTime):
-		print("looped")
-		
+	if snapped(time, 1) < snapped(prevTime, 1):
 		decrementAll()
 		if leadWait == 0:
 			if currLead and currLead.playing:

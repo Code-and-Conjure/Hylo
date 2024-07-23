@@ -28,7 +28,7 @@ shader_parameter/radius = 0.332
 shader_parameter/speed = 0.407
 shader_parameter/noise = SubResource("NoiseTexture2D_pb8m6")
 
-[node name="Enemy" type="RigidBody2D"]
+[node name="Enemy" type="AnimatableBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5, 1)

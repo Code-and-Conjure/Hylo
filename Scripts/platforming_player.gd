@@ -1,8 +1,8 @@
 class_name PlatformingPlayer
 extends CharacterBody2D
 
-var SPEED = 130
-var JUMP_VELOCITY = -400
+var SPEED = 300
+var JUMP_VELOCITY = -900
 
 @onready var killzone = $Killzone
 
@@ -18,6 +18,10 @@ func _physics_process(delta):
 	if Input.is_action_pressed("jump") and is_on_floor():
 		killzone.monitoring = true
 		velocity.y = JUMP_VELOCITY
+		
+	if velocity.y < 0:
+		if Input.is_action_just_released("jump"):
+			velocity.y = -100
 
 	var direction = Input.get_axis("ui_left", "ui_right")
 	
@@ -38,4 +42,6 @@ func _on_fall_timer_timeout():
 
 
 func _on_killzone_body_entered(body):
-	body.queue_free()
+	#body.queue_free()
+	#decide if collectibles are enemies or coins/similar
+	pass

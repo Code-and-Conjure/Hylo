@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://psij6i07jn5j"]
+[gd_scene load_steps=7 format=3 uid="uid://bn138omwdg3hf"]
 
-[ext_resource type="Texture2D" uid="uid://dqvo1b00om0tw" path="res://Assets/Sprites/slime_green.png" id="1_n7bli"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/slime_green.png" id="1_n7bli"]
 [ext_resource type="Script" path="res://Scripts/horizontal_projectile.gd" id="1_rupqr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_shsdp"]
@@ -20,6 +20,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_56evo"]
+
 [node name="HorizontalProjectile" type="CharacterBody2D"]
 script = ExtResource("1_rupqr")
 
@@ -35,4 +37,10 @@ sprite_frames = SubResource("SpriteFrames_jhovs")
 wait_time = 3.0
 autostart = true
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_56evo")
+
 [connection signal="timeout" from="Remove" to="." method="_on_remove_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

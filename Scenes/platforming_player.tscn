@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cus51t2r477xe"]
+[gd_scene load_steps=5 format=3 uid="uid://bna1lt6rwe2k2"]
 
 [ext_resource type="Script" path="res://Scripts/platforming_player.gd" id="1_elrc7"]
 [ext_resource type="Texture2D" uid="uid://bh686eoeclt0c" path="res://Assets/player.png" id="1_s2fsh"]
@@ -10,8 +10,7 @@ height = 54.0
 radius = 12.0416
 
 [node name="PlatformingPlayer" type="CharacterBody2D" groups=["Player"]]
-collision_layer = 3
-collision_mask = 3
+collision_mask = 11
 script = ExtResource("1_elrc7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

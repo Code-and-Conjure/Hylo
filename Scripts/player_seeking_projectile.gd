@@ -24,3 +24,8 @@ func _on_target_timer_timeout():
 
 func _on_remove_timeout():
 	queue_free()
+
+
+func _on_area_2d_body_entered(body: PlatformingPlayer):
+	print("damage player")
+	queue_free()

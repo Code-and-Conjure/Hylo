@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cus51t2r477xe"]
+[gd_scene load_steps=5 format=3 uid="uid://cus51t2r477xe"]
 
 [ext_resource type="Script" path="res://Scripts/platforming_player.gd" id="1_elrc7"]
 [ext_resource type="Texture2D" uid="uid://bh686eoeclt0c" path="res://Assets/player.png" id="1_s2fsh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66msu"]
 height = 54.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uipx7"]
+radius = 12.0416
 
 [node name="PlatformingPlayer" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 3
@@ -21,4 +24,13 @@ texture = ExtResource("1_s2fsh")
 
 [node name="FallTimer" type="Timer" parent="."]
 
+[node name="Killzone" type="Area2D" parent="."]
+collision_mask = 4
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, 15)
+shape = SubResource("CircleShape2D_uipx7")
+
 [connection signal="timeout" from="FallTimer" to="." method="_on_fall_timer_timeout"]
+[connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]

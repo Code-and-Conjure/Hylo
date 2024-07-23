@@ -1,5 +1,5 @@
 class_name AirBoss
-extends CharacterBody2D
+extends StaticBody2D
 
 @export_range (.1, 3.0) var ShootRadomness: float = 2
 @export var Projectiles: Array[PackedScene]
@@ -42,9 +42,7 @@ func absorbThing():
 	apply_scale(Vector2(1.1, 1.1))
 	pass
 	
-	
 func decThing():
-	print("decing")
 	airEnemycount-=1
 	if airEnemycount <= 0:
 		shoot_timer.start()

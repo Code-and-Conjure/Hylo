@@ -7,8 +7,7 @@ func _input(event):
 		load_game()
 
 func _ready():
-	#load_game()
-	pass
+	load_game()
 
 func save_game():
 	var save_game = FileAccess.open("user://savegame.save", FileAccess.WRITE)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bh686eoeclt0c" path="res://Assets/player.png" id="1_6x2no"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_y8sua"]
-[ext_resource type="Resource" uid="uid://4spsvj4j06l1" path="res://Scripts/TestResource.tres" id="2_cajgj"]
+[ext_resource type="Resource" uid="uid://cv4sb38fp1ans" path="res://Scripts/TestResource.tres" id="2_cajgj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fivid"]
 radius = 11.0

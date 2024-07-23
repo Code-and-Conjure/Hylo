@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bch6qd5l2o4pw"]
+[gd_scene load_steps=17 format=3 uid="uid://cqx7rovfs44iv"]
 
-[ext_resource type="Texture2D" uid="uid://cx4vyiu0of0h4" path="res://Assets/Sprites/coin.png" id="1_5cn3c"]
+[ext_resource type="Script" path="res://Scripts/air_enemy.gd" id="1_3svkj"]
+[ext_resource type="Texture2D" path="res://Assets/Sprites/coin.png" id="1_5cn3c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qnyd6"]
 atlas = ExtResource("1_5cn3c")
@@ -94,12 +95,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_diiln"]
-radius = 6.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_pq36d"]
 
-[node name="AirEnemy" type="StaticBody2D"]
+[node name="AirEnemy" type="Area2D" groups=["AirEnemy"]]
 collision_layer = 4
 collision_mask = 5
+script = ExtResource("1_3svkj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_340lx")
@@ -107,5 +108,7 @@ autoplay = "default"
 frame = 10
 frame_progress = 0.181287
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_diiln")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pq36d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

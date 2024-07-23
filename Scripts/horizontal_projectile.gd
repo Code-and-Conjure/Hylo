@@ -1,23 +1,27 @@
 class_name HorizontalProjectile
 extends CharacterBody2D
 
-@onready var player: PlatformingPlayer = get_tree().get_nodes_in_group("Player")[0]
-var vel = 0
-
-func _ready():
-	position.y = player.position.y
-	var dir = position.direction_to(player.position)
-	vel = 500 * dir.x
+@export var BulletSpeed: float = 800
+@export var damage: int = 10
+var vel: Vector2
+var player: PlatformingPlayer
 
 func _physics_process(delta):
-	velocity.x = vel
+	velocity = vel
 	
 	move_and_slide()
 
 func _on_remove_timeout():
 	queue_free()
 
-
 func _on_area_2d_body_entered(body: PlatformingPlayer):
-	print("damage player")
+	body.damage(damage)
 	queue_free()
+
+func set_target(target: PlatformingPlayer):
+	player = target
+	var dir = position.direction_to(player.position)
+	vel = BulletSpeed * dir
+	
+	var rot = position.angle_to(player.position)
+	rotate(rot)

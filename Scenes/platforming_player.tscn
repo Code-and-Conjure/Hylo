@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bna1lt6rwe2k2"]
+
+[ext_resource type="Script" path="res://Scripts/platforming_player.gd" id="1_elrc7"]
+[ext_resource type="Texture2D" uid="uid://bh686eoeclt0c" path="res://Assets/player.png" id="1_s2fsh"]
+[ext_resource type="Resource" uid="uid://dvqboi7fyr6su" path="res://Scripts/TestResource.tres" id="2_6yhga"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66msu"]
+height = 54.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uipx7"]
+radius = 12.0416
+
+[node name="PlatformingPlayer" type="CharacterBody2D" groups=["Player"]]
+collision_mask = 11
+script = ExtResource("1_elrc7")
+stats = ExtResource("2_6yhga")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_66msu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7, -4)
+texture = ExtResource("1_s2fsh")
+
+[node name="FallTimer" type="Timer" parent="."]
+
+[node name="Killzone" type="Area2D" parent="."]
+collision_mask = 4
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, 15)
+shape = SubResource("CircleShape2D_uipx7")
+
+[connection signal="timeout" from="FallTimer" to="." method="_on_fall_timer_timeout"]
+[connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]

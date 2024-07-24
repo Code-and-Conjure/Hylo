@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx2o8dhtwq1mq"]
+
+[ext_resource type="Script" path="res://Scripts/water.gd" id="1_7oihd"]
+
+[node name="Water" type="Polygon2D"]
+position = Vector2(918, 498)
+script = ExtResource("1_7oihd")
+depth = 495
+springyness = 1.0
+dampening = 1.0
+spread = 0.989

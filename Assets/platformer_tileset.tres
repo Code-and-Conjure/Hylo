@@ -218,7 +218,7 @@ texture_region_size = Vector2i(128, 128)
 8: [4],
 12: [4],
 "symmetry": 0,
-"type": 5
+"type": 4
 }
 10:1/0 = 0
 10:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -534,7 +534,7 @@ texture_region_size = Vector2i(128, 128)
 "type": 2
 }
 8:3/0 = 0
-8:3/0/probability = 0.08
+8:3/0/probability = 0.1
 8:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 8:3/0/physics_layer_0/angular_velocity = 0.0
 8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
@@ -546,7 +546,7 @@ texture_region_size = Vector2i(128, 128)
 "type": 4
 }
 9:3/0 = 0
-9:3/0/probability = 0.03
+9:3/0/probability = 0.1
 9:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:3/0/physics_layer_0/angular_velocity = 0.0
 9:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)

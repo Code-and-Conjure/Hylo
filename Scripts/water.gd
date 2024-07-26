@@ -1,51 +1,75 @@
+@tool
 class_name Water
-extends Polygon2D
+extends Area2D
+
+@onready var collision_polygon_2d = $CollisionPolygon2D
 
 @export var points: int = 300
-@export var dist: float = 20
-@export var depth: int = 1000
-@export_range(0.0, 1.0) var springyness: float = 0.99
-@export_range(0.0, 1.0) var dampening: float = 0.9
-@export_range(0.0, 1.0) var spread: float = 0.2
+@export var dist: float = 10
+@export var depth: int = 5000
 
-var springs: Array[Vector3] = [Vector3.ZERO]
-var isStillWater: bool = true
+@export var impact_depth: float = 10.0
+
+@export_range(0.0, 1.0) var impact: float = 0.1
+
+@export_range(0.0,1.0) var k = 0.016
+@export_range(0.0,1.0) var dampening = 0.04
+@export_range(0.0,1.0) var spread = 0.12
+
+var springs: Array[Spring] = [Spring.new()]
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
+	springs[0].position.y = 100
 	for i in points:
-		springs.push_front(Vector3((1+i) * dist * -1, 0.0, 0.0))
-		springs.push_back(Vector3((1+i) * dist, 0.0, 0.0))
-	
-	ripple(0.0, 50)
-	
-func ripple(pos_x: float, impact: float) -> void:
-	for i in springs.size():
-		var distance = abs(springs[i].x - pos_x)
-		if distance == 0.0:
-			springs[i].y -= impact
-			continue
-			
-		var sqDist = pow(spread, distance)
-		springs[i].y -= impact * sqDist
-	pass
-	
-func _physics_process(delta: float) -> void:
-	for i in springs.size():
-		# apply springy force
-		springs[i].z += -springs[i].y * delta
-		springs[i].z *= dampening * springyness
-		springs[i].y += springs[i].z
+		var front = Spring.new()
+		front.position.x = (1+i) * dist * -1
+		springs.push_front(front)
 		
+		var back = Spring.new()
+		back.position.x = (1+i) * dist
+		springs.push_back(back)
+		
+	collision_polygon_2d.polygon = build_collision_polygon()
+	
+	self.body_entered.connect(ripple)
+	self.body_exited.connect(ripple)
+	
+func ripple(body: PhysicsBody2D):
+	for spring in springs:
+		if abs(spring.position.x - to_local(body.position).x) < dist and body is CharacterBody2D:
+			spring.position.y += body.velocity.length() * impact
+
+func build_collision_polygon() -> PackedVector2Array:
+	var array: PackedVector2Array = []
+	array.append(Vector2(points * dist, 0.0))
+	array.append(Vector2(points * dist * -1, 0.0))
+	array.append(Vector2(points * dist * -1, impact_depth))
+	array.append(Vector2(points * dist, impact_depth))
+	return array
+
+func _physics_process(delta) -> void:
+	for spring in springs:
+		spring.spring(delta, k, dampening)
+	
+	var index: int = 0
+	var prev: Spring
+		
+	for curr in springs:
+		if prev:
+			prev.velocity += spread * (curr.position.y - prev.position.y)
+		if index < springs.size() - 1:
+			springs[index + 1].velocity += spread * (curr.position.y - springs[index + 1].position.y)
+		prev = curr
+		index += 1
 	queue_redraw()
-	pass
 
 func get_water_shape() -> PackedVector2Array:
 	var array: PackedVector2Array = []
 	for i in springs:
-		array.append(Vector2(i.x, i.y))
-	array.append(Vector2(springs[springs.size() - 1].x, depth))
-	array.append(Vector2(springs[0].x, depth))
+		array.append(Vector2(i.position.x, i.position.y))
+	array.append(Vector2(springs[springs.size() - 1].position.x, depth))
+	array.append(Vector2(springs[0].position.x, depth))
 	return array
 
 func _draw():

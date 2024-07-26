@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://8mpjwxci13ok"]
 
-[ext_resource type="PackedScene" path="res://Scenes/air_enemy.tscn" id="1_2rgoe"]
+[ext_resource type="PackedScene" uid="uid://cqx7rovfs44iv" path="res://Scenes/air_enemy.tscn" id="1_2rgoe"]
 [ext_resource type="Texture2D" uid="uid://b1va5nqcfa0ju" path="res://Assets/Platform-Spritesheet.png" id="1_sol4t"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_s03pt"]

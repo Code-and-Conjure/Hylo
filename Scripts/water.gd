@@ -1,4 +1,3 @@
-@tool
 class_name Water
 extends Area2D
 
@@ -7,14 +6,15 @@ extends Area2D
 @export var points: int = 300
 @export var dist: float = 10
 @export var depth: int = 5000
-
-@export var impact_depth: float = 10.0
+@export_color_no_alpha var texture: Color
 
 @export_range(0.0, 1.0) var impact: float = 0.1
 
 @export_range(0.0,1.0) var k = 0.016
 @export_range(0.0,1.0) var dampening = 0.04
 @export_range(0.0,1.0) var spread = 0.12
+
+var bodies: Array[Node2D] = []
 
 var springs: Array[Spring] = [Spring.new()]
 
@@ -32,20 +32,34 @@ func _ready() -> void:
 		
 	collision_polygon_2d.polygon = build_collision_polygon()
 	
-	self.body_entered.connect(ripple)
-	self.body_exited.connect(ripple)
+	self.body_entered.connect(ripple_enter)
+	self.body_exited.connect(ripple_exit)
+	
+func ripple_enter(body: PhysicsBody2D) -> void:
+	bodies.append(body)
+	var player = body as PlatformingPlayer
+	if player:
+		player.start_swimming()
+	ripple(body)
+	
+func ripple_exit(body: PhysicsBody2D) -> void:
+	bodies.erase(body)
+	var player = body as PlatformingPlayer
+	if player:
+		player.stop_swimming()
+	ripple(body)
 	
 func ripple(body: PhysicsBody2D):
 	for spring in springs:
 		if abs(spring.position.x - to_local(body.position).x) < dist and body is CharacterBody2D:
-			spring.position.y += body.velocity.length() * impact
+			spring.position.y += body.velocity.y * impact
 
 func build_collision_polygon() -> PackedVector2Array:
 	var array: PackedVector2Array = []
 	array.append(Vector2(points * dist, 0.0))
 	array.append(Vector2(points * dist * -1, 0.0))
-	array.append(Vector2(points * dist * -1, impact_depth))
-	array.append(Vector2(points * dist, impact_depth))
+	array.append(Vector2(points * dist * -1, depth))
+	array.append(Vector2(points * dist, depth))
 	return array
 
 func _physics_process(delta) -> void:
@@ -73,5 +87,5 @@ func get_water_shape() -> PackedVector2Array:
 	return array
 
 func _draw():
-	draw_polygon(get_water_shape(), [Color("1111ff")])
+	draw_polygon(get_water_shape(), [texture])
 

@@ -8,6 +8,9 @@ extends Camera2D
 @export var AdjustSpeed: float = 5
 @export var Player: PlatformingPlayer
 
+@export var BeginBound: Marker2D
+@export var EndBound: Marker2D
+
 @export_range (0,50) var MAX_DISTANCE: float = 1
 
 func _physics_process(delta):
@@ -24,4 +27,12 @@ func _physics_process(delta):
 		dir.y = 0
 	
 	position += lerp(Vector2.ZERO, dist * dir, dist/MAX_DISTANCE)
+	
+	if BeginBound:
+		position.y = max(BeginBound.position.y, position.y)
+		position.x = max(BeginBound.position.x, position.x)
+		
+	if EndBound:
+		position.y = min(EndBound.position.y, position.y)
+		position.x = min(EndBound.position.x, position.x)
 		

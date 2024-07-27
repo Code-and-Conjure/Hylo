@@ -3,14 +3,16 @@
 [ext_resource type="Script" path="res://Scripts/water.gd" id="1_7oihd"]
 
 [node name="Water" type="Area2D"]
-position = Vector2(918, 498)
+position = Vector2(961, 507)
 collision_layer = 9
 collision_mask = 9
 script = ExtResource("1_7oihd")
 points = 80
 dist = 11.845
 depth = 515
+texture = null
 dampening = 0.036
 spread = 0.135
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(947.6, 0, -947.6, 0, -947.6, 515, 947.6, 515)

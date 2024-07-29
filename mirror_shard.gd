@@ -4,8 +4,7 @@ var state = "lit"
 var player_in_area = false
 
 func _ready():
-	if state == "lit":
-		$
+	pass
 		
 #func _process(delta):
 #	if state == "lit":

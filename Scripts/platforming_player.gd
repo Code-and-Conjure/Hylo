@@ -2,7 +2,7 @@ class_name PlatformingPlayer
 extends CharacterBody2D
 
 @export var SPEED = 400
-var JUMP_VELOCITY = -900
+var JUMP_VELOCITY = -600
 
 @export var stats: TestResource
 

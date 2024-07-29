@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cf0xpbmne7kcl"]
+[gd_scene load_steps=6 format=3 uid="uid://cofsmvbxl5y0e"]
 
 [ext_resource type="Script" path="res://mirror_shard.gd" id="1_622h2"]
 [ext_resource type="Texture2D" uid="uid://drs7onaofawpj" path="res://Assets/Sprites/broken_mirror_shard_sprite_lit.png" id="2_0fwoq"]

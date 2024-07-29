@@ -16,9 +16,10 @@ points = 100
 dist = 8.0
 depth = 270
 texture = Color(0.0344742, 0.0178848, 0.0110111, 1)
-impact = 0.051
-dampening = 0.235
-spread = 0.144
+impact = 0.055
+k = 0.116
+dampening = 0.225
+spread = 0.284
 
 [node name="Platformer" parent="." instance=ExtResource("2_th5qk")]
 position = Vector2(295, 355)

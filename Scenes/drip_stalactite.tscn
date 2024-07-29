@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8pr1p3wqkov6"]
+
+[ext_resource type="Script" path="res://Scripts/Drip Stalactite.gd" id="1_xic4q"]
+[ext_resource type="Texture2D" uid="uid://cdiex6gw6xmtn" path="res://Assets/Stalactite.png" id="2_lcsb4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4fkg"]
+size = Vector2(79, 72)
+
+[node name="Drip Stalactite" type="StaticBody2D"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_xic4q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_lcsb4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 14)
+shape = SubResource("RectangleShape2D_h4fkg")
+
+[node name="Drip Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Drip From" type="Marker2D" parent="."]
+position = Vector2(1, 56)

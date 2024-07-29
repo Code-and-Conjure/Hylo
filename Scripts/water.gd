@@ -35,12 +35,15 @@ func _ready() -> void:
 	self.body_entered.connect(ripple_enter)
 	self.body_exited.connect(ripple_exit)
 	
-func ripple_enter(body: PhysicsBody2D) -> void:
+func ripple_enter(body: Node2D) -> void:
 	bodies.append(body)
+		
 	var player = body as PlatformingPlayer
 	if player:
 		player.start_swimming()
-	ripple(body)
+		
+	if body is PhysicsBody2D:
+		ripple(body)
 	
 func ripple_exit(body: PhysicsBody2D) -> void:
 	bodies.erase(body)

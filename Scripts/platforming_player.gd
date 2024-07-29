@@ -64,8 +64,8 @@ func start_swimming():
 func stop_swimming():
 	is_swimming = false
 	
-func slowdown():
-	slowdown_factor *= 0.9
+func slowdown(by: float):
+	slowdown_factor *= by
 
 func _on_fall_timer_timeout():
 	set_collision_mask_value(2, true)

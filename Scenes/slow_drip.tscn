@@ -10,7 +10,7 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_heyg1"]
 gradient = SubResource("Gradient_mhpmq")
 fill = 1
-fill_from = Vector2(0.494318, 0.5)
+fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.865854, 0.146341)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i2fko"]

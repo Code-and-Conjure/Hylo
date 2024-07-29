@@ -7,11 +7,16 @@
 
 [node name="yellow_earth_denial" type="Node2D"]
 
-[node name="PlatformerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("Player")]
+[node name="PlatformerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("Player", "BeginBound")]
 position = Vector2(1019, 431)
 script = ExtResource("1_q7bfo")
+LockXAxis = null
 LockYAxis = true
+PlayerSnap = null
+LookaheadFactor = null
+AdjustSpeed = null
 Player = NodePath("../PlatformingPlayer")
+BeginBound = NodePath("../Begin Level")
 MAX_DISTANCE = 20.048
 
 [node name="Platforms" type="TileMap" parent="."]

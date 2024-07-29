@@ -1,11 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://bna1lt6rwe2k2"]
 
 [ext_resource type="Script" path="res://Scripts/platforming_player.gd" id="1_elrc7"]
-[ext_resource type="Texture2D" uid="uid://bh686eoeclt0c" path="res://Assets/player.png" id="1_s2fsh"]
 [ext_resource type="Resource" uid="uid://dvqboi7fyr6su" path="res://Scripts/TestResource.tres" id="2_6yhga"]
+[ext_resource type="Texture2D" uid="uid://cmolgrwmbw3w2" path="res://Assets/hylo-FILLED_SKETCH.png" id="3_051si"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66msu"]
-height = 54.0
+radius = 16.0
+height = 80.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uipx7"]
 radius = 12.0416
@@ -21,7 +22,8 @@ shape = SubResource("CapsuleShape2D_66msu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(7, -4)
-texture = ExtResource("1_s2fsh")
+scale = Vector2(0.110987, 0.0839044)
+texture = ExtResource("3_051si")
 
 [node name="FallTimer" type="Timer" parent="."]
 

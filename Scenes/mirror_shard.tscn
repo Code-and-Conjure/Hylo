@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://cofsmvbxl5y0e"]
+
+[ext_resource type="Script" path="res://Scripts/mirror_shard.gd" id="1_622h2"]
+[ext_resource type="Texture2D" uid="uid://drs7onaofawpj" path="res://Assets/Sprites/broken_mirror_shard_sprite_lit.png" id="2_0fwoq"]
+[ext_resource type="Texture2D" uid="uid://j45druyhyyad" path="res://Assets/broken_mirror_shard_sprite.png" id="3_1xftf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_07eu5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0fwoq")
+}],
+"loop": true,
+"name": &"lit",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1xftf")
+}],
+"loop": true,
+"name": &"not lit",
+"speed": 0.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pnhqy"]
+radius = 23.0
+height = 96.0
+
+[node name="mirror_shard" type="Node2D"]
+script = ExtResource("1_622h2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_07eu5")
+animation = &"not lit"
+
+[node name="collect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collect"]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_pnhqy")
+
+[connection signal="body_entered" from="collect" to="." method="_on_collect_body_entered"]
+[connection signal="body_exited" from="collect" to="." method="_on_collect_body_exited"]

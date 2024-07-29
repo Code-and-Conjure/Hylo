@@ -10,7 +10,7 @@ var JUMP_VELOCITY = -700
 var airEnemycount: int = 0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-@onready var player: PlatformingPlayer = get_tree().get_nodes_in_group("Player")[0]  
+@onready var player: PlatformingPlayer = get_tree().get_nodes_in_group("Player")[0]
 
 func _ready():
 	Events.connect("air_enemy_despawned", decThing)

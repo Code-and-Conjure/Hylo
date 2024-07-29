@@ -6,7 +6,7 @@ extends Camera2D
 @export_range (0,100) var PlayerSnap: float = 50
 @export_range (0,500) var LookaheadFactor: float = .07
 @export var AdjustSpeed: float = 5
-@export var Player: PlatformingPlayer
+@export var Player: CharacterBody2D
 
 @export var BeginBound: Marker2D
 @export var EndBound: Marker2D

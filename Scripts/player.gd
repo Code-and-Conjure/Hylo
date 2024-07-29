@@ -1,8 +1,10 @@
+class_name Player
 extends CharacterBody2D
 
 
 const SPEED = 20000.0
 const JUMP_VELOCITY = -400.0
+@onready var sprite = $Player
 
 @export var stats: TestResource
 
@@ -30,3 +32,8 @@ func save():
 		"pos_x": position.x,
 		"pos_y": position.y,
 	}
+
+func damage(amount: int):
+	stats.health -= amount
+	if stats.health <= 0:
+		print("should die")

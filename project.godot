@@ -18,8 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Events="*res://Scripts/Events.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
@@ -102,6 +102,10 @@ load={
 2d_physics/layer_2="OneWayPlatforms"
 2d_physics/layer_3="Enemy"
 2d_physics/layer_4="Terrain"
+
+[physics]
+
+2d/default_gravity=2000.0
 
 [rendering]
 

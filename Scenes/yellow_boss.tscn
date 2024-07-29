@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg25qil1pe1mw"]
+
+[ext_resource type="Texture2D" uid="uid://fn0pto66h6md" path="res://Assets/hylo-denial.png" id="1_70vkg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gb21o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_70vkg")
+}],
+"loop": true,
+"name": &"hidden face",
+"speed": 0.0
+}]
+
+[node name="yellow_boss" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_gb21o")
+animation = &"hidden face"

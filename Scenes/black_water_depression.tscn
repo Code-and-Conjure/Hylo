@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/black_water_depression.gd" id="1_a1ali"]
 [ext_resource type="PackedScene" uid="uid://bna1lt6rwe2k2" path="res://Scenes/platforming_player.tscn" id="2_th5qk"]
 [ext_resource type="PackedScene" uid="uid://bx2o8dhtwq1mq" path="res://Scenes/water.tscn" id="4_7m6np"]
-[ext_resource type="TileSet" uid="uid://b0dxqa1sispfl" path="res://Assets/platformer_tileset.tres" id="4_copsx"]
+[ext_resource type="TileSet" uid="uid://doa40iy7pjb1q" path="res://Assets/platformer_tileset.tres" id="4_copsx"]
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="5_oofwd"]
 
 [node name="Black - Water - Depression" type="Node2D"]
@@ -16,9 +16,10 @@ points = 100
 dist = 8.0
 depth = 270
 texture = Color(0.0344742, 0.0178848, 0.0110111, 1)
-impact = 0.051
-dampening = 0.235
-spread = 0.144
+impact = 0.055
+k = 0.116
+dampening = 0.225
+spread = 0.284
 
 [node name="Platformer" parent="." instance=ExtResource("2_th5qk")]
 position = Vector2(295, 355)

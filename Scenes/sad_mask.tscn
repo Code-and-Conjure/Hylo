@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1tn3ab3euqb1"]
+
+[ext_resource type="Script" path="res://Scripts/Sad_Mask.gd" id="1_ryopb"]
+[ext_resource type="Texture2D" uid="uid://huv7x2g3jjgr" path="res://icon.svg" id="2_u124w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bw5lk"]
+size = Vector2(128, 128)
+
+[node name="Sad Mask" type="Area2D"]
+script = ExtResource("1_ryopb")
+
+[node name="Sad Mask Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_u124w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bw5lk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

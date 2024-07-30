@@ -5,7 +5,7 @@ extends Area2D
 
 @export var points: int = 300
 @export var dist: float = 10
-@export var depth: int = 5000
+@export var depth: int = 500
 @export_color_no_alpha var texture: Color
 
 @export_range(0.0, 1.0) var impact: float = 0.1
@@ -42,20 +42,22 @@ func ripple_enter(body: Node2D) -> void:
 	if player:
 		player.start_swimming()
 		
-	if body is PhysicsBody2D:
-		ripple(body)
+	ripple(body)
 	
-func ripple_exit(body: PhysicsBody2D) -> void:
+func ripple_exit(body: Node2D) -> void:
 	bodies.erase(body)
 	var player = body as PlatformingPlayer
 	if player:
 		player.stop_swimming()
 	ripple(body)
 	
-func ripple(body: PhysicsBody2D):
+func ripple(body: Node2D):
 	for spring in springs:
-		if abs(spring.position.x - to_local(body.position).x) < dist and body is CharacterBody2D:
-			spring.position.y += body.velocity.y * impact
+		if abs(spring.position.x - to_local(body.position).x) < dist:
+			if body is CharacterBody2D:
+				spring.position.y += body.velocity.y * impact
+			else:
+				spring.position.y += impact
 
 func build_collision_polygon() -> PackedVector2Array:
 	var array: PackedVector2Array = []
@@ -89,6 +91,6 @@ func get_water_shape() -> PackedVector2Array:
 	array.append(Vector2(springs[0].position.x, depth))
 	return array
 
-func _draw():
+func _draw() -> void:
 	draw_polygon(get_water_shape(), [texture])
 

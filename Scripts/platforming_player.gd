@@ -23,6 +23,12 @@ var is_swimming: bool = false
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var fall_timer: Timer = $FallTimer
 
+func _ready() -> void:
+	$"Sad Mask".visible = GlobalDictionary.has_sad_mask
+	
+func add_sad_mask() -> void:
+	$"Sad Mask".visible = true
+
 func _physics_process(delta):
 	if weapon.visible == false and GlobalDictionary.has_weapon: 
 		weapon.visible = true

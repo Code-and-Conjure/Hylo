@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bna1lt6rwe2k2"]
+[gd_scene load_steps=10 format=3 uid="uid://bna1lt6rwe2k2"]
 
 [ext_resource type="Script" path="res://Scripts/platforming_player.gd" id="1_elrc7"]
 [ext_resource type="Resource" uid="uid://dvqboi7fyr6su" path="res://Scripts/TestResource.tres" id="2_6yhga"]
 [ext_resource type="Texture2D" uid="uid://cmolgrwmbw3w2" path="res://Assets/hylo-FILLED_SKETCH.png" id="3_051si"]
 [ext_resource type="Texture2D" uid="uid://c0yglu1ffrmt6" path="res://Assets/hylo-back-FILLED_SKETCH.png" id="4_nrjrs"]
 [ext_resource type="PackedScene" uid="uid://di1a4po25n4y1" path="res://Scenes/weapon.tscn" id="4_uqc2v"]
+[ext_resource type="Texture2D" uid="uid://huv7x2g3jjgr" path="res://icon.svg" id="6_pkmqb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66msu"]
 radius = 16.0
@@ -60,6 +61,13 @@ position = Vector2(2, -5)
 scale = Vector2(0.08, 0.08)
 sprite_frames = SubResource("SpriteFrames_m3bgu")
 animation = &"Walk Right"
+
+[node name="Sad Mask" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-8, -4)
+rotation = -0.226135
+scale = Vector2(0.0553538, 0.0572059)
+texture = ExtResource("6_pkmqb")
 
 [connection signal="timeout" from="FallTimer" to="." method="_on_fall_timer_timeout"]
 [connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]

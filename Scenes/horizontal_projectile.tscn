@@ -1,26 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://bn138omwdg3hf"]
+[gd_scene load_steps=6 format=3 uid="uid://bn138omwdg3hf"]
 
-[ext_resource type="Texture2D" path="res://Assets/Sprites/slime_green.png" id="1_n7bli"]
 [ext_resource type="Script" path="res://Scripts/horizontal_projectile.gd" id="1_rupqr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_shsdp"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8xb6r"]
-atlas = ExtResource("1_n7bli")
-region = Rect2(0, 24, 24, 24)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_jhovs"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8xb6r")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_56evo"]
+
+[sub_resource type="Gradient" id="Gradient_deqnf"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.315603, 0.592199, 0.684397)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ml6vb"]
+gradient = SubResource("Gradient_deqnf")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="HorizontalProjectile" type="CharacterBody2D"]
 script = ExtResource("1_rupqr")
@@ -28,10 +22,6 @@ script = ExtResource("1_rupqr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_shsdp")
 disabled = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -5)
-sprite_frames = SubResource("SpriteFrames_jhovs")
 
 [node name="Remove" type="Timer" parent="."]
 wait_time = 3.0
@@ -41,6 +31,9 @@ autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_56evo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_ml6vb")
 
 [connection signal="timeout" from="Remove" to="." method="_on_remove_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

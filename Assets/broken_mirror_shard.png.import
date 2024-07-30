@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1lync2r3ch71"
-path="res://.godot/imported/hylo-weapon-FILLED_SKETCH.png-c0aa268f37ec7bb1526249d518fb92bb.ctex"
+uid="uid://bbconcgi4ou5i"
+path="res://.godot/imported/broken_mirror_shard.png-cd68c86648e046063efe29969ac75aaf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/hylo-weapon-FILLED_SKETCH.png"
-dest_files=["res://.godot/imported/hylo-weapon-FILLED_SKETCH.png-c0aa268f37ec7bb1526249d518fb92bb.ctex"]
+source_file="res://Assets/broken_mirror_shard.png"
+dest_files=["res://.godot/imported/broken_mirror_shard.png-cd68c86648e046063efe29969ac75aaf.ctex"]
 
 [params]
 

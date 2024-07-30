@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1lync2r3ch71"
-path="res://.godot/imported/hylo-weapon-FILLED_SKETCH.png-c0aa268f37ec7bb1526249d518fb92bb.ctex"
+uid="uid://bml422ul235bg"
+path="res://.godot/imported/hylo-UNFILLED_SKETCH.png-8c3528fc879f6ceb81569b9713b6bc2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/hylo-weapon-FILLED_SKETCH.png"
-dest_files=["res://.godot/imported/hylo-weapon-FILLED_SKETCH.png-c0aa268f37ec7bb1526249d518fb92bb.ctex"]
+source_file="res://Assets/Sprites/hylo-UNFILLED_SKETCH.png"
+dest_files=["res://.godot/imported/hylo-UNFILLED_SKETCH.png-8c3528fc879f6ceb81569b9713b6bc2a.ctex"]
 
 [params]
 

@@ -12,6 +12,7 @@ height = 82.0
 polygon = PackedVector2Array(-11, 27, -11, -38, 2, -57, 15, -53, 18, 26)
 
 [node name="Player" type="CharacterBody2D" groups=["Persist"]]
+collision_mask = 32
 motion_mode = 1
 floor_stop_on_slope = false
 platform_wall_layers = 1

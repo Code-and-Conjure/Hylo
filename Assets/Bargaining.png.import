@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1lync2r3ch71"
-path="res://.godot/imported/hylo-weapon-FILLED_SKETCH.png-c0aa268f37ec7bb1526249d518fb92bb.ctex"
+uid="uid://5quwuk7r16uj"
+path="res://.godot/imported/Bargaining.png-d9582987b9a923f2d628c6475bc33ba6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/hylo-weapon-FILLED_SKETCH.png"
-dest_files=["res://.godot/imported/hylo-weapon-FILLED_SKETCH.png-c0aa268f37ec7bb1526249d518fb92bb.ctex"]
+source_file="res://Assets/Bargaining.png"
+dest_files=["res://.godot/imported/Bargaining.png-d9582987b9a923f2d628c6475bc33ba6.ctex"]
 
 [params]
 

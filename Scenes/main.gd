@@ -1,13 +1,21 @@
 extends Node2D
 
+@onready var level_select: MainLevelSelect = $LevelSelect
+
 func _input(event):
 	if event.is_action_pressed("save"):
 		save_game()
 	if event.is_action_pressed("load"):
 		load_game()
+		
 
 func _ready():
 	load_game()
+	level_select.load_scene.connect(load_resource)
+	
+func load_resource(level: PackedScene) -> void:
+	level_select.queue_free()
+	add_child(level.instantiate())
 
 func save_game():
 	var save_game = FileAccess.open("user://savegame.save", FileAccess.WRITE)
@@ -30,7 +38,7 @@ func save_game():
 
 		# Store the save dictionary as a new line in the save file.
 		save_game.store_line(json_string)
-		
+	
 func load_game():
 	if not FileAccess.file_exists("user://savegame.save"):
 		return # Error! We don't have a save to load.

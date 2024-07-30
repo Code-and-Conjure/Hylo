@@ -1,29 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh4sora4bn0gg"]
+[gd_scene load_steps=6 format=3 uid="uid://bh4sora4bn0gg"]
 
-[ext_resource type="Texture2D" uid="uid://bh686eoeclt0c" path="res://Assets/player.png" id="1_6x2no"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_y8sua"]
+[ext_resource type="Resource" uid="uid://dvqboi7fyr6su" path="res://Scripts/TestResource.tres" id="2_58f15"]
+[ext_resource type="Texture2D" uid="uid://cmolgrwmbw3w2" path="res://Assets/hylo-FILLED_SKETCH.png" id="2_eckbs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fivid"]
-radius = 11.0
-height = 52.0
+radius = 14.0
+height = 82.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7o274"]
-polygon = PackedVector2Array(-11, 27, -12, -18, -2, -25, 10, -19, 9, 25)
+polygon = PackedVector2Array(-11, 27, -11, -38, 2, -57, 15, -53, 18, 26)
 
 [node name="Player" type="CharacterBody2D" groups=["Persist"]]
 motion_mode = 1
 floor_stop_on_slope = false
 platform_wall_layers = 1
 script = ExtResource("1_y8sua")
+stats = ExtResource("2_58f15")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 1)
+position = Vector2(2, 1)
 shape = SubResource("CapsuleShape2D_fivid")
 
 [node name="Player" type="Sprite2D" parent="."]
 position = Vector2(5, 2)
-texture = ExtResource("1_6x2no")
+scale = Vector2(0.111, 0.084)
+texture = ExtResource("2_eckbs")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(0, 17)
 occluder = SubResource("OccluderPolygon2D_7o274")
 occluder_light_mask = 2

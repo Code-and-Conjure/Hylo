@@ -30,7 +30,7 @@ position_smoothing_speed = 10.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 script = ExtResource("3_vyc70")
-PlayerSnap = 77.219
+LockXAxis = true
 LookaheadFactor = 284.094
 AdjustSpeed = 500.0
 Player = NodePath("../PlatformingPlayer")
@@ -47,9 +47,10 @@ position = Vector2(591, 3553)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("WorldBoundaryShape2D_65h85")
 
-[node name="AirBoss" parent="." instance=ExtResource("4_n8c22")]
+[node name="AirBoss" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_n8c22")]
 position = Vector2(1065, 4433)
 scale = Vector2(1.42396, 0.938043)
+player = NodePath("../PlatformingPlayer")
 
 [node name="Level Bottom" type="Marker2D" parent="."]
 position = Vector2(2131, 4768)

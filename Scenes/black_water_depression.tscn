@@ -41,11 +41,11 @@ position = Vector2(4203, 433)
 
 [node name="Warning Text Timer" type="Timer" parent="."]
 
-[node name="PlatformerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("Player", "BeginBound", "EndBound")]
+[node name="PlatformerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("player", "BeginBound", "EndBound")]
 position = Vector2(986, 572)
 script = ExtResource("5_oofwd")
 LockYAxis = true
-Player = NodePath("../Platformer")
+player = NodePath("../Platformer")
 BeginBound = NodePath("../Begin")
 EndBound = NodePath("../End")
 MAX_DISTANCE = 12.63

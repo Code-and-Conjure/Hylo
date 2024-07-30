@@ -9,11 +9,11 @@ var JUMP_VELOCITY = -700
 var airEnemycount: int = 0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-@onready var player: PlatformingPlayer = get_tree().get_nodes_in_group("Player")[0]
+@export var player: PlatformingPlayer
 
 func _ready():
 	Events.connect("air_enemy_despawned", decThing)
-	set_scale(Vector2(.05, .05))
+	set_scale(Vector2(.02, .02))
 
 func recallThings():
 	for thing: AirEnemy in get_tree().get_nodes_in_group("AirEnemy"):
@@ -33,13 +33,20 @@ func _on_shoot_timer_timeout():
 	
 	var index = randi_range(0, len(Projectiles)-1)
 	var bullet = Projectiles[index].instantiate()
+	
+	if bullet is HorizontalProjectile or bullet is PlayerSeekingProjectile:
+		bullet.spawn_source = self
+		
 	bullet.position = position
 	bullet.set_target(player)
 	owner.add_child(bullet)
 
+func damage(_ignore) -> void:
+	scale.y -= 0.1
+	scale.x -= 0.1
+
 func absorbThing():
 	apply_scale(Vector2(1.1, 1.1))
-	pass
 	
 func decThing():
 	airEnemycount-=1

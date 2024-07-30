@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bn138omwdg3hf"]
 
-[ext_resource type="Texture2D" path="res://Assets/Sprites/slime_green.png" id="1_n7bli"]
+[ext_resource type="Texture2D" uid="uid://dqvo1b00om0tw" path="res://Assets/Sprites/slime_green.png" id="1_n7bli"]
 [ext_resource type="Script" path="res://Scripts/horizontal_projectile.gd" id="1_rupqr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_shsdp"]
@@ -21,13 +21,15 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_56evo"]
+radius = 10.0499
 
 [node name="HorizontalProjectile" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_rupqr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_shsdp")
-disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -5)
@@ -38,6 +40,7 @@ wait_time = 3.0
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_56evo")

@@ -30,6 +30,7 @@ position_smoothing_speed = 10.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 script = ExtResource("3_vyc70")
+LockXAxis = true
 PlayerSnap = 77.219
 LookaheadFactor = 284.094
 AdjustSpeed = 500.0

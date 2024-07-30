@@ -7,12 +7,15 @@ var MAX_FALL_SPEED = 5000
 
 var slowdown_factor: float = 1.0
 
+@onready var hylo_back_sprite: Texture2D = load("res://Assets/hylo-back-FILLED_SKETCH.png")
+@onready var hylo_front_sprite: Texture2D = load("res://Assets/hylo-FILLED_SKETCH.png")
+
 @export var stats: TestResource
 @export_range(0.0, 1.0) var swim_gravity_ratio: float = 0.3
 
 @onready var killzone = $Killzone
 @onready var platforming_player = $"."
-@onready var sprite_2d = $Sprite2D
+@onready var hylo = $Hylo
 
 var is_swimming: bool = false
 
@@ -32,6 +35,9 @@ func _physics_process(delta):
 	if Input.is_action_pressed("jump") and (is_on_floor() or is_swimming):
 		killzone.monitoring = true
 		velocity.y = JUMP_VELOCITY
+	if Input.is_action_pressed("ui_down", false):
+			set_collision_mask_value(2, false)
+			fall_timer.start(.2)
 		
 	if (velocity.y < 0) and Input.is_action_just_released("jump"):
 		velocity.y = -100
@@ -41,15 +47,12 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction * SPEED * slowdown_factor
 		if direction < 0:
-			sprite_2d.flip_h = true
+			hylo.play("Walk Left")
 		else:
-			sprite_2d.flip_h = false
+			hylo.play("Walk Right")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-	if Input.is_action_pressed("ui_down", false):
-			set_collision_mask_value(2, false)
-			fall_timer.start(.2)
 		
 	move_and_slide()
 

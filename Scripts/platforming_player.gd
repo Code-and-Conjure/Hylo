@@ -26,6 +26,9 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var fall_timer: Timer = $FallTimer
 
 func _physics_process(delta):
+	if weapon.visible == false and has_weapon: 
+		weapon.visible = true
+		
 	if not is_on_floor():
 		if is_swimming:
 			velocity.y += gravity * delta * swim_gravity_ratio
@@ -35,6 +38,8 @@ func _physics_process(delta):
 	else:
 		killzone.monitoring = false
 		
+	if has_weapon and Input.is_action_just_pressed("Parry"):
+		weapon.parry()
 	if Input.is_action_pressed("jump") and (is_on_floor() or is_swimming):
 		killzone.monitoring = true
 		velocity.y = JUMP_VELOCITY
@@ -58,11 +63,13 @@ func _physics_process(delta):
 		
 		
 	move_and_slide()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Attack"):
+		weapon.attack()
 	
-func _process(delta: float) -> void:
-	if weapon.visible == false and has_weapon: 
-		weapon.visible = true
-		
+	if event.is_action_released("Attack"):
+		weapon.stop_attack()
 
 func damage(amount: int):
 	stats.health -= amount

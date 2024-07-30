@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/platforming_player.gd" id="1_elrc7"]
 [ext_resource type="Resource" uid="uid://dvqboi7fyr6su" path="res://Scripts/TestResource.tres" id="2_6yhga"]
-[ext_resource type="Texture2D" path="res://Assets/hylo-FILLED_SKETCH.png" id="3_051si"]
+[ext_resource type="Texture2D" uid="uid://cmolgrwmbw3w2" path="res://Assets/hylo-FILLED_SKETCH.png" id="3_051si"]
 [ext_resource type="Texture2D" uid="uid://c0yglu1ffrmt6" path="res://Assets/hylo-back-FILLED_SKETCH.png" id="4_nrjrs"]
 [ext_resource type="PackedScene" uid="uid://di1a4po25n4y1" path="res://Scenes/weapon.tscn" id="4_uqc2v"]
 
@@ -54,7 +54,6 @@ shape = SubResource("CircleShape2D_uipx7")
 [node name="Weapon" parent="." instance=ExtResource("4_uqc2v")]
 visible = false
 position = Vector2(27, 1)
-scale = Vector2(1, 1)
 
 [node name="Hylo" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -5)

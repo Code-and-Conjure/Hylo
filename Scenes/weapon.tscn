@@ -3,15 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://dci0ona7e80lk" path="res://Assets/Weapon.png" id="1_85l4p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bubra"]
-size = Vector2(16, 157)
+size = Vector2(8, 67)
 
 [node name="Weapon" type="RigidBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_bubra")
 
 [node name="Weapon2" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
-scale = Vector2(0.17, 0.17)
+scale = Vector2(0.0880912, 0.0716458)
 texture = ExtResource("1_85l4p")

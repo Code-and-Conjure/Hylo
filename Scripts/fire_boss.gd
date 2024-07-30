@@ -8,20 +8,37 @@ extends RigidBody2D
 @export var fireBullet: PackedScene
 @export_range (.1, 100) var BulletSpread: float = 75
 @export_range (10, 1000) var SpawnOffset: float = 250
+@export_range (.1, 3) var DashRandomness: float = .5 
+@export_range (200, 2000) var DashDistanceRange: float = 300
+@export_range (200, 1000) var DashSpeed: float = 500
 
-@onready var attack_timer = $AttackTimer
+@export var BeginBound: Marker2D
+@export var EndBound: Marker2D
+
+@onready var attack_timer: Timer = $AttackTimer
+@onready var dash_timer: Timer = $DashTimer
 
 enum Attack {HORIZONTAL, SPIRAL, FOLLOW}
 
+var dashTarget: Vector2
 var state: Attack
 
-func _ready():
+func _ready() -> void:
 	attack_timer.start(randf_range(0, AttackRandomness))
+	dash_timer.start(randf_range(1, 1+DashRandomness))
 
-func _physics_process(delta):
-	pass
+func _physics_process(delta) -> void:
+	if Health <= 0:
+		print("Die fire boss!")
+		queue_free()
+		
+	if dashTarget:
+		var dir = position.direction_to(dashTarget)
+		position += dir * DashSpeed * delta
+		if position.distance_to(dashTarget) <= 5:
+			dashTarget = Vector2.ZERO
 
-func horizontalAttack():
+func horizontalAttack() -> void:
 	print("should do horizontal")
 	var dir = randi()%4
 	var playerSize: Vector2 = player.sprite.texture.get_size() * player.sprite.get_scale()
@@ -72,7 +89,7 @@ func horizontalAttack():
 	attack_timer.start(.2 + randf_range(0, AttackRandomness))
 	
 	
-func spiralAttack():
+func spiralAttack() -> void:
 	print("should do spiral")
 	var amount = (2.0*PI)/25.0
 	var playerPos = player.position
@@ -107,7 +124,7 @@ func spiralAttack():
 		
 	attack_timer.start(.1 + randf_range(0, AttackRandomness))
 	
-func followAttack():
+func followAttack() -> void:
 	for i in range(0, randi_range(10, 15)):
 		var xDir = [-1, 1].pick_random()
 		var yDir = [-1, 1].pick_random()
@@ -126,7 +143,7 @@ func followAttack():
 		await get_tree().create_timer(.1).timeout
 	attack_timer.start(.1 + randf_range(0, AttackRandomness))
 
-func _on_attack_timer_timeout():
+func _on_attack_timer_timeout() -> void:
 	Health -= 1
 	state = Attack.values().pick_random()
 	match state:
@@ -136,3 +153,16 @@ func _on_attack_timer_timeout():
 			horizontalAttack()
 		Attack.FOLLOW:
 			followAttack()
+
+func damage(amount: int) -> void:
+	Health -= amount
+
+
+func _on_dash_timer_timeout() -> void:
+	var xDir = [-1, 1].pick_random()
+	var yDir = [-1, 1].pick_random()
+	var xPos = randf_range(DashDistanceRange/2, DashDistanceRange) + position.x
+	var yPos = randf_range(DashDistanceRange/2, DashDistanceRange) + position.y
+	xPos = clampf(xPos, BeginBound.position.x, EndBound.position.x)
+	yPos = clampf(yPos, BeginBound.position.y, EndBound.position.y)
+	dashTarget = Vector2(xPos * xDir, yPos * yDir)

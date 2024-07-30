@@ -1,35 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://blwsaa7pjig42"]
+[gd_scene load_steps=6 format=3 uid="uid://blwsaa7pjig42"]
 
 [ext_resource type="Script" path="res://Scripts/player_seeking_projectile.gd" id="1_6o171"]
-[ext_resource type="Texture2D" uid="uid://c0a5ekoyrr61w" path="res://Assets/Sprites/slime_purple.png" id="1_x3kxv"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jx2wk"]
-atlas = ExtResource("1_x3kxv")
-region = Rect2(0, 24, 24, 24)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_6t45i"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jx2wk")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bf2ss"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dgdpc"]
 
+[sub_resource type="Gradient" id="Gradient_fk1ft"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.0851064, 0.195035, 0.507092, 0.648936, 0.712766)
+colors = PackedColorArray(1, 0, 0, 1, 2.00392, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0.0235294, 0.0235294, 0.0235294, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w2a56"]
+gradient = SubResource("Gradient_fk1ft")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="PlayerSeekingProjectile" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_6o171")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -6)
-sprite_frames = SubResource("SpriteFrames_6t45i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_bf2ss")
@@ -46,6 +36,9 @@ collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_dgdpc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_w2a56")
 
 [connection signal="timeout" from="TargetTimer" to="." method="_on_target_timer_timeout"]
 [connection signal="timeout" from="Remove" to="." method="_on_remove_timeout"]

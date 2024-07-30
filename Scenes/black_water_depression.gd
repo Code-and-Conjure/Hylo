@@ -29,4 +29,5 @@ func show_warning_text() -> void:
 	warning_text.visible = true
 
 func transition_to_platformer() -> void:
-	get_tree().change_scene_to_file("res://Scenes/water_platformer.tscn")
+	var sadness_boss = load("res://Scenes/water_platformer.tscn")
+	Events.load_scene.emit(sadness_boss)

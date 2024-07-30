@@ -89,7 +89,7 @@ func _on_fall_timer_timeout():
 	set_collision_mask_value(2, true)
 
 
-func _on_killzone_body_entered(body):
+func _on_killzone_body_entered(_body):
 	#body.queue_free()
 	#decide if collectibles are enemies or coins/similar
 	pass

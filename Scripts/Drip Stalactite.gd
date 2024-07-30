@@ -19,5 +19,5 @@ func spawn_drip() -> void:
 	drip_scene.visible = true
 	drip_scene.start(drip_from.global_position)
 	
-func remove_from_scene(node: SlowDrip) -> void:
+func remove_from_scene(_node: SlowDrip) -> void:
 	drip_scene.visible = false

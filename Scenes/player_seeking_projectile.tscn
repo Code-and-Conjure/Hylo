@@ -42,6 +42,7 @@ wait_time = 15.0
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_dgdpc")

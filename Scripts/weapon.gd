@@ -12,16 +12,31 @@ var bodies: Array[Node2D] = []
 
 func parry() -> void:
 	animation_player.play("Parry")
+	if not animation_player.animation_finished.is_connected(stop_parry):
+		animation_player.animation_finished.connect(stop_parry)
 	if danger_zone.body_entered.is_connected(parry_node):
 		return
+	danger_zone.set_collision_mask_value(5, false)
+	danger_zone.set_collision_mask_value(3, true)
 	danger_zone.body_entered.connect(parry_node)
+	
+func stop_parry() -> void:
+	if danger_zone.body_entered.is_connected(parry_node):
+		danger_zone.body_entered.disconnect(parry_node)
+		
+	if animation_player.animation_finished.is_connected(stop_parry):
+		animation_player.animation_finished.disconnect(stop_parry)
 	
 func parry_node(node: Node2D) -> void:
 	danger_zone.body_entered.disconnect(parry_node)
 	parry_hit.emit(node)
+	if node is HorizontalProjectile or node is PlayerSeekingProjectile:
+		node.reflect()
 	
 func attack() -> void:
 	animation_player.play("Begin Attack")
+	danger_zone.set_collision_mask_value(5, true)
+	danger_zone.set_collision_mask_value(3, false)
 	if animation_player.animation_finished.is_connected(damage_bodies):
 		return
 	animation_player.animation_finished.connect(damage_bodies)
@@ -54,9 +69,12 @@ func stop_attack() -> void:
 	hit_cooldown.stop()
 	
 func attack_node(node: Node2D) -> void:
-	attack_hit.emit(node)
 	bodies.push_front(node)
+	
+	if node is WaterBoss:
+		node.health -= 100
 	
 func hit_nodes() -> void:
 	for body in bodies:
-		attack_hit.emit(body)
+		if body is WaterBoss:
+			body.health -= 100

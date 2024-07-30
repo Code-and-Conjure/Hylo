@@ -73,8 +73,14 @@ func attack_node(node: Node2D) -> void:
 	
 	if node is WaterBoss:
 		node.health -= 100
+		return
+	if node.has_method("damage"):
+		node.damage(100)
 	
 func hit_nodes() -> void:
 	for body in bodies:
 		if body is WaterBoss:
 			body.health -= 100
+			continue
+		if body.has_method("damage"):
+			body.damage(100)

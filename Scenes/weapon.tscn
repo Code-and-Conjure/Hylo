@@ -361,7 +361,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bubra"]
-size = Vector2(81.0002, 53.9997)
+size = Vector2(8, 13)
 
 [node name="Weapon" type="Node2D"]
 position = Vector2(2.08165e-12, 2.08165e-12)

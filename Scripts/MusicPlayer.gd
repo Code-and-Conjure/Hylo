@@ -4,15 +4,15 @@ extends Node
 @export var brushVariance: int = 5
 @export var hatsVariance: int = 5
 
-@onready var chords: AudioStreamPlayer2D = $Chords
-@onready var ambient_brush: AudioStreamPlayer2D = $AmbientBrush
-@onready var lead_1: AudioStreamPlayer2D = $Lead1
-@onready var lead_2: AudioStreamPlayer2D = $Lead2
-@onready var off_hats: AudioStreamPlayer2D = $OffHats
+@onready var chords: AudioStreamPlayer = $Chords
+@onready var ambient_brush: AudioStreamPlayer = $AmbientBrush
+@onready var lead_1: AudioStreamPlayer = $Lead1
+@onready var lead_2: AudioStreamPlayer = $Lead2
+@onready var off_hats: AudioStreamPlayer = $OffHats
 
 var prevTime: float = -1.0
 
-var currLead: AudioStreamPlayer2D
+var currLead: AudioStreamPlayer
 var leadWait: int = 0
 var brushWait: int = 0
 var hatsWait: int = 0

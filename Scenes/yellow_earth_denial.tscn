@@ -1,13 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://klym2wqfqtvc"]
+[gd_scene load_steps=9 format=3 uid="uid://klym2wqfqtvc"]
 
 [ext_resource type="TileSet" uid="uid://8mpjwxci13ok" path="res://Scenes/hylo_tileset.tres" id="1_fmn51"]
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="1_q7bfo"]
+[ext_resource type="Script" path="res://Scenes/yellow_earth_denial.gd" id="1_tmstm"]
 [ext_resource type="PackedScene" uid="uid://cofsmvbxl5y0e" path="res://Scenes/mirror_shard.tscn" id="3_od4ne"]
 [ext_resource type="PackedScene" uid="uid://dq1k01yvvu6u0" path="res://Scenes/sun.tscn" id="5_xtbhg"]
-[ext_resource type="PackedScene" uid="uid://ils0frtca4kq" path="res://Scenes/sneaking_player.tscn" id="6_2auak"]
 [ext_resource type="PackedScene" uid="uid://cg25qil1pe1mw" path="res://Scenes/earth_boss.tscn" id="6_ylnaa"]
+[ext_resource type="PackedScene" uid="uid://bna1lt6rwe2k2" path="res://Scenes/platforming_player.tscn" id="7_gidba"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0tib"]
+size = Vector2(3883, 990)
 
 [node name="yellow_earth_denial" type="Node2D"]
+script = ExtResource("1_tmstm")
 
 [node name="PlatformerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("BeginBound")]
 position = Vector2(1019, 431)
@@ -34,4 +39,61 @@ position = Vector2(73532, 27)
 position = Vector2(71458, 768)
 scale = Vector2(0.5, 0.5)
 
-[node name="SneakingPlayer" parent="." instance=ExtResource("6_2auak")]
+[node name="EarthText1" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText1"]
+position = Vector2(2452, 491)
+shape = SubResource("RectangleShape2D_c0tib")
+
+[node name="EarthText2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText2"]
+position = Vector2(11799, 458)
+shape = SubResource("RectangleShape2D_c0tib")
+
+[node name="EarthText3" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText3"]
+position = Vector2(21844, 490)
+shape = SubResource("RectangleShape2D_c0tib")
+
+[node name="EarthText4" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText4"]
+position = Vector2(36169, 593)
+shape = SubResource("RectangleShape2D_c0tib")
+
+[node name="EarthText5" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText5"]
+position = Vector2(52830, 516)
+shape = SubResource("RectangleShape2D_c0tib")
+
+[node name="EarthText6" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText6"]
+position = Vector2(62113, 605)
+shape = SubResource("RectangleShape2D_c0tib")
+
+[node name="EarthText7" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText7"]
+position = Vector2(69694, 440)
+shape = SubResource("RectangleShape2D_c0tib")
+
+[node name="PlatformingPlayer" parent="." instance=ExtResource("7_gidba")]
+
+[connection signal="body_entered" from="EarthText1" to="." method="_on_earth_text_1_body_entered"]
+[connection signal="body_exited" from="EarthText1" to="." method="_on_earth_text_1_body_exited"]
+[connection signal="body_entered" from="EarthText2" to="." method="_on_earth_text_2_body_entered"]
+[connection signal="body_exited" from="EarthText2" to="." method="_on_earth_text_2_body_exited"]
+[connection signal="body_entered" from="EarthText3" to="." method="_on_earth_text_3_body_entered"]
+[connection signal="body_exited" from="EarthText3" to="." method="_on_earth_text_3_body_exited"]
+[connection signal="body_entered" from="EarthText4" to="." method="_on_earth_text_4_body_entered"]
+[connection signal="body_exited" from="EarthText4" to="." method="_on_earth_text_4_body_exited"]
+[connection signal="body_entered" from="EarthText5" to="." method="_on_earth_text_5_body_entered"]
+[connection signal="body_exited" from="EarthText5" to="." method="_on_earth_text_5_body_exited"]
+[connection signal="body_entered" from="EarthText6" to="." method="_on_earth_text_6_body_entered"]
+[connection signal="body_exited" from="EarthText6" to="." method="_on_earth_text_6_body_exited"]
+[connection signal="body_entered" from="EarthText7" to="." method="_on_earth_text_7_body_entered"]
+[connection signal="body_exited" from="EarthText7" to="." method="_on_earth_text_7_body_exited"]

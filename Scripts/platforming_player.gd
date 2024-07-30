@@ -7,6 +7,8 @@ var MAX_FALL_SPEED = 5000
 
 var slowdown_factor: float = 1.0
 
+@export var has_weapon = false
+
 @onready var hylo_back_sprite: Texture2D = load("res://Assets/hylo-back-FILLED_SKETCH.png")
 @onready var hylo_front_sprite: Texture2D = load("res://Assets/hylo-FILLED_SKETCH.png")
 
@@ -16,6 +18,7 @@ var slowdown_factor: float = 1.0
 @onready var killzone = $Killzone
 @onready var platforming_player = $"."
 @onready var hylo = $Hylo
+@onready var weapon = $Weapon
 
 var is_swimming: bool = false
 
@@ -36,8 +39,8 @@ func _physics_process(delta):
 		killzone.monitoring = true
 		velocity.y = JUMP_VELOCITY
 	if Input.is_action_pressed("ui_down", false):
-			set_collision_mask_value(2, false)
-			fall_timer.start(.2)
+		set_collision_mask_value(2, false)
+		fall_timer.start(.2)
 		
 	if (velocity.y < 0) and Input.is_action_just_released("jump"):
 		velocity.y = -100
@@ -55,6 +58,11 @@ func _physics_process(delta):
 		
 		
 	move_and_slide()
+	
+func _process(delta: float) -> void:
+	if weapon.visible == false and has_weapon: 
+		weapon.visible = true
+		
 
 func damage(amount: int):
 	stats.health -= amount

@@ -6,6 +6,8 @@ extends RigidBody2D
 
 @export var projectile_speed: float = 75
 
+@export var health: int = 10000
+
 func _ready() -> void:
 	attack_timer.timeout.connect(fire_projectiles)
 	for projectile_position in get_tree().get_nodes_in_group("ProjectilePoint"):

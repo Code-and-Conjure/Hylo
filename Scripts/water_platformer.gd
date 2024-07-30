@@ -10,5 +10,5 @@ func _ready() -> void:
 
 func add_weapon_to_player(player: Node2D) -> void:
 	if player is PlatformingPlayer:
-		player.has_weapon = true
+		GlobalDictionary.has_weapon = true
 		weapon_pickup.queue_free()

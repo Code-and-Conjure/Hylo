@@ -39,7 +39,6 @@ MAX_DISTANCE = 13.617
 [node name="PlatformingPlayer" parent="." instance=ExtResource("3_jldiy")]
 position = Vector2(411, 65)
 scale = Vector2(2, 2)
-has_weapon = true
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(591, 3553)

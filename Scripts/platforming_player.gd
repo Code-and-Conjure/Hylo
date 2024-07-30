@@ -7,8 +7,6 @@ var MAX_FALL_SPEED = 5000
 
 var slowdown_factor: float = 1.0
 
-@export var has_weapon = false
-
 @onready var hylo_back_sprite: Texture2D = load("res://Assets/hylo-back-FILLED_SKETCH.png")
 @onready var hylo_front_sprite: Texture2D = load("res://Assets/hylo-FILLED_SKETCH.png")
 
@@ -26,7 +24,7 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var fall_timer: Timer = $FallTimer
 
 func _physics_process(delta):
-	if weapon.visible == false and has_weapon: 
+	if weapon.visible == false and GlobalDictionary.has_weapon: 
 		weapon.visible = true
 		
 	if not is_on_floor():
@@ -38,7 +36,7 @@ func _physics_process(delta):
 	else:
 		killzone.monitoring = false
 		
-	if has_weapon and Input.is_action_just_pressed("Parry"):
+	if GlobalDictionary.has_weapon and Input.is_action_just_pressed("Parry"):
 		weapon.parry()
 	if Input.is_action_pressed("jump") and (is_on_floor() or is_swimming):
 		killzone.monitoring = true

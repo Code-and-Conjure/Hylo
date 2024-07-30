@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://cnu406whomojb"]
+
+[ext_resource type="PackedScene" uid="uid://cdtgiy7qx62ki" path="res://Scenes/ui_main.tscn" id="1_5oajw"]
+[ext_resource type="Script" path="res://Scripts/main_level_select.gd" id="1_eto5i"]
+[ext_resource type="Script" path="res://Scripts/LevelSelect.gd" id="2_1msni"]
+[ext_resource type="Texture2D" uid="uid://dt6iw23efvyl0" path="res://Assets/Sadness.png" id="3_xt4yc"]
+[ext_resource type="Texture2D" uid="uid://5quwuk7r16uj" path="res://Assets/Bargaining.png" id="4_x1qo0"]
+[ext_resource type="Texture2D" uid="uid://dbkdqc0wl6t5u" path="res://Assets/Denial.png" id="5_5a8v6"]
+[ext_resource type="PackedScene" uid="uid://bh4sora4bn0gg" path="res://Scenes/player.tscn" id="6_n88x2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bp1ho"]
+size = Vector2(388.5, 683.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1vqx"]
+size = Vector2(477, 336.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7jji"]
+size = Vector2(468, 294)
+
+[node name="LevelSelect" type="Node2D"]
+script = ExtResource("1_eto5i")
+
+[node name="Ui-main" parent="." instance=ExtResource("1_5oajw")]
+position = Vector2(960, 540)
+scale = Vector2(1.78771, 1.34328)
+
+[node name="LoadSadness" type="Area2D" parent="."]
+collision_layer = 32
+script = ExtResource("2_1msni")
+
+[node name="Sadness" type="Sprite2D" parent="LoadSadness"]
+position = Vector2(1253, 525)
+scale = Vector2(1.05805, 1.13111)
+texture = ExtResource("3_xt4yc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoadSadness"]
+position = Vector2(1256.75, 527.25)
+shape = SubResource("RectangleShape2D_bp1ho")
+
+[node name="LoadDenial" type="Area2D" parent="."]
+script = ExtResource("2_1msni")
+
+[node name="Denial" type="Sprite2D" parent="LoadDenial"]
+position = Vector2(741, 698)
+scale = Vector2(0.890538, 0.602496)
+texture = ExtResource("5_5a8v6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoadDenial"]
+position = Vector2(743.5, 698.75)
+shape = SubResource("RectangleShape2D_i1vqx")
+
+[node name="LoadBargaining" type="Area2D" parent="."]
+script = ExtResource("2_1msni")
+
+[node name="Bargaining" type="Sprite2D" parent="LoadBargaining"]
+position = Vector2(750, 336)
+scale = Vector2(0.614025, 0.491622)
+texture = ExtResource("4_x1qo0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoadBargaining"]
+position = Vector2(751, 337)
+shape = SubResource("RectangleShape2D_g7jji")
+
+[node name="Player" parent="." instance=ExtResource("6_n88x2")]
+position = Vector2(1543, 242)

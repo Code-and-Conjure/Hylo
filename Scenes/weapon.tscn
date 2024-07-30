@@ -1,16 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://di1a4po25n4y1"]
 
-[ext_resource type="Texture2D" uid="uid://ccyfpuqkbvs1t" path="res://Assets/weapon.png" id="1_hjegg"]
+[ext_resource type="Texture2D" uid="uid://dci0ona7e80lk" path="res://Assets/Weapon.png" id="1_85l4p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bubra"]
-size = Vector2(38, 34)
+size = Vector2(16, 157)
 
 [node name="Weapon" type="RigidBody2D"]
 
-[node name="Weapon" type="Sprite2D" parent="."]
-rotation = 0.541052
-texture = ExtResource("1_hjegg")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(12, 0)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_bubra")
+
+[node name="Weapon2" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(0.17, 0.17)
+texture = ExtResource("1_85l4p")

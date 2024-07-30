@@ -4,7 +4,6 @@ extends StaticBody2D
 @export_range (.1, 3.0) var ShootRadomness: float = 2
 @export var Projectiles: Array[PackedScene]
 @onready var shoot_timer = $ShootTimer
-@onready var jump_timer = $JumpTimer
 
 var JUMP_VELOCITY = -700
 var airEnemycount: int = 0

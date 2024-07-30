@@ -4,7 +4,7 @@ extends RigidBody2D
 @onready var attack_timer = $Attack
 @onready var origin: Marker2D = $Origin
 
-@export var projectile_speed: float = 50
+@export var projectile_speed: float = 75
 
 func _ready() -> void:
 	attack_timer.timeout.connect(fire_projectiles)

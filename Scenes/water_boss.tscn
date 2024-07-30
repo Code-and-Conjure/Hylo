@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://diq8tq7cel485"]
+[gd_scene load_steps=5 format=3 uid="uid://bbkqo5samy7fr"]
 
-[ext_resource type="Texture2D" uid="uid://bci0nep3o8wpa" path="res://Assets/hylo-depression.png" id="1_krqtw"]
+[ext_resource type="Texture2D" path="res://Assets/hylo-depression.png" id="1_krqtw"]
 [ext_resource type="Script" path="res://Scripts/water_boss.gd" id="1_st6mb"]
 [ext_resource type="PackedScene" uid="uid://bhno7632pdy72" path="res://Scenes/slow_drip.tscn" id="3_vnq0c"]
 

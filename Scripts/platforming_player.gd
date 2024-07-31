@@ -13,10 +13,11 @@ var slowdown_factor: float = 1.0
 @export var stats: TestResource
 @export_range(0.0, 1.0) var swim_gravity_ratio: float = 0.3
 
-@onready var killzone = $Killzone
 @onready var platforming_player = $"."
 @onready var hylo = $Hylo
-@onready var weapon = $Weapon
+@onready var weapon_pivot: Marker2D = $"Weapon Pivot"
+@onready var weapon: Weapon = $"Weapon Pivot/Weapon"
+
 
 var is_swimming: bool = false
 
@@ -28,10 +29,12 @@ func _ready() -> void:
 	
 func add_sad_mask() -> void:
 	$"Sad Mask".visible = true
+	
+func add_weapon() -> void:
+	weapon.visible = true
 
 func _physics_process(delta):
-	if weapon.visible == false and GlobalDictionary.has_weapon: 
-		weapon.visible = true
+	weapon_pivot.look_at(get_global_mouse_position())
 		
 	if not is_on_floor():
 		if is_swimming:
@@ -39,13 +42,8 @@ func _physics_process(delta):
 		else:
 			velocity.y += gravity * delta
 		velocity.y = min(MAX_FALL_SPEED, velocity.y)
-	else:
-		killzone.monitoring = false
 		
-	if GlobalDictionary.has_weapon and Input.is_action_just_pressed("Parry"):
-		weapon.parry()
 	if Input.is_action_pressed("jump") and (is_on_floor() or is_swimming):
-		killzone.monitoring = true
 		velocity.y = JUMP_VELOCITY
 	if Input.is_action_pressed("ui_down", false):
 		set_collision_mask_value(2, false)
@@ -69,11 +67,16 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Attack"):
-		weapon.attack()
-	
-	if event.is_action_released("Attack"):
-		weapon.stop_attack()
+	if GlobalDictionary.has_weapon:
+		if event.is_action_pressed("Attack"):
+			weapon.attack()
+		
+		if event.is_action_released("Attack"):
+			weapon.stop_attack()
+			
+		if event.is_action_pressed("Parry"):
+			weapon.parry()
+		
 
 func damage(amount: int):
 	stats.health -= amount
@@ -91,9 +94,3 @@ func slowdown(by: float):
 
 func _on_fall_timer_timeout():
 	set_collision_mask_value(2, true)
-
-
-func _on_killzone_body_entered(_body):
-	#body.queue_free()
-	#decide if collectibles are enemies or coins/similar
-	pass

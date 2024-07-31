@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bna1lt6rwe2k2"]
+[gd_scene load_steps=9 format=3 uid="uid://bna1lt6rwe2k2"]
 
 [ext_resource type="Script" path="res://Scripts/platforming_player.gd" id="1_elrc7"]
 [ext_resource type="Resource" uid="uid://dvqboi7fyr6su" path="res://Scripts/TestResource.tres" id="2_6yhga"]
@@ -10,9 +10,6 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66msu"]
 radius = 16.0
 height = 80.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_uipx7"]
-radius = 18.0278
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m3bgu"]
 animations = [{
@@ -44,18 +41,6 @@ shape = SubResource("CapsuleShape2D_66msu")
 
 [node name="FallTimer" type="Timer" parent="."]
 
-[node name="Killzone" type="Area2D" parent="."]
-collision_mask = 4
-monitoring = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(7, 28)
-shape = SubResource("CircleShape2D_uipx7")
-
-[node name="Weapon" parent="." instance=ExtResource("4_uqc2v")]
-visible = false
-position = Vector2(27, 1)
-
 [node name="Hylo" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -5)
 scale = Vector2(0.08, 0.08)
@@ -63,10 +48,16 @@ sprite_frames = SubResource("SpriteFrames_m3bgu")
 animation = &"Walk Right"
 
 [node name="Sad Mask" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-8, -4)
 rotation = -0.226135
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("6_aabrw")
 
+[node name="Weapon Pivot" type="Marker2D" parent="."]
+
+[node name="Weapon" parent="Weapon Pivot" instance=ExtResource("4_uqc2v")]
+visible = false
+position = Vector2(40, 2.08165e-12)
+
 [connection signal="timeout" from="FallTimer" to="." method="_on_fall_timer_timeout"]
-[connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]

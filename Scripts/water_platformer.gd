@@ -14,6 +14,7 @@ func add_weapon_to_player(player: Node2D) -> void:
 	if player is PlatformingPlayer:
 		GlobalDictionary.has_weapon = true
 		weapon_pickup.queue_free()
+		player.add_weapon()
 
 func _on_sinking_timeout() -> void:
 	water.position.y += sink

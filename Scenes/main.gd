@@ -16,11 +16,11 @@ func _ready():
 	Events.load_scene.connect(load_resource)
 	load_resource(load("res://Scenes/level_select.tscn"))
 	
-	Events.lose_condition.connect(loose)
+	Events.lose_condition.connect(lose)
 	Events.continue_game.connect(continue_game)
 	Events.quit_game.connect(quit_game)
 	
-func loose():
+func lose():
 	var tmp1 = get_tree().root.get_children()
 	var tmp2 = get_children()
 	var tmp = levelNode.get_children()

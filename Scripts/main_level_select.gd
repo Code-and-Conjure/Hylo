@@ -2,9 +2,10 @@ class_name MainLevelSelect
 extends Node2D
 
 @onready var load_sadness: LevelSelect = $LoadSadness
-@onready var load_bargaining = $LoadBargaining
-@onready var load_denial = $LoadDenial
+@onready var load_bargaining: LevelSelect = $LoadBargaining
+@onready var load_denial: LevelSelect = $LoadDenial
 @onready var win_panel: Sprite2D = $WinPanel
+@onready var player: Player = $Player
 
 func _ready():
 	load_sadness.go_to_level.connect(go_to_sadness)

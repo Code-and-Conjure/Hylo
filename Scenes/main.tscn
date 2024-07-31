@@ -18,5 +18,10 @@ process_mode = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="LoseScreen" parent="CanvasLayer" instance=ExtResource("3_7pxk4")]
+visible = false
 top_level = true
 z_as_relative = false
+offset_left = -752.0
+offset_top = -313.0
+offset_right = 758.0
+offset_bottom = 314.0

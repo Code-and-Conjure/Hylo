@@ -13,6 +13,7 @@ extends Area2D
 @export_range(0.0,1.0) var k = 0.016
 @export_range(0.0,1.0) var dampening = 0.04
 @export_range(0.0,1.0) var spread = 0.12
+@export_range(10, 200) var MaxSpring = 100
 
 var bodies: Array[Node2D] = []
 
@@ -34,6 +35,7 @@ func _ready() -> void:
 	
 	self.body_entered.connect(ripple_enter)
 	self.body_exited.connect(ripple_exit)
+	self.area_exited.connect(ripple_area_exit)
 	
 func ripple_enter(body: Node2D) -> void:
 	bodies.append(body)
@@ -51,11 +53,18 @@ func ripple_exit(body: Node2D) -> void:
 		player.stop_swimming()
 	ripple(body)
 	
+func ripple_area_exit(body: Area2D) -> void:
+	bodies.erase(body)
+	ripple(body)
+	
 func ripple(body: Node2D):
 	for spring in springs:
 		if abs(spring.position.x - to_local(body.position).x) < dist:
 			if body is CharacterBody2D:
 				spring.position.y += body.velocity.y * impact
+			elif body is SlowDrip:
+				spring.position.y = min(MaxSpring, spring.position.y + 50)
+				pass
 			else:
 				spring.position.y += impact
 

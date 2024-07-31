@@ -1,18 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cg25qil1pe1mw"]
+[gd_scene load_steps=4 format=3 uid="uid://cg25qil1pe1mw"]
 
 [ext_resource type="Texture2D" uid="uid://fn0pto66h6md" path="res://Assets/hylo-denial.png" id="1_70vkg"]
+[ext_resource type="Script" path="res://Scripts/yellow_boss.gd" id="2_ifpod"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_gb21o"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_70vkg")
-}],
-"loop": true,
-"name": &"hidden face",
-"speed": 0.0
-}]
+[sub_resource type="CircleShape2D" id="CircleShape2D_2nnli"]
+radius = 476.001
 
-[node name="yellow_boss" type="AnimatedSprite2D"]
-sprite_frames = SubResource("SpriteFrames_gb21o")
-animation = &"hidden face"
+[node name="yellow_boss" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("2_ifpod")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_70vkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2nnli")

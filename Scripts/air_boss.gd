@@ -15,7 +15,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	Events.connect("air_enemy_despawned", decThing)
-	set_scale(Vector2(.02, .02))
+	set_scale(Vector2(.1, .1))
 
 func recallThings():
 	for thing: AirEnemy in get_tree().get_nodes_in_group("AirEnemy"):

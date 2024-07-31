@@ -31,7 +31,8 @@ gradient = SubResource("Gradient_xowo3")
 blend_mode = 1
 
 [sub_resource type="Gradient" id="Gradient_0iuxd"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.0233463, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.953307, 0.953307, 0.953307, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vssjh"]
 gradient = SubResource("Gradient_0iuxd")
@@ -121,14 +122,14 @@ script = ExtResource("2_1msni")
 
 [node name="Sprite2D" type="Sprite2D" parent="LoadBargaining"]
 material = SubResource("CanvasItemMaterial_4inoj")
-position = Vector2(1354, 690)
+position = Vector2(1358, 690)
 rotation = -0.0328072
 scale = Vector2(0.344364, 6.55025)
 texture = SubResource("GradientTexture2D_vssjh")
 
 [node name="Sprite2D2" type="Sprite2D" parent="LoadBargaining"]
 material = SubResource("CanvasItemMaterial_4inoj")
-position = Vector2(1182, 481)
+position = Vector2(1181, 477)
 rotation = -1.59624
 scale = Vector2(0.332563, 5.09988)
 texture = SubResource("GradientTexture2D_vssjh")
@@ -142,23 +143,23 @@ texture = SubResource("GradientTexture2D_vssjh")
 
 [node name="Sprite2D4" type="Sprite2D" parent="LoadBargaining"]
 material = SubResource("CanvasItemMaterial_4inoj")
-position = Vector2(720, 130)
+position = Vector2(724, 123)
 rotation = -1.56941
 scale = Vector2(0.510785, 6.98488)
 texture = SubResource("GradientTexture2D_vssjh")
 
 [node name="Sprite2D5" type="Sprite2D" parent="LoadBargaining"]
 material = SubResource("CanvasItemMaterial_4inoj")
-position = Vector2(484, 377)
+position = Vector2(472, 375)
 rotation = -3.07755
 scale = Vector2(0.53148, 7.46764)
 texture = SubResource("GradientTexture2D_vssjh")
 
 [node name="Sprite2D6" type="Sprite2D" parent="LoadBargaining"]
 material = SubResource("CanvasItemMaterial_4inoj")
-position = Vector2(688, 624)
+position = Vector2(683, 630)
 rotation = -4.72154
-scale = Vector2(-0.392606, 7.08925)
+scale = Vector2(-0.392606, 7.16796)
 texture = SubResource("GradientTexture2D_vssjh")
 
 [node name="Sprite2D7" type="Sprite2D" parent="LoadBargaining"]
@@ -170,7 +171,7 @@ texture = SubResource("GradientTexture2D_vssjh")
 
 [node name="Sprite2D8" type="Sprite2D" parent="LoadBargaining"]
 material = SubResource("CanvasItemMaterial_4inoj")
-position = Vector2(1017, 695)
+position = Vector2(1010, 691)
 rotation = -6.28379
 scale = Vector2(-0.397268, 6.2694)
 texture = SubResource("GradientTexture2D_vssjh")

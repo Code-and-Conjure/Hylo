@@ -1,6 +1,8 @@
 class_name WaterBoss
 extends RigidBody2D
 
+signal die
+
 @onready var attack_timer = $Attack
 @onready var origin: Marker2D = $Origin
 
@@ -10,7 +12,7 @@ extends RigidBody2D
 
 func _physics_process(_delta: float):
 	if health <= 0:
-		print("Die water boss!")
+		die.emit()
 		queue_free()
 
 func _ready() -> void:

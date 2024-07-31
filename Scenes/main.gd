@@ -23,9 +23,9 @@ func load_resource(level: PackedScene) -> void:
 	#level_select.queue_free()
 	var tmp = levelNode.get_children()
 	for n in tmp:
-		levelNode.remove_child(n)
+		levelNode.remove_child.call_deferred(n)
 		n.queue_free()
-	levelNode.add_child(level.instantiate())
+	levelNode.add_child.call_deferred(level.instantiate())
 
 func save_game():
 	var saveGame = FileAccess.open("user://savegame.save", FileAccess.WRITE)

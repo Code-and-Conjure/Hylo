@@ -272,6 +272,7 @@ texture = ExtResource("14_yohxc")
 
 [node name="Player" parent="." instance=ExtResource("6_n88x2")]
 position = Vector2(1543, 242)
+is_in_level_select = true
 
 [node name="WinPanel" type="Sprite2D" parent="."]
 visible = false

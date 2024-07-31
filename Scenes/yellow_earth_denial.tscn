@@ -19,7 +19,7 @@
 script = ExtResource("1_tmstm")
 
 [node name="PlatformerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("player", "BeginBound")]
-position = Vector2(996, 476)
+position = Vector2(61181, 348)
 script = ExtResource("1_q7bfo")
 LockYAxis = true
 player = NodePath("../PlatformingPlayer")
@@ -73,7 +73,8 @@ rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_khi27")
 
 [node name="PlatformingPlayer" parent="." instance=ExtResource("7_gidba")]
-position = Vector2(148, 820)
+position = Vector2(60333, 692)
+JUMP_VELOCITY = -900
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -2,7 +2,7 @@ class_name PlatformingPlayer
 extends CharacterBody2D
 
 @export var SPEED = 400
-var JUMP_VELOCITY = -600
+@export var JUMP_VELOCITY = -600
 var MAX_FALL_SPEED = 5000
 
 var slowdown_factor: float = 1.0

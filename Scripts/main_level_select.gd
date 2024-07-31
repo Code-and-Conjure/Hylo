@@ -9,6 +9,8 @@ func _ready():
 	load_sadness.go_to_level.connect(go_to_sadness)
 	load_bargaining.go_to_level.connect(go_to_bargaining)
 	load_denial.go_to_level.connect(go_to_denial)
+	load_denial.visible = GlobalDictionary.has_weapon
+	
 
 func go_to_sadness() -> void:
 	var sadness = load("res://Scenes/black_water_depression.tscn")

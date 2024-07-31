@@ -8,7 +8,6 @@ func _ready():
 func set_message_text(text: String) -> void:
 	message.text = text
 
-
 func _on_killzone_body_entered(body: Node2D) -> void:
 	var player = body as PlatformingPlayer
 	if not player:

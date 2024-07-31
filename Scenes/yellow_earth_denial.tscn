@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://klym2wqfqtvc"]
+[gd_scene load_steps=14 format=3 uid="uid://klym2wqfqtvc"]
 
 [ext_resource type="TileSet" uid="uid://8mpjwxci13ok" path="res://Scenes/hylo_tileset.tres" id="1_fmn51"]
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="1_q7bfo"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://di1a4po25n4y1"]
 
-[ext_resource type="Texture2D" path="res://Assets/Weapon.png" id="1_85l4p"]
+[ext_resource type="Texture2D" uid="uid://dci0ona7e80lk" path="res://Assets/Weapon.png" id="1_85l4p"]
 [ext_resource type="Script" path="res://Scripts/weapon.gd" id="1_fsynr"]
 
 [sub_resource type="Gradient" id="Gradient_qt3ox"]

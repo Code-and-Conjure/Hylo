@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="1_q7bfo"]
 [ext_resource type="Script" path="res://Scenes/yellow_earth_denial.gd" id="1_tmstm"]
 [ext_resource type="PackedScene" path="res://Scenes/mirror_shard.tscn" id="3_od4ne"]
-[ext_resource type="PackedScene" path="res://Scenes/sun.tscn" id="5_xtbhg"]
+[ext_resource type="PackedScene" uid="uid://dq1k01yvvu6u0" path="res://Scenes/sun.tscn" id="5_xtbhg"]
 [ext_resource type="PackedScene" uid="uid://cg25qil1pe1mw" path="res://Scenes/yellow_boss.tscn" id="6_ylnaa"]
 [ext_resource type="PackedScene" uid="uid://bna1lt6rwe2k2" path="res://Scenes/platforming_player.tscn" id="7_gidba"]
 [ext_resource type="Script" path="res://Scripts/MessageTriggerWorldBoundary.gd" id="7_uio6w"]

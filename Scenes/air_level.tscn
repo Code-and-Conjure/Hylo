@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bna1lt6rwe2k2" path="res://Scenes/platforming_player.tscn" id="3_jldiy"]
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="3_vyc70"]
 [ext_resource type="PackedScene" uid="uid://cpiooumm0hblb" path="res://Scenes/air_boss.tscn" id="4_n8c22"]
-[ext_resource type="PackedScene" path="res://Scenes/bargaining_mask.tscn" id="6_26kjy"]
+[ext_resource type="PackedScene" uid="uid://djiw3mo7olyv6" path="res://Scenes/bargaining_mask.tscn" id="6_26kjy"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_65h85"]
 normal = Vector2(0.00847427, -0.999964)

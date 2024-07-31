@@ -25,10 +25,6 @@ stats = ExtResource("2_58f15")
 position = Vector2(2, 1)
 shape = SubResource("CapsuleShape2D_fivid")
 
-[node name="Weapon" parent="." instance=ExtResource("4_555m2")]
-visible = false
-position = Vector2(27, 1)
-
 [node name="Player" type="Sprite2D" parent="."]
 position = Vector2(5, 2)
 scale = Vector2(0.111, 0.084)
@@ -46,3 +42,10 @@ position = Vector2(-7, 3)
 rotation = -0.249338
 scale = Vector2(0.00996434, 0.0100762)
 texture = ExtResource("5_lmhr1")
+
+[node name="Weapon Pivot" type="Marker2D" parent="."]
+position = Vector2(2, -14)
+
+[node name="Weapon" parent="Weapon Pivot" instance=ExtResource("4_555m2")]
+visible = false
+position = Vector2(40, 2.08165e-12)

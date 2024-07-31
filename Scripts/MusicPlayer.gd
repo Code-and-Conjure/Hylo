@@ -23,7 +23,7 @@ func _ready():
 	brushWait = randi_range(0, brushVariance)
 	hatsWait = randi_range(0, hatsVariance)
 
-func _process(delta):
+func _process(_delta: float) -> void:
 	var time = chords.get_playback_position() + AudioServer.get_time_since_last_mix()
 	# Compensate for output latency.
 	time -= AudioServer.get_output_latency()

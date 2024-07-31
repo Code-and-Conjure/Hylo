@@ -43,7 +43,7 @@ tracks/2/keys = {
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Weapon2:rotation")
+tracks/3/path = NodePath("Weapon Sprite:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -54,7 +54,7 @@ tracks/3/keys = {
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Weapon2:position:x")
+tracks/4/path = NodePath("Weapon Sprite:position:x")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -65,7 +65,7 @@ tracks/4/keys = {
 tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Weapon2:position:y")
+tracks/5/path = NodePath("Weapon Sprite:position:y")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -79,7 +79,7 @@ resource_name = "Begin Attack"
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Weapon2:position:x")
+tracks/0/path = NodePath("Weapon Sprite:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -90,7 +90,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Weapon2:position:y")
+tracks/1/path = NodePath("Weapon Sprite:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -101,7 +101,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Weapon2:rotation")
+tracks/2/path = NodePath("Weapon Sprite:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -148,7 +148,7 @@ resource_name = "Isle"
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Weapon2:rotation")
+tracks/0/path = NodePath("Weapon Sprite:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -159,7 +159,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Weapon2:position:x")
+tracks/1/path = NodePath("Weapon Sprite:position:x")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -170,7 +170,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Weapon2:position:y")
+tracks/2/path = NodePath("Weapon Sprite:position:y")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -223,7 +223,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(2, 2, 2, 2, 2),
-"points": PackedFloat32Array(5.77316e-14, 0, 0, 0.0166667, 0.0412277, 0.247366, -0.0166667, 0.00929253, 0.05, -0.0278776, -0.223021, -0.05, 2.2471, 0.0166667, -0.749034, -17.7295, -0.0166667, -0.00802296, 0.0166667, 0.00802297, -0.126745, -0.0166667, -2.93379, 0, 0),
+"points": PackedFloat32Array(5.77316e-14, 0, 0, 0.0166667, 0.0412277, 0.247366, -0.0166667, 0.00929254, 0.05, -0.0278776, -0.223021, -0.05, 5.03092, 0.0166667, -1.67697, -40, -0.0166667, -0.008023, 0.0166667, 0.008023, -0.126745, -0.0166667, -6.64554, 0, 0),
 "times": PackedFloat32Array(0, 0.1, 0.4, 0.5, 0.6)
 }
 tracks/1/type = "bezier"
@@ -234,40 +234,40 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(2, 2, 2, 2, 2),
-"points": PackedFloat32Array(27, 0, 0, 0.0166667, -2.07364, 14.5581, -0.0166667, -0.776239, 0.05, 2.32872, 45.6297, -0.05, -3.12945, 0.0166667, 1.04315, 39.5938, -0.0166667, 1.55096, 0.0166667, -1.55096, 27.0182, -0.0166667, 2.09593, 0, 0),
+"points": PackedFloat32Array(27, 0, 0, 0.0166667, -2.07365, 14.5581, -0.0166667, -0.776238, 0.05, 2.32871, 45.6297, -0.05, -1.68024, 0.0166667, 0.560079, 28, -0.0166667, 1.55096, 0.0166667, -1.55096, 27.0182, -0.0166667, 0.163633, 0, 0),
 "times": PackedFloat32Array(0, 0.1, 0.4, 0.5, 0.6)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Weapon2:position:x")
+tracks/2/path = NodePath("Weapon Sprite:position:x")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(2, 2, 2, 2, 2),
-"points": PackedFloat32Array(2.08165e-12, 0, 0, 0.0166667, -2.07364, -12.4419, -0.0166667, -0.776239, 0.05, 2.32872, 18.6297, -0.05, -3.45754, 0.0166667, 1.15251, 15.2184, -0.0166667, 1.55248, 0.0166667, -1.55248, 0, -0.0166667, 2.5364, 0, 0),
+"points": PackedFloat32Array(2.08165e-12, 0, 0, 0.0166667, -2.07365, -12.4419, -0.0166667, -0.776238, 0.05, 2.32871, 18.6297, -0.05, -3.05524, 0.0166667, 1.01841, 12, -0.0166667, 1.55247, 0.0166667, -1.55248, 0, -0.0166667, 2, 0, 0),
 "times": PackedFloat32Array(0, 0.1, 0.4, 0.5, 0.6)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Weapon2:position:y")
+tracks/3/path = NodePath("Weapon Sprite:position:y")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(2, 2, 2, 2, 2),
-"points": PackedFloat32Array(2.08165e-12, 0, 0, 0.0166667, 0.0412277, 0.247366, -0.0166667, 0.00929252, 0.05, -0.0278776, -0.223021, -0.05, 0.844857, 0.0166667, -0.281619, -6.51149, -0.0166667, -0.018585, 0.0166667, 0.0185851, 0, -0.0166667, -1.08525, 0, 0),
+"points": PackedFloat32Array(2.08165e-12, 0, 0, 0.0166667, 0.0412277, 0.247366, -0.0166667, 0.00929254, 0.05, -0.0278776, -0.223021, -0.05, 2.15592, 0.0166667, -0.71864, -17, -0.0166667, -0.0185851, 0.0166667, 0.0185851, 0, -0.0166667, -2.83333, 0, 0),
 "times": PackedFloat32Array(0, 0.1, 0.4, 0.5, 0.6)
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Weapon2:rotation")
+tracks/4/path = NodePath("Weapon Sprite:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "handle_modes": PackedInt32Array(2, 2, 2, 2, 2),
-"points": PackedFloat32Array(1.56048, 0, 0, 0.0166667, -0.00264086, 1.54464, -0.0166667, 0.000660216, 0.05, -0.00198065, 1.54464, -0.05, 0.0507149, 0.0166667, -0.0169049, 1.13892, -0.0166667, -0.00130739, 0.0166667, 0.00130739, 1.56032, -0.0166667, -0.0702346, 0, 0),
+"points": PackedFloat32Array(1.56048, 0, 0, 0.0166667, -0.00264001, 1.54464, -0.0166667, 0.000660002, 0.05, -0.00198001, 1.54464, -0.05, 0.119565, 0.0166667, -0.0398551, 0.588118, -0.0166667, -0.00130667, 0.0166667, 0.00130667, 1.56032, -0.0166667, -0.162034, 0, 0),
 "times": PackedFloat32Array(0, 0.1, 0.4, 0.5, 0.6)
 }
 tracks/5/type = "bezier"
@@ -277,7 +277,7 @@ tracks/5/path = NodePath("DangerZone/CollisionShape2D:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"handle_modes": PackedInt32Array(0),
+"handle_modes": PackedInt32Array(2),
 "points": PackedFloat32Array(1.5708, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
@@ -287,7 +287,7 @@ length = 0.001
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Weapon2:rotation")
+tracks/0/path = NodePath("Weapon Sprite:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -298,7 +298,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Weapon2:position:x")
+tracks/1/path = NodePath("Weapon Sprite:position:x")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -309,7 +309,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Weapon2:position:y")
+tracks/2/path = NodePath("Weapon Sprite:position:y")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -361,13 +361,13 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bubra"]
-size = Vector2(81.0002, 53.9997)
+size = Vector2(11, 8)
 
 [node name="Weapon" type="Node2D"]
 position = Vector2(2.08165e-12, 2.08165e-12)
 script = ExtResource("1_fsynr")
 
-[node name="Weapon2" type="Sprite2D" parent="."]
+[node name="Weapon Sprite" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
 rotation = 1.56509
 scale = Vector2(0.0880912, 0.0716458)
@@ -388,3 +388,7 @@ shape = SubResource("RectangleShape2D_bubra")
 
 [node name="Hit Cooldown" type="Timer" parent="."]
 wait_time = 0.1
+
+[node name="Slowdown Effect" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true

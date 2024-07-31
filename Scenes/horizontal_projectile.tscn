@@ -3,8 +3,10 @@
 [ext_resource type="Script" path="res://Scripts/horizontal_projectile.gd" id="1_rupqr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_shsdp"]
+radius = 21.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_56evo"]
+radius = 27.1662
 
 [sub_resource type="Gradient" id="Gradient_deqnf"]
 interpolation_mode = 2
@@ -17,11 +19,11 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="HorizontalProjectile" type="CharacterBody2D"]
+collision_layer = 4
 script = ExtResource("1_rupqr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_shsdp")
-disabled = true
 
 [node name="Remove" type="Timer" parent="."]
 wait_time = 3.0

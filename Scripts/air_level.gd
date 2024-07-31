@@ -6,9 +6,7 @@ extends Node2D
 @onready var message: RichTextLabel = %Message
 
 func _ready():
-	#air_boss.paused
-	pass
-
+	Events.display_text.connect(set_message_text)
 
 func _on_area_2d_body_entered(_dbody: Node2D):
 	air_boss.recallThings()

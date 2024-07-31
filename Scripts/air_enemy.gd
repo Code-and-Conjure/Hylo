@@ -3,6 +3,8 @@ extends StaticBody2D
 
 var target: AirBoss
 
+@export var health: int = 300
+
 func _physics_process(delta):
 	if not target:
 		return
@@ -17,8 +19,10 @@ func _physics_process(delta):
 func recall(boss: AirBoss):
 	target = boss
 	
-func damage(_amount: int):
-	queue_free()
+func damage(amount: int):
+	health -= amount
+	if health <= 0:
+		queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if not body is AirBoss:

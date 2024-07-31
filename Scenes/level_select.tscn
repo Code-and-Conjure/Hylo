@@ -22,7 +22,7 @@ script = ExtResource("1_eto5i")
 
 [node name="Ui-main" parent="." instance=ExtResource("1_5oajw")]
 position = Vector2(960, 540)
-scale = Vector2(1.78771, 1.34328)
+scale = Vector2(1, 1)
 
 [node name="LoadSadness" type="Area2D" parent="."]
 collision_layer = 32

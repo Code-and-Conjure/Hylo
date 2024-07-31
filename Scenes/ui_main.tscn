@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cdtgiy7qx62ki"]
 
-[ext_resource type="Texture2D" uid="uid://2akic2mmx262" path="res://Assets/UI-main.png" id="1_unxjh"]
+[ext_resource type="Texture2D" uid="uid://oi62jyko1jqp" path="res://Assets/Hylo desk/blank.png" id="1_61piq"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_srtfr"]
 normal = Vector2(0.0061815, 0.999981)
@@ -18,34 +18,34 @@ fill_from = Vector2(1, 0)
 fill_to = Vector2(0.277778, 0.730769)
 
 [node name="Ui-main" type="Sprite2D"]
-position = Vector2(576, 324)
-scale = Vector2(1.07635, 0.818408)
-texture = ExtResource("1_unxjh")
+position = Vector2(962.852, 543.53)
+scale = Vector2(1.0012, 1.00087)
+texture = ExtResource("1_61piq")
 
 [node name="Walls" type="StaticBody2D" parent="."]
 collision_mask = 0
 
 [node name="Top Wall" type="CollisionShape2D" parent="Walls"]
-position = Vector2(-33.4464, -394.669)
-shape = SubResource("WorldBoundaryShape2D_srtfr")
-
-[node name="Bottom Wall" type="CollisionShape2D" parent="Walls"]
-position = Vector2(1.85813, 395.891)
-rotation = 3.14159
+position = Vector2(-25.8211, -541.059)
 shape = SubResource("WorldBoundaryShape2D_srtfr")
 
 [node name="Left Wall" type="CollisionShape2D" parent="Walls"]
-position = Vector2(-532.355, -26.8815)
+position = Vector2(-958.706, -35.4989)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_srtfr")
 
 [node name="Right Wall" type="CollisionShape2D" parent="Walls"]
-position = Vector2(537, 7.3313)
+position = Vector2(963.995, 14.4575)
 rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_srtfr")
 
+[node name="Bottom Wall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(6.14062, 538.002)
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_srtfr")
+
 [node name="Lamp Light" type="PointLight2D" parent="."]
-position = Vector2(538.858, -399.556)
+position = Vector2(957.004, -542.058)
 scale = Vector2(0.714945, 0.854365)
 energy = 0.55
 range_layer_max = 1

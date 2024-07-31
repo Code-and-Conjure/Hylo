@@ -13,6 +13,7 @@ extends Area2D
 @export_range(0.0,1.0) var k = 0.016
 @export_range(0.0,1.0) var dampening = 0.04
 @export_range(0.0,1.0) var spread = 0.12
+@export_range(10, 200) var MaxSpring = 100
 
 var bodies: Array[Node2D] = []
 
@@ -62,7 +63,7 @@ func ripple(body: Node2D):
 			if body is CharacterBody2D:
 				spring.position.y += body.velocity.y * impact
 			elif body is SlowDrip:
-				spring.position.y += 50
+				spring.position.y = min(MaxSpring, spring.position.y + 50)
 				pass
 			else:
 				spring.position.y += impact

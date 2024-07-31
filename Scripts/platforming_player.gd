@@ -2,8 +2,9 @@ class_name PlatformingPlayer
 extends CharacterBody2D
 
 @export var SPEED = 400
-var JUMP_VELOCITY = -900
+@export var JUMP_VELOCITY = -900
 var MAX_FALL_SPEED = 5000
+@export_range (.1, 1) var AttackSlowdownFactor = .5
 
 var slowdown_factor: float = 1.0
 
@@ -20,6 +21,7 @@ var slowdown_factor: float = 1.0
 
 
 var is_swimming: bool = false
+var is_attacking: bool = false
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var fall_timer: Timer = $FallTimer
@@ -27,6 +29,7 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready() -> void:
 	$"Sad Mask".visible = GlobalDictionary.has_sad_mask
 	weapon.visible = GlobalDictionary.has_weapon
+	$"Bargaining Mask".visible = GlobalDictionary.has_bargaining_mask
 	
 func add_sad_mask() -> void:
 	$"Sad Mask".visible = true
@@ -34,6 +37,9 @@ func add_sad_mask() -> void:
 func add_weapon() -> void:
 	weapon.visible = true
 
+func add_bargaining_mask() -> void:
+	$"Bargaining Mask".visible = true
+	
 func _physics_process(delta):
 	weapon_pivot.look_at(get_global_mouse_position())
 		
@@ -54,30 +60,34 @@ func _physics_process(delta):
 		velocity.y = -100
 
 	var direction = Input.get_axis("ui_left", "ui_right")
+	var localSpeed = SPEED
+	
+	if is_attacking:
+		localSpeed *= AttackSlowdownFactor
 	
 	if direction:
-		velocity.x = direction * SPEED * slowdown_factor
+		velocity.x = direction * localSpeed * slowdown_factor
 		if direction < 0:
 			hylo.play("Walk Left")
 		else:
 			hylo.play("Walk Right")
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, localSpeed)
 		
 		
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
-	if GlobalDictionary.has_weapon:
-		if event.is_action_pressed("Attack"):
-			weapon.attack()
+	if GlobalDictionary.has_weapon and event.is_action_pressed("Attack"):
+		weapon.attack()
+		is_attacking = true
+	
+	if GlobalDictionary.has_weapon and event.is_action_released("Attack"):
+		weapon.stop_attack()
+		is_attacking = false
 		
-		if event.is_action_released("Attack"):
-			weapon.stop_attack()
-			
-		if event.is_action_pressed("Parry"):
-			weapon.parry()
-		
+	if GlobalDictionary.has_weapon and event.is_action_released("Parry"):
+		weapon.parry()
 
 func damage(amount: int):
 	stats.health -= amount

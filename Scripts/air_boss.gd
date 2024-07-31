@@ -1,6 +1,8 @@
 class_name AirBoss
 extends StaticBody2D
 
+signal die
+
 @export_range (.1, 3.0) var ShootRadomness: float = 2
 @export var Projectiles: Array[PackedScene]
 @onready var shoot_timer = $ShootTimer
@@ -27,7 +29,9 @@ func _on_shoot_timer_timeout():
 	
 	scale.y = scale.y - .05
 	scale.x = scale.x - .05
+	
 	if scale < Vector2(.01, .01) :
+		die.emit()
 		queue_free()
 		return
 	

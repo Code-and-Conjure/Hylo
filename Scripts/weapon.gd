@@ -24,6 +24,7 @@ func parry() -> void:
 	if danger_zone.body_entered.is_connected(parry_node):
 		return
 	danger_zone.set_collision_mask_value(5, false)
+	danger_zone.set_collision_mask_value(7, false)
 	danger_zone.set_collision_mask_value(3, true)
 	danger_zone.body_entered.connect(parry_node)
 	
@@ -45,6 +46,7 @@ func parry_node(node: Node2D) -> void:
 func attack() -> void:
 	animation_player.play("Begin Attack")
 	danger_zone.set_collision_mask_value(5, true)
+	danger_zone.set_collision_mask_value(7, true)
 	danger_zone.set_collision_mask_value(3, false)
 	if animation_player.animation_finished.is_connected(damage_bodies):
 		return

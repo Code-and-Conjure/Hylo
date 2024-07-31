@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bna1lt6rwe2k2"]
+[gd_scene load_steps=11 format=3 uid="uid://bna1lt6rwe2k2"]
 
 [ext_resource type="Script" path="res://Scripts/platforming_player.gd" id="1_elrc7"]
 [ext_resource type="Resource" uid="uid://dvqboi7fyr6su" path="res://Scripts/TestResource.tres" id="2_6yhga"]
 [ext_resource type="Texture2D" uid="uid://cmolgrwmbw3w2" path="res://Assets/hylo-FILLED_SKETCH.png" id="3_051si"]
-[ext_resource type="Texture2D" uid="uid://c0yglu1ffrmt6" path="res://Assets/hylo-back-FILLED_SKETCH.png" id="4_nrjrs"]
+[ext_resource type="Texture2D" uid="uid://bhygjuilmxd62" path="res://Assets/hylo-back-UNFILLED_SKETCH.png" id="3_vh3mu"]
+[ext_resource type="Texture2D" uid="uid://bxoauqa4n5mng" path="res://Assets/hylo-UNFILLED_SKETCH.png" id="4_34q3h"]
+[ext_resource type="Texture2D" uid="uid://c1d5h6biojjti" path="res://Assets/hylo-back-FILLED_SKETCH.png" id="4_nrjrs"]
 [ext_resource type="PackedScene" uid="uid://di1a4po25n4y1" path="res://Scenes/weapon.tscn" id="4_uqc2v"]
 [ext_resource type="Texture2D" uid="uid://o18bucg3c0ws" path="res://Assets/sad_mask.png" id="6_aabrw"]
 
@@ -13,6 +15,22 @@ height = 80.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m3bgu"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vh3mu")
+}],
+"loop": true,
+"name": &"Sneaking Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_34q3h")
+}],
+"loop": true,
+"name": &"Sneaking Right",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_nrjrs")
@@ -45,7 +63,7 @@ shape = SubResource("CapsuleShape2D_66msu")
 position = Vector2(2, -5)
 scale = Vector2(0.08, 0.08)
 sprite_frames = SubResource("SpriteFrames_m3bgu")
-animation = &"Walk Right"
+animation = &"Sneaking Right"
 
 [node name="Sad Mask" type="Sprite2D" parent="."]
 visible = false

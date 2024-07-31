@@ -73,7 +73,8 @@ autostart = true
 
 [node name="Sad Mask" parent="." instance=ExtResource("9_b1sbv")]
 visible = false
-position = Vector2(25482, 929)
+position = Vector2(24939, 985)
+scale = Vector2(0.5, 0.5)
 
 [connection signal="die" from="Water Boss" to="." method="_on_water_boss_die"]
 [connection signal="timeout" from="Sinking" to="." method="_on_sinking_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://klym2wqfqtvc"]
+[gd_scene load_steps=13 format=3 uid="uid://klym2wqfqtvc"]
 
 [ext_resource type="TileSet" uid="uid://8mpjwxci13ok" path="res://Scenes/hylo_tileset.tres" id="1_fmn51"]
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="1_q7bfo"]
@@ -8,15 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://cg25qil1pe1mw" path="res://Scenes/yellow_boss.tscn" id="6_ylnaa"]
 [ext_resource type="PackedScene" uid="uid://bna1lt6rwe2k2" path="res://Scenes/platforming_player.tscn" id="7_gidba"]
 [ext_resource type="Script" path="res://Scripts/MessageTriggerWorldBoundary.gd" id="7_uio6w"]
+[ext_resource type="PackedScene" uid="uid://dwj5io12plxb" path="res://Scenes/earth_enemy.tscn" id="9_m44pd"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kqll7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8rglr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_khi27"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jjcx0"]
-distance = 75000.0
 
 [node name="yellow_earth_denial" type="Node2D"]
 script = ExtResource("1_tmstm")
@@ -101,6 +99,7 @@ script = ExtResource("7_uio6w")
 position = Vector2(16122, 288)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_khi27")
+
 [node name="CaveEntrance" type="Marker2D" parent="."]
 position = Vector2(71092, 808)
 
@@ -240,3 +239,45 @@ script = ExtResource("7_uio6w")
 position = Vector2(71595, 220)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_khi27")
+
+[node name="Earth Enemy" parent="." instance=ExtResource("9_m44pd")]
+position = Vector2(1837, 906)
+
+[node name="Earth Enemy2" parent="." instance=ExtResource("9_m44pd")]
+position = Vector2(5231, 901)
+
+[node name="Earth Enemy3" parent="." instance=ExtResource("9_m44pd")]
+position = Vector2(10607, 905)
+
+[node name="Earth Enemy4" parent="." instance=ExtResource("9_m44pd")]
+position = Vector2(11963, 905)
+
+[node name="Earth Enemy5" parent="." instance=ExtResource("9_m44pd")]
+position = Vector2(15429, 893)
+
+[node name="Earth Enemy6" parent="." instance=ExtResource("9_m44pd")]
+position = Vector2(22066, 905)
+
+[node name="Earth Enemy7" parent="." instance=ExtResource("9_m44pd")]
+position = Vector2(25260, 901)
+
+[node name="Earth Enemy8" parent="." instance=ExtResource("9_m44pd")]
+position = Vector2(30870, 773)
+
+[node name="Earth Enemy9" parent="." instance=ExtResource("9_m44pd")]
+position = Vector2(35099, 897)
+
+[node name="Earth Enemy10" parent="." instance=ExtResource("9_m44pd")]
+position = Vector2(41389, 901)
+
+[node name="Earth Enemy11" parent="." instance=ExtResource("9_m44pd")]
+position = Vector2(45221, 893)
+
+[node name="Earth Enemy12" parent="." instance=ExtResource("9_m44pd")]
+position = Vector2(48544, 769)
+
+[node name="Earth Enemy13" parent="." instance=ExtResource("9_m44pd")]
+position = Vector2(60448, 758)
+
+[node name="Earth Enemy14" parent="." instance=ExtResource("9_m44pd")]
+position = Vector2(67349, 893)

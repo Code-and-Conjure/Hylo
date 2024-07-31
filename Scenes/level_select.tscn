@@ -1,21 +1,48 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnu406whomojb"]
+[gd_scene load_steps=26 format=3 uid="uid://cnu406whomojb"]
 
 [ext_resource type="PackedScene" uid="uid://cdtgiy7qx62ki" path="res://Scenes/ui_main.tscn" id="1_5oajw"]
 [ext_resource type="Script" path="res://Scripts/main_level_select.gd" id="1_eto5i"]
 [ext_resource type="Script" path="res://Scripts/LevelSelect.gd" id="2_1msni"]
-[ext_resource type="Texture2D" uid="uid://dt6iw23efvyl0" path="res://Assets/Sadness.png" id="3_xt4yc"]
-[ext_resource type="Texture2D" uid="uid://5quwuk7r16uj" path="res://Assets/Bargaining.png" id="4_x1qo0"]
-[ext_resource type="Texture2D" uid="uid://dbkdqc0wl6t5u" path="res://Assets/Denial.png" id="5_5a8v6"]
+[ext_resource type="Texture2D" uid="uid://0nmrdih5l8mt" path="res://Assets/Hylo desk/panel1.png" id="4_jo5hr"]
+[ext_resource type="Texture2D" uid="uid://bxkyvu7bsrpjx" path="res://Assets/Hylo desk/panel2.png" id="5_v0e4a"]
+[ext_resource type="Texture2D" uid="uid://ch4kb1u480lxt" path="res://Assets/Hylo desk/panel3.png" id="6_7ekg5"]
 [ext_resource type="PackedScene" uid="uid://bh4sora4bn0gg" path="res://Scenes/player.tscn" id="6_n88x2"]
+[ext_resource type="Texture2D" uid="uid://ucja2k3q0xye" path="res://Assets/Hylo desk/panel4.png" id="7_n5ux0"]
+[ext_resource type="Texture2D" uid="uid://txvfbka77umm" path="res://Assets/Hylo desk/panel5.png" id="8_c7wol"]
+[ext_resource type="Texture2D" uid="uid://coq7j3p1j2gnj" path="res://Assets/Hylo desk/panel-pg2-1.png" id="9_k3olw"]
+[ext_resource type="Texture2D" uid="uid://dgfn3fjfictaq" path="res://Assets/Hylo desk/panel-pg2-2.png" id="10_vhspj"]
+[ext_resource type="Texture2D" uid="uid://b6xu1noivg7v0" path="res://Assets/Hylo desk/panel-pg2-3.png" id="11_8ga2d"]
+[ext_resource type="Texture2D" uid="uid://bfw3q8fwwdqdy" path="res://Assets/Hylo desk/panel-pg2-4.png" id="12_2bxje"]
+[ext_resource type="Texture2D" uid="uid://cnrav44rlf016" path="res://Assets/Hylo desk/panel-pg2-5.png" id="13_iqa88"]
+[ext_resource type="Texture2D" uid="uid://ccdg803jf1pd5" path="res://Assets/Hylo desk/panel-pg2-6.png" id="14_yohxc"]
+[ext_resource type="Texture2D" uid="uid://hdxyruh8q7vf" path="res://Assets/Hylo desk/panel-pg2-7.png" id="16_e8gvg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bp1ho"]
-size = Vector2(388.5, 683.5)
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8wb7x"]
+blend_mode = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1vqx"]
-size = Vector2(477, 336.5)
+[sub_resource type="Gradient" id="Gradient_xowo3"]
+offsets = PackedFloat32Array(0, 0.544747)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7jji"]
-size = Vector2(468, 294)
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rpaer"]
+gradient = SubResource("Gradient_xowo3")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4inoj"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_0iuxd"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vssjh"]
+gradient = SubResource("Gradient_0iuxd")
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rfb6e"]
+
+[sub_resource type="Gradient" id="Gradient_dsh60"]
+colors = PackedColorArray(1, 1, 0.227451, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nd13r"]
+gradient = SubResource("Gradient_dsh60")
 
 [node name="LevelSelect" type="Node2D"]
 script = ExtResource("1_eto5i")
@@ -28,38 +55,224 @@ scale = Vector2(1, 1)
 collision_layer = 32
 script = ExtResource("2_1msni")
 
-[node name="Sadness" type="Sprite2D" parent="LoadSadness"]
-position = Vector2(1253, 525)
-scale = Vector2(1.05805, 1.13111)
-texture = ExtResource("3_xt4yc")
+[node name="Sprite2D" type="Sprite2D" parent="LoadSadness"]
+material = SubResource("CanvasItemMaterial_8wb7x")
+position = Vector2(1632, 499)
+rotation = -0.169498
+scale = Vector2(1.03778, 12.5234)
+texture = SubResource("GradientTexture2D_rpaer")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LoadSadness"]
-position = Vector2(1256.75, 527.25)
-shape = SubResource("RectangleShape2D_bp1ho")
+[node name="Sprite2D3" type="Sprite2D" parent="LoadSadness"]
+material = SubResource("CanvasItemMaterial_8wb7x")
+position = Vector2(1535, 924)
+rotation = 1.52842
+scale = Vector2(1.02381, 4.49716)
+texture = SubResource("GradientTexture2D_rpaer")
 
-[node name="LoadDenial" type="Area2D" parent="."]
-script = ExtResource("2_1msni")
+[node name="Sprite2D4" type="Sprite2D" parent="LoadSadness"]
+material = SubResource("CanvasItemMaterial_8wb7x")
+position = Vector2(1193, 494)
+rotation = 1.52842
+scale = Vector2(0.893461, 5.45645)
+texture = SubResource("GradientTexture2D_rpaer")
 
-[node name="Denial" type="Sprite2D" parent="LoadDenial"]
-position = Vector2(741, 698)
-scale = Vector2(0.890538, 0.602496)
-texture = ExtResource("5_5a8v6")
+[node name="Sprite2D5" type="Sprite2D" parent="LoadSadness"]
+material = SubResource("CanvasItemMaterial_8wb7x")
+position = Vector2(1351, 688)
+rotation = 3.08679
+scale = Vector2(0.909359, 7.18928)
+texture = SubResource("GradientTexture2D_rpaer")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LoadDenial"]
-position = Vector2(743.5, 698.75)
-shape = SubResource("RectangleShape2D_i1vqx")
+[node name="Sprite2D6" type="Sprite2D" parent="LoadSadness"]
+material = SubResource("CanvasItemMaterial_8wb7x")
+position = Vector2(990, 310)
+rotation = 3.11607
+scale = Vector2(0.894192, 5.62361)
+texture = SubResource("GradientTexture2D_rpaer")
+
+[node name="Sprite2D2" type="Sprite2D" parent="LoadSadness"]
+material = SubResource("CanvasItemMaterial_8wb7x")
+position = Vector2(1275, 98)
+rotation = -1.60359
+scale = Vector2(0.7298, 8.71508)
+texture = SubResource("GradientTexture2D_rpaer")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LoadSadness"]
+polygon = PackedVector2Array(1017, 129, 1541, 111, 1674, 888, 1392, 897, 1367, 459, 1017, 477)
+
+[node name="Panel1" type="Sprite2D" parent="LoadSadness"]
+position = Vector2(955, 546)
+texture = ExtResource("4_jo5hr")
+
+[node name="Panel2" type="Sprite2D" parent="LoadSadness"]
+position = Vector2(955, 534)
+texture = ExtResource("5_v0e4a")
+
+[node name="Panel3" type="Sprite2D" parent="LoadSadness"]
+position = Vector2(952, 543)
+texture = ExtResource("6_7ekg5")
+
+[node name="Panel4" type="Sprite2D" parent="LoadSadness"]
+position = Vector2(954, 527)
+texture = ExtResource("7_n5ux0")
 
 [node name="LoadBargaining" type="Area2D" parent="."]
 script = ExtResource("2_1msni")
 
-[node name="Bargaining" type="Sprite2D" parent="LoadBargaining"]
-position = Vector2(750, 336)
-scale = Vector2(0.614025, 0.491622)
-texture = ExtResource("4_x1qo0")
+[node name="Sprite2D" type="Sprite2D" parent="LoadBargaining"]
+material = SubResource("CanvasItemMaterial_4inoj")
+position = Vector2(1354, 690)
+rotation = -0.0328072
+scale = Vector2(0.344364, 6.55025)
+texture = SubResource("GradientTexture2D_vssjh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LoadBargaining"]
-position = Vector2(751, 337)
-shape = SubResource("RectangleShape2D_g7jji")
+[node name="Sprite2D2" type="Sprite2D" parent="LoadBargaining"]
+material = SubResource("CanvasItemMaterial_4inoj")
+position = Vector2(1182, 481)
+rotation = -1.59624
+scale = Vector2(0.332563, 5.09988)
+texture = SubResource("GradientTexture2D_vssjh")
+
+[node name="Sprite2D3" type="Sprite2D" parent="LoadBargaining"]
+material = SubResource("CanvasItemMaterial_4inoj")
+position = Vector2(920, 376)
+rotation = 0.03203
+scale = Vector2(0.527844, 7.19265)
+texture = SubResource("GradientTexture2D_vssjh")
+
+[node name="Sprite2D4" type="Sprite2D" parent="LoadBargaining"]
+material = SubResource("CanvasItemMaterial_4inoj")
+position = Vector2(720, 130)
+rotation = -1.56941
+scale = Vector2(0.510785, 6.98488)
+texture = SubResource("GradientTexture2D_vssjh")
+
+[node name="Sprite2D5" type="Sprite2D" parent="LoadBargaining"]
+material = SubResource("CanvasItemMaterial_4inoj")
+position = Vector2(484, 377)
+rotation = -3.07755
+scale = Vector2(0.53148, 7.46764)
+texture = SubResource("GradientTexture2D_vssjh")
+
+[node name="Sprite2D6" type="Sprite2D" parent="LoadBargaining"]
+material = SubResource("CanvasItemMaterial_4inoj")
+position = Vector2(688, 624)
+rotation = -4.72154
+scale = Vector2(-0.392606, 7.08925)
+texture = SubResource("GradientTexture2D_vssjh")
+
+[node name="Sprite2D7" type="Sprite2D" parent="LoadBargaining"]
+material = SubResource("CanvasItemMaterial_4inoj")
+position = Vector2(1196, 910)
+rotation = -4.72154
+scale = Vector2(-0.415047, 5.30463)
+texture = SubResource("GradientTexture2D_vssjh")
+
+[node name="Sprite2D8" type="Sprite2D" parent="LoadBargaining"]
+material = SubResource("CanvasItemMaterial_4inoj")
+position = Vector2(1017, 695)
+rotation = -6.28379
+scale = Vector2(-0.397268, 6.2694)
+texture = SubResource("GradientTexture2D_vssjh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LoadBargaining"]
+polygon = PackedVector2Array(1338, 483, 1353, 893, 1029, 900, 1025, 610, 890, 614, 476, 613, 496, 382, 491, 347, 513, 143, 916, 142, 896, 346, 901, 382, 899, 500)
+
+[node name="Panel5" type="Sprite2D" parent="LoadBargaining"]
+position = Vector2(957, 540)
+texture = ExtResource("8_c7wol")
+
+[node name="Panel-pg2-1" type="Sprite2D" parent="LoadBargaining"]
+position = Vector2(932, 543)
+texture = ExtResource("9_k3olw")
+
+[node name="Panel-pg2-2" type="Sprite2D" parent="LoadBargaining"]
+position = Vector2(963, 538)
+texture = ExtResource("10_vhspj")
+
+[node name="Panel-pg2-3" type="Sprite2D" parent="LoadBargaining"]
+position = Vector2(960, 540)
+texture = ExtResource("11_8ga2d")
+
+[node name="LoadDenial" type="Area2D" parent="."]
+visible = false
+script = ExtResource("2_1msni")
+
+[node name="Sprite2D" type="Sprite2D" parent="LoadDenial"]
+material = SubResource("CanvasItemMaterial_rfb6e")
+position = Vector2(900, 773)
+rotation = 0.0359325
+scale = Vector2(0.35496, 4.78506)
+texture = SubResource("GradientTexture2D_nd13r")
+
+[node name="Sprite2D2" type="Sprite2D" parent="LoadDenial"]
+material = SubResource("CanvasItemMaterial_rfb6e")
+position = Vector2(732, 627)
+rotation = -1.56732
+scale = Vector2(0.339716, 5.04632)
+texture = SubResource("GradientTexture2D_nd13r")
+
+[node name="Sprite2D3" type="Sprite2D" parent="LoadDenial"]
+material = SubResource("CanvasItemMaterial_rfb6e")
+position = Vector2(616, 781)
+rotation = -3.51502
+scale = Vector2(0.298765, 5.02486)
+texture = SubResource("GradientTexture2D_nd13r")
+
+[node name="Sprite2D4" type="Sprite2D" parent="LoadDenial"]
+material = SubResource("CanvasItemMaterial_rfb6e")
+position = Vector2(777, 924)
+rotation = -4.7093
+scale = Vector2(0.27787, 3.60868)
+texture = SubResource("GradientTexture2D_nd13r")
+
+[node name="Sprite2D5" type="Sprite2D" parent="LoadDenial"]
+material = SubResource("CanvasItemMaterial_rfb6e")
+position = Vector2(342, 622)
+rotation = -4.7093
+scale = Vector2(0.349955, 3.35063)
+texture = SubResource("GradientTexture2D_nd13r")
+
+[node name="Sprite2D6" type="Sprite2D" parent="LoadDenial"]
+material = SubResource("CanvasItemMaterial_rfb6e")
+position = Vector2(287, 374)
+rotation = -2.96849
+scale = Vector2(0.381755, 7.6144)
+texture = SubResource("GradientTexture2D_nd13r")
+
+[node name="Sprite2D7" type="Sprite2D" parent="LoadDenial"]
+material = SubResource("CanvasItemMaterial_rfb6e")
+position = Vector2(416, 134)
+rotation = -1.53933
+scale = Vector2(0.309861, 2.81983)
+texture = SubResource("GradientTexture2D_nd13r")
+
+[node name="Sprite2D8" type="Sprite2D" parent="LoadDenial"]
+material = SubResource("CanvasItemMaterial_rfb6e")
+position = Vector2(481, 387)
+rotation = 0.0949689
+scale = Vector2(0.403957, 7.60701)
+texture = SubResource("GradientTexture2D_nd13r")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LoadDenial"]
+polygon = PackedVector2Array(882, 918, 893, 640, 576, 637, 473, 617, 491, 145, 340, 141, 252, 610, 446, 623, 582, 667, 674, 917)
+
+[node name="Panel-pg2-4" type="Sprite2D" parent="LoadDenial"]
+position = Vector2(959, 543)
+texture = ExtResource("12_2bxje")
+
+[node name="Panel-pg2-5" type="Sprite2D" parent="LoadDenial"]
+position = Vector2(965, 534)
+texture = ExtResource("13_iqa88")
+
+[node name="Panel-pg2-6" type="Sprite2D" parent="LoadDenial"]
+position = Vector2(957, 540)
+texture = ExtResource("14_yohxc")
 
 [node name="Player" parent="." instance=ExtResource("6_n88x2")]
 position = Vector2(1543, 242)
+
+[node name="Panel-pg2-7" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(978, 540)
+texture = ExtResource("16_e8gvg")

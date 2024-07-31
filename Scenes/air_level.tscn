@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/air_level.gd" id="1_ivehb"]
 [ext_resource type="TileSet" uid="uid://8mpjwxci13ok" path="res://Scenes/hylo_tileset.tres" id="1_m5hor"]
-[ext_resource type="PackedScene" path="res://Scenes/platforming_player.tscn" id="3_jldiy"]
+[ext_resource type="PackedScene" uid="uid://bna1lt6rwe2k2" path="res://Scenes/platforming_player.tscn" id="3_jldiy"]
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="3_vyc70"]
 [ext_resource type="PackedScene" uid="uid://cpiooumm0hblb" path="res://Scenes/air_boss.tscn" id="4_n8c22"]
 [ext_resource type="PackedScene" uid="uid://djiw3mo7olyv6" path="res://Scenes/bargaining_mask.tscn" id="6_26kjy"]
@@ -37,7 +37,6 @@ AdjustSpeed = 500.0
 player = NodePath("../PlatformingPlayer")
 EndBound = NodePath("../Level Bottom")
 MAX_DISTANCE = 13.617
-Player = NodePath("../PlatformingPlayer")
 
 [node name="PlatformingPlayer" parent="." instance=ExtResource("3_jldiy")]
 position = Vector2(322, 75)

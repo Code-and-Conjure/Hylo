@@ -64,7 +64,7 @@ shape = SubResource("CapsuleShape2D_66msu")
 position = Vector2(2, -5)
 scale = Vector2(0.08, 0.08)
 sprite_frames = SubResource("SpriteFrames_m3bgu")
-animation = &"Sneaking Right"
+animation = &"Walk Right"
 
 [node name="Sad Mask" type="Sprite2D" parent="."]
 position = Vector2(-8, -4)
@@ -76,6 +76,7 @@ texture = ExtResource("6_aabrw")
 position = Vector2(0, -16)
 
 [node name="Weapon" parent="Weapon Pivot" instance=ExtResource("4_uqc2v")]
+visible = false
 position = Vector2(40, 2.08165e-12)
 
 [node name="Bargaining Mask" type="Sprite2D" parent="."]

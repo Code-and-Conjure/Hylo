@@ -45,6 +45,8 @@ func launch():
 	pass
 
 
-func _on_area_2d_body_entered(body: Player):
-	body.damage(damage)
-	queue_free()
+func _on_area_2d_body_entered(body: Node2D):
+	var player = body as Player
+	if player:
+		player.damage(damage)
+		queue_free()

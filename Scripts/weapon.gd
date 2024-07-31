@@ -96,4 +96,4 @@ func hit_nodes() -> void:
 			body.health -= 100
 			continue
 		if body.has_method("damage"):
-			body.damage(100)
+			body.damage(100000)

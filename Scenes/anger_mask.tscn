@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3xkw08mtt43"]
+
+[ext_resource type="Texture2D" uid="uid://lxfoekleefrx" path="res://Assets/angry_mask.png" id="1_a4sh6"]
+[ext_resource type="Script" path="res://Scripts/anger_mask.gd" id="1_fv4j8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wpkym"]
+size = Vector2(83, 123)
+
+[node name="AngerMask" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_fv4j8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("1_a4sh6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_wpkym")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

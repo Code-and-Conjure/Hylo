@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bh4sora4bn0gg"]
+[gd_scene load_steps=10 format=3 uid="uid://bh4sora4bn0gg"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_y8sua"]
 [ext_resource type="Resource" uid="uid://dvqboi7fyr6su" path="res://Scripts/TestResource.tres" id="2_58f15"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://di1a4po25n4y1" path="res://Scenes/weapon.tscn" id="4_555m2"]
 [ext_resource type="Texture2D" uid="uid://o18bucg3c0ws" path="res://Assets/sad_mask.png" id="5_lmhr1"]
 [ext_resource type="Texture2D" uid="uid://dpfoq4nj53t1o" path="res://Assets/bargaining_mask.png" id="6_xqh2q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4wisi"]
+radius = 2.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fivid"]
 radius = 14.0
@@ -22,7 +25,12 @@ platform_wall_layers = 1
 script = ExtResource("1_y8sua")
 stats = ExtResource("2_58f15")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="LevelSelect" type="CollisionShape2D" parent="."]
+position = Vector2(3, 42)
+shape = SubResource("CircleShape2D_4wisi")
+
+[node name="Fire" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(2, 1)
 shape = SubResource("CapsuleShape2D_fivid")
 

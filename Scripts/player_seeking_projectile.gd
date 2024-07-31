@@ -17,7 +17,6 @@ func _physics_process(_delta: float) -> void:
 		target_position = target.position
 	
 	var dir = position.direction_to(target_position)
-	var distance = position.distance_to(target_position)
 	if target is PlatformingPlayer:
 		velocity = dir * (target.SPEED + 5)
 	else:

@@ -55,6 +55,7 @@ scale = Vector2(0.01, 0.01)
 texture = ExtResource("6_aabrw")
 
 [node name="Weapon Pivot" type="Marker2D" parent="."]
+position = Vector2(0, -16)
 
 [node name="Weapon" parent="Weapon Pivot" instance=ExtResource("4_uqc2v")]
 visible = false

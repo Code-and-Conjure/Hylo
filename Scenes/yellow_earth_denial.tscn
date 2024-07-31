@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://klym2wqfqtvc"]
+[gd_scene load_steps=12 format=3 uid="uid://klym2wqfqtvc"]
 
 [ext_resource type="TileSet" uid="uid://8mpjwxci13ok" path="res://Scenes/hylo_tileset.tres" id="1_fmn51"]
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="1_q7bfo"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cg25qil1pe1mw" path="res://Scenes/yellow_boss.tscn" id="6_ylnaa"]
 [ext_resource type="PackedScene" uid="uid://bna1lt6rwe2k2" path="res://Scenes/platforming_player.tscn" id="7_gidba"]
 [ext_resource type="Script" path="res://Scripts/MessageTriggerWorldBoundary.gd" id="7_uio6w"]
-[ext_resource type="PackedScene" uid="uid://dwj5io12plxb" path="res://Scenes/earth_enemy.tscn" id="9_11h74"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kqll7"]
 
@@ -17,9 +16,6 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_khi27"]
 distance = -102.996
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jjcx0"]
-distance = -24.0
-
 [node name="yellow_earth_denial" type="Node2D"]
 script = ExtResource("1_tmstm")
 
@@ -27,7 +23,7 @@ script = ExtResource("1_tmstm")
 position = Vector2(1002, 508)
 script = ExtResource("1_q7bfo")
 LockYAxis = true
-player = NodePath("../PlatformingPlayer2")
+player = NodePath("../PlatformingPlayer")
 BeginBound = NodePath("../Begin Level")
 MAX_DISTANCE = 20.048
 
@@ -46,10 +42,9 @@ position = Vector2(1020, 433)
 [node name="sun" parent="." instance=ExtResource("5_xtbhg")]
 position = Vector2(73532, 27)
 
-[node name="earth_boss" parent="." node_paths=PackedStringArray("target") instance=ExtResource("6_ylnaa")]
+[node name="earth_boss" parent="." instance=ExtResource("6_ylnaa")]
 position = Vector2(71458, 768)
 scale = Vector2(0.5, 0.5)
-target = NodePath("../CaveEntrance")
 
 [node name="EarthText1" type="Area2D" parent="."]
 script = ExtResource("7_uio6w")

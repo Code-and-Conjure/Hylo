@@ -1,22 +1,39 @@
 extends Node2D
 
 #@onready var level_select = $LevelSelect
+@onready var lose_screen: Control = $CanvasLayer/LoseScreen
 
-var levelNode
+@export var levelNode: Node
 
 func _input(event):
 	if event.is_action_pressed("save"):
 		save_game()
 	if event.is_action_pressed("load"):
 		load_game()
-		
 
-func _ready():
-	levelNode = get_tree().get_root().get_node("Main/Level")
-	
+func _ready():	
 	#load_game()
 	Events.load_scene.connect(load_resource)
 	load_resource(load("res://Scenes/level_select.tscn"))
+	
+	Events.lose_condition.connect(loose)
+	Events.continue_game.connect(continue_game)
+	Events.quit_game.connect(quit_game)
+	
+func loose():
+	var tmp1 = get_tree().root.get_children()
+	var tmp2 = get_children()
+	var tmp = levelNode.get_children()
+	get_tree().paused = true
+	lose_screen.show()
+	
+func continue_game():
+	lose_screen.hide()
+	get_tree().paused = false
+	load_resource(load("res://Scenes/level_select.tscn"))
+	
+func quit_game():
+	get_tree().quit()
 	
 func load_resource(level: PackedScene) -> void:
 	#level_select.queue_free()

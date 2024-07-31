@@ -50,6 +50,7 @@ position = Vector2(2, -14)
 [node name="Weapon" parent="Weapon Pivot" instance=ExtResource("4_555m2")]
 visible = false
 position = Vector2(40, 2.08165e-12)
+
 [node name="BargainingMask" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(0, -2.38419e-07)

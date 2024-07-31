@@ -1,16 +1,34 @@
 extends Node2D
 
+#@onready var level_select = $LevelSelect
+
+var levelNode
+
 func _input(event):
 	if event.is_action_pressed("save"):
 		save_game()
 	if event.is_action_pressed("load"):
 		load_game()
+		
 
 func _ready():
-	load_game()
+	levelNode = get_tree().get_root().get_node("Main/Level")
+	var tmp = levelNode.get_children()
+	
+	#load_game()
+	Events.load_scene.connect(load_resource)
+	load_resource(load("res://Scenes/level_select.tscn"))
+	
+func load_resource(level: PackedScene) -> void:
+	#level_select.queue_free()
+	var tmp = levelNode.get_children()
+	for n in tmp:
+		levelNode.remove_child.call_deferred(n)
+		n.queue_free()
+	levelNode.add_child.call_deferred(level.instantiate())
 
 func save_game():
-	var save_game = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+	var saveGame = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
 	for node in save_nodes:
 		if node.scene_file_path.is_empty():
@@ -29,8 +47,8 @@ func save_game():
 		var json_string = JSON.stringify(node_data)
 
 		# Store the save dictionary as a new line in the save file.
-		save_game.store_line(json_string)
-		
+		saveGame.store_line(json_string)
+	
 func load_game():
 	if not FileAccess.file_exists("user://savegame.save"):
 		return # Error! We don't have a save to load.

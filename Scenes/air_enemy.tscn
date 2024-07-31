@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://cqx7rovfs44iv"]
 
 [ext_resource type="Script" path="res://Scripts/air_enemy.gd" id="1_3svkj"]
-[ext_resource type="Texture2D" path="res://Assets/Sprites/coin.png" id="1_5cn3c"]
+[ext_resource type="Texture2D" uid="uid://cx4vyiu0of0h4" path="res://Assets/Sprites/coin.png" id="1_5cn3c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qnyd6"]
 atlas = ExtResource("1_5cn3c")
@@ -99,7 +99,7 @@ animations = [{
 
 [node name="AirEnemy" type="Area2D" groups=["AirEnemy"]]
 collision_layer = 4
-collision_mask = 5
+collision_mask = 17
 script = ExtResource("1_3svkj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

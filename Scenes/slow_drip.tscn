@@ -10,16 +10,17 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_heyg1"]
 gradient = SubResource("Gradient_mhpmq")
 fill = 1
-fill_from = Vector2(0.494318, 0.5)
+fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.865854, 0.146341)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i2fko"]
 radius = 23.3452
 
 [node name="Slow Drip" type="Area2D"]
-collision_layer = 5
+collision_layer = 4
 collision_mask = 9
 script = ExtResource("1_iagd7")
+gravity_scale = 0.577
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_heyg1")

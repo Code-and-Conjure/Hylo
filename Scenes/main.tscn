@@ -1,32 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2lhwoekkoyqk"]
+[gd_scene load_steps=3 format=3 uid="uid://d2lhwoekkoyqk"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_6wg54"]
-[ext_resource type="PackedScene" uid="uid://cdtgiy7qx62ki" path="res://Scenes/ui_main.tscn" id="1_srs3q"]
 [ext_resource type="PackedScene" uid="uid://buhsie0j3iiud" path="res://Scenes/music_player.tscn" id="1_y3og5"]
-[ext_resource type="PackedScene" uid="uid://bh4sora4bn0gg" path="res://Scenes/player.tscn" id="2_wpoqs"]
-[ext_resource type="Script" path="res://Scripts/InnerMonologue.gd" id="5_voaig"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_6wg54")
 
 [node name="MusicPlayer" parent="." instance=ExtResource("1_y3og5")]
 
-[node name="Ui-main" parent="." instance=ExtResource("1_srs3q")]
-position = Vector2(960, 540)
-scale = Vector2(1.78771, 1.34328)
-
-[node name="Player" parent="." instance=ExtResource("2_wpoqs")]
-position = Vector2(370, 576)
-
-[node name="InnerMonologue" type="CanvasLayer" parent="."]
-script = ExtResource("5_voaig")
-
-[node name="Label" type="Label" parent="InnerMonologue"]
-offset_left = 68.0
-offset_top = 35.0
-offset_right = 1734.0
-offset_bottom = 91.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "This will be where our inner monologue shows up."
-horizontal_alignment = 1
+[node name="Level" type="Node" parent="."]

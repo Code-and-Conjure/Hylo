@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0qjrbnx6hw0q"]
+
+[ext_resource type="Script" path="res://Scripts/fire_bullet.gd" id="1_kili8"]
+
+[sub_resource type="Gradient" id="Gradient_hnysa"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.453901, 0.524823, 0.62766)
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 0.709804, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vu321"]
+gradient = SubResource("Gradient_hnysa")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5wi86"]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jlv15"]
+radius = 25.0799
+
+[node name="FireBullet" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_kili8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_vu321")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5wi86")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_jlv15")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

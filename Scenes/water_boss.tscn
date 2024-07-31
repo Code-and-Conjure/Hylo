@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbkqo5samy7fr"]
+
+[ext_resource type="Texture2D" uid="uid://k7qje8wk3pu4" path="res://Assets/hylo-depression.png" id="1_krqtw"]
+[ext_resource type="Script" path="res://Scripts/water_boss.gd" id="1_st6mb"]
+[ext_resource type="PackedScene" uid="uid://bhno7632pdy72" path="res://Scenes/slow_drip.tscn" id="3_vnq0c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6vu1a"]
+radius = 84.0
+height = 294.0
+
+[node name="Water Boss" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("1_st6mb")
+
+[node name="Hylo-depression" type="Sprite2D" parent="."]
+position = Vector2(23, 17)
+scale = Vector2(0.3, 0.319)
+texture = ExtResource("1_krqtw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(23, 27)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_6vu1a")
+
+[node name="Origin" type="Marker2D" parent="."]
+position = Vector2(18, 68)
+
+[node name="Spray Point" type="Marker2D" parent="." groups=["ProjectilePoint"]]
+position = Vector2(165, 49)
+
+[node name="Slow Drip" parent="Spray Point" instance=ExtResource("3_vnq0c")]
+visible = false
+position = Vector2(1, -2)
+
+[node name="Spray Point2" type="Marker2D" parent="." groups=["ProjectilePoint"]]
+position = Vector2(122, -7)
+
+[node name="Slow Drip" parent="Spray Point2" instance=ExtResource("3_vnq0c")]
+visible = false
+position = Vector2(1, -2)
+
+[node name="Spray Point3" type="Marker2D" parent="." groups=["ProjectilePoint"]]
+position = Vector2(29, -59)
+
+[node name="Slow Drip" parent="Spray Point3" instance=ExtResource("3_vnq0c")]
+visible = false
+position = Vector2(1, -2)
+
+[node name="Spray Point4" type="Marker2D" parent="." groups=["ProjectilePoint"]]
+position = Vector2(-57, -25)
+
+[node name="Slow Drip" parent="Spray Point4" instance=ExtResource("3_vnq0c")]
+visible = false
+position = Vector2(1, -2)
+
+[node name="Spray Point5" type="Marker2D" parent="." groups=["ProjectilePoint"]]
+position = Vector2(-121, 34)
+
+[node name="Slow Drip" parent="Spray Point5" instance=ExtResource("3_vnq0c")]
+visible = false
+position = Vector2(1, -2)
+
+[node name="Attack" type="Timer" parent="."]
+autostart = true

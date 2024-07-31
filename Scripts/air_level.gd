@@ -9,6 +9,6 @@ func _ready():
 	pass
 
 
-func _on_area_2d_body_entered(body: PlatformingPlayer):
+func _on_area_2d_body_entered(_dbody: Node2D):
 	air_boss.recallThings()
 	area_2d.queue_free()

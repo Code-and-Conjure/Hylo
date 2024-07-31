@@ -122,3 +122,4 @@ func slowdown(by: float):
 
 func _on_fall_timer_timeout():
 	set_collision_mask_value(2, true)
+	

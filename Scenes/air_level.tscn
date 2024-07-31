@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmdihxdah0snf"]
+[gd_scene load_steps=10 format=3 uid="uid://bmdihxdah0snf"]
 
 [ext_resource type="Script" path="res://Scripts/air_level.gd" id="1_ivehb"]
 [ext_resource type="TileSet" uid="uid://8mpjwxci13ok" path="res://Scenes/hylo_tileset.tres" id="1_m5hor"]
@@ -6,9 +6,13 @@
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="3_vyc70"]
 [ext_resource type="PackedScene" uid="uid://cpiooumm0hblb" path="res://Scenes/air_boss.tscn" id="4_n8c22"]
 [ext_resource type="PackedScene" uid="uid://djiw3mo7olyv6" path="res://Scenes/bargaining_mask.tscn" id="6_26kjy"]
+[ext_resource type="Script" path="res://Scripts/MessageTriggerWorldBoundary.gd" id="7_fpt76"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_65h85"]
 normal = Vector2(0.00847427, -0.999964)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i8evf"]
+distance = 4.0
 
 [node name="AirLevel" type="Node2D"]
 script = ExtResource("1_ivehb")
@@ -62,6 +66,112 @@ position = Vector2(2131, 4768)
 [node name="BargainingMask" parent="." instance=ExtResource("6_26kjy")]
 visible = false
 position = Vector2(1068, 4432)
+
+[node name="AirText1" type="Area2D" parent="."]
+position = Vector2(200, -70)
+script = ExtResource("7_fpt76")
+text = "I should have been stronger."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AirText1"]
+position = Vector2(1132, 172)
+shape = SubResource("WorldBoundaryShape2D_i8evf")
+
+[node name="AirText2" type="Area2D" parent="."]
+position = Vector2(139, 30)
+script = ExtResource("7_fpt76")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AirText2"]
+position = Vector2(1138, 657)
+shape = SubResource("WorldBoundaryShape2D_i8evf")
+
+[node name="AirText3" type="Area2D" parent="."]
+position = Vector2(168, 23)
+script = ExtResource("7_fpt76")
+text = "I should have done more."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AirText3"]
+position = Vector2(1154, 940)
+shape = SubResource("WorldBoundaryShape2D_i8evf")
+
+[node name="AirText4" type="Area2D" parent="."]
+position = Vector2(239, 24)
+script = ExtResource("7_fpt76")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AirText4"]
+position = Vector2(1167, 1258)
+shape = SubResource("WorldBoundaryShape2D_i8evf")
+
+[node name="AirText5" type="Area2D" parent="."]
+position = Vector2(199, 39)
+script = ExtResource("7_fpt76")
+text = "I would give anything..."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AirText5"]
+position = Vector2(1087, 1690)
+shape = SubResource("WorldBoundaryShape2D_i8evf")
+
+[node name="AirText6" type="Area2D" parent="."]
+position = Vector2(162, 45)
+script = ExtResource("7_fpt76")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AirText6"]
+position = Vector2(1124, 2061)
+shape = SubResource("WorldBoundaryShape2D_i8evf")
+
+[node name="AirText7" type="Area2D" parent="."]
+position = Vector2(168, -47)
+script = ExtResource("7_fpt76")
+text = "I would give everything."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AirText7"]
+position = Vector2(1148, 2592)
+shape = SubResource("WorldBoundaryShape2D_i8evf")
+
+[node name="AirText8" type="Area2D" parent="."]
+position = Vector2(178, -30)
+script = ExtResource("7_fpt76")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AirText8"]
+position = Vector2(1183, 2984)
+shape = SubResource("WorldBoundaryShape2D_i8evf")
+
+[node name="AirText9" type="Area2D" parent="."]
+position = Vector2(200, -37)
+script = ExtResource("7_fpt76")
+text = "...just to tell you I love you."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AirText9"]
+position = Vector2(1175, 3406)
+shape = SubResource("WorldBoundaryShape2D_i8evf")
+
+[node name="AirText10" type="Area2D" parent="."]
+position = Vector2(245, -37)
+script = ExtResource("7_fpt76")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AirText10"]
+position = Vector2(1122, 4690)
+shape = SubResource("WorldBoundaryShape2D_i8evf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+layout_direction = 2
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 138.0
+offset_top = -986.0
+offset_right = 138.0
+offset_bottom = -803.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Message" type="RichTextLabel" parent="CanvasLayer/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 25
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="die" from="AirBoss" to="." method="_on_air_boss_die"]

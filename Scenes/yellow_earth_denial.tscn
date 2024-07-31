@@ -3,9 +3,9 @@
 [ext_resource type="TileSet" uid="uid://8mpjwxci13ok" path="res://Scenes/hylo_tileset.tres" id="1_fmn51"]
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="1_q7bfo"]
 [ext_resource type="Script" path="res://Scenes/yellow_earth_denial.gd" id="1_tmstm"]
-[ext_resource type="PackedScene" path="res://Scenes/mirror_shard.tscn" id="3_od4ne"]
+[ext_resource type="PackedScene" uid="uid://cofsmvbxl5y0e" path="res://Scenes/mirror_shard.tscn" id="3_od4ne"]
 [ext_resource type="PackedScene" uid="uid://dq1k01yvvu6u0" path="res://Scenes/sun.tscn" id="5_xtbhg"]
-[ext_resource type="PackedScene" uid="uid://cg25qil1pe1mw" path="res://Scenes/yellow_boss.tscn" id="6_ylnaa"]
+[ext_resource type="PackedScene" uid="uid://cg25qil1pe1mw" path="res://Scenes/earth_boss.tscn" id="6_ylnaa"]
 [ext_resource type="PackedScene" uid="uid://bna1lt6rwe2k2" path="res://Scenes/platforming_player.tscn" id="7_gidba"]
 [ext_resource type="Script" path="res://Scripts/MessageTriggerWorldBoundary.gd" id="7_uio6w"]
 
@@ -14,6 +14,7 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8rglr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_khi27"]
+distance = -102.996
 
 [node name="yellow_earth_denial" type="Node2D"]
 script = ExtResource("1_tmstm")
@@ -47,28 +48,27 @@ scale = Vector2(0.5, 0.5)
 
 [node name="EarthText1" type="Area2D" parent="."]
 script = ExtResource("7_uio6w")
-text = "Welcome, stranger"
+text = "I'm numb."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText1"]
-position = Vector2(235, 433)
+position = Vector2(2427, 441)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_kqll7")
 
 [node name="EarthText2" type="Area2D" parent="."]
 script = ExtResource("7_uio6w")
-text = "TODO CHANGE"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText2"]
-position = Vector2(9803, 84)
+position = Vector2(6507, 228)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_8rglr")
 
 [node name="EarthText3" type="Area2D" parent="."]
 script = ExtResource("7_uio6w")
-text = "TODO: CHANGE"
+text = "Apathy feels like a gift."
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText3"]
-position = Vector2(19914, 96)
+position = Vector2(11754, 360)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_khi27")
 
@@ -83,3 +83,149 @@ offset_left = 323.0
 offset_top = 204.0
 offset_right = 783.0
 offset_bottom = 345.0
+theme_override_font_sizes/normal_font_size = 25
+
+[node name="EarthText4" type="Area2D" parent="."]
+script = ExtResource("7_uio6w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText4"]
+position = Vector2(16122, 288)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_khi27")
+
+[node name="EarthText5" type="Area2D" parent="."]
+position = Vector2(-8, 416)
+script = ExtResource("7_uio6w")
+text = "I have to get back to work."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText5"]
+position = Vector2(19914, 96)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_khi27")
+
+[node name="EarthText6" type="Area2D" parent="."]
+script = ExtResource("7_uio6w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText6"]
+position = Vector2(22114, 384)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_khi27")
+
+[node name="EarthText7" type="Area2D" parent="."]
+script = ExtResource("7_uio6w")
+text = "I have to meet my deadline."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText7"]
+position = Vector2(24474, 424)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_khi27")
+
+[node name="EarthText8" type="Area2D" parent="."]
+script = ExtResource("7_uio6w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText8"]
+position = Vector2(26634, 424)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_khi27")
+
+[node name="EarthText9" type="Area2D" parent="."]
+script = ExtResource("7_uio6w")
+text = "I have to answer the phone."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText9"]
+position = Vector2(29554, 328)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_khi27")
+
+[node name="EarthText10" type="Area2D" parent="."]
+script = ExtResource("7_uio6w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText10"]
+position = Vector2(32540, 311)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_khi27")
+
+[node name="EarthText11" type="Area2D" parent="."]
+script = ExtResource("7_uio6w")
+text = "I have to pretend it never happened."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText11"]
+position = Vector2(35448, 367)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_khi27")
+
+[node name="EarthText12" type="Area2D" parent="."]
+script = ExtResource("7_uio6w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText12"]
+position = Vector2(39509, 209)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_khi27")
+
+[node name="EarthText13" type="Area2D" parent="."]
+script = ExtResource("7_uio6w")
+text = "I have to pretend you never happened."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText13"]
+position = Vector2(43073, 390)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_khi27")
+
+[node name="EarthText14" type="Area2D" parent="."]
+script = ExtResource("7_uio6w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText14"]
+position = Vector2(46807, 413)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_khi27")
+
+[node name="EarthText15" type="Area2D" parent="."]
+script = ExtResource("7_uio6w")
+text = "If I can just push forward..."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText15"]
+position = Vector2(50382, 221)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_khi27")
+
+[node name="EarthText16" type="Area2D" parent="."]
+script = ExtResource("7_uio6w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText16"]
+position = Vector2(54556, 153)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_khi27")
+
+[node name="EarthText17" type="Area2D" parent="."]
+script = ExtResource("7_uio6w")
+text = "If I can just forget..."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText17"]
+position = Vector2(59422, 277)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_khi27")
+
+[node name="EarthText18" type="Area2D" parent="."]
+script = ExtResource("7_uio6w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText18"]
+position = Vector2(63528, 367)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_khi27")
+
+[node name="EarthText19" type="Area2D" parent="."]
+script = ExtResource("7_uio6w")
+text = "Maybe I'll appear okay."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText19"]
+position = Vector2(67453, 298)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_khi27")
+
+[node name="EarthText20" type="Area2D" parent="."]
+script = ExtResource("7_uio6w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthText20"]
+position = Vector2(71595, 220)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_khi27")

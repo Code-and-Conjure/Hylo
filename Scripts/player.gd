@@ -9,14 +9,25 @@ const JUMP_VELOCITY = -400.0
 @onready var weapon: Weapon = $"Weapon Pivot/Weapon"
 @onready var weapon_pivot: Marker2D = $"Weapon Pivot"
 
+@export var is_in_level_select: bool = false
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@onready var level_select: CollisionShape2D = $LevelSelect
+@onready var fire: CollisionShape2D = $Fire
 
 func _ready():
 	$SadMask.visible = GlobalDictionary.has_sad_mask
 	weapon.visible = GlobalDictionary.has_weapon
 	if stats:
 		print(stats.health)
+		
+	if is_in_level_select:
+		level_select.show()
+		fire.hide()
+	else:
+		level_select.hide()
+		fire.show()
 
 func _physics_process(delta):
 	weapon_pivot.look_at(get_global_mouse_position())

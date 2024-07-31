@@ -4,6 +4,7 @@ extends Node2D
 @onready var load_sadness: LevelSelect = $LoadSadness
 @onready var load_bargaining = $LoadBargaining
 @onready var load_denial = $LoadDenial
+@onready var win_panel: Sprite2D = $WinPanel
 
 func _ready():
 	load_sadness.go_to_level.connect(go_to_sadness)
@@ -12,6 +13,8 @@ func _ready():
 	if GlobalDictionary.has_weapon:
 		load_denial.visible = true
 		load_denial.go_to_level.connect(go_to_denial)
+	if GlobalDictionary.has_angry_mask and GlobalDictionary.has_sad_mask and GlobalDictionary.has_bargaining_mask:
+		win_panel.show()
 
 func go_to_sadness() -> void:
 	var sadness = load("res://Scenes/black_water_depression.tscn")

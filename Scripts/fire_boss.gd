@@ -18,6 +18,8 @@ extends RigidBody2D
 @onready var attack_timer: Timer = $AttackTimer
 @onready var dash_timer: Timer = $DashTimer
 
+signal die(pos: Vector2)
+
 enum Attack {HORIZONTAL, SPIRAL, FOLLOW}
 
 var dashTarget: Vector2
@@ -29,7 +31,7 @@ func _ready() -> void:
 
 func _physics_process(delta) -> void:
 	if Health <= 0:
-		print("Die fire boss!")
+		die.emit(position)
 		queue_free()
 		
 	if dashTarget:

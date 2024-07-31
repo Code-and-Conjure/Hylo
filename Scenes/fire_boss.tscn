@@ -6,8 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cmv73hw3vatun" path="res://Assets/hylo-anger.png" id="3_sqgem"]
 [ext_resource type="Texture2D" uid="uid://01271ylob8eh" path="res://Assets/hylo-anger-eyes.png" id="4_iky4c"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ts2xb"]
-radius = 372.194
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ch0qr"]
+radius = 322.0
+height = 992.0
 
 [node name="FireBoss" type="RigidBody2D"]
 collision_layer = 16
@@ -28,7 +29,7 @@ texture = ExtResource("3_sqgem")
 texture = ExtResource("4_iky4c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ts2xb")
+shape = SubResource("CapsuleShape2D_ch0qr")
 
 [node name="AttackTimer" type="Timer" parent="."]
 one_shot = true

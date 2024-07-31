@@ -5,3 +5,4 @@ var can_sneak: bool = false
 var has_bargaining_mask: bool = false
 var has_sad_mask: bool = false
 var has_weapon: bool = false
+var has_angry_mask: bool = false

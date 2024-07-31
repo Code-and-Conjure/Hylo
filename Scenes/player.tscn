@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bh4sora4bn0gg"]
+[gd_scene load_steps=9 format=3 uid="uid://bh4sora4bn0gg"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_y8sua"]
 [ext_resource type="Resource" uid="uid://dvqboi7fyr6su" path="res://Scripts/TestResource.tres" id="2_58f15"]
 [ext_resource type="Texture2D" uid="uid://cmolgrwmbw3w2" path="res://Assets/hylo-FILLED_SKETCH.png" id="2_eckbs"]
 [ext_resource type="PackedScene" uid="uid://di1a4po25n4y1" path="res://Scenes/weapon.tscn" id="4_555m2"]
 [ext_resource type="Texture2D" uid="uid://o18bucg3c0ws" path="res://Assets/sad_mask.png" id="5_lmhr1"]
+[ext_resource type="Texture2D" uid="uid://dpfoq4nj53t1o" path="res://Assets/bargaining_mask.png" id="6_xqh2q"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fivid"]
 radius = 14.0
@@ -49,3 +50,9 @@ position = Vector2(2, -14)
 [node name="Weapon" parent="Weapon Pivot" instance=ExtResource("4_555m2")]
 visible = false
 position = Vector2(40, 2.08165e-12)
+[node name="BargainingMask" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -2.38419e-07)
+rotation = -0.534774
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("6_xqh2q")

@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c1d5h6biojjti" path="res://Assets/hylo-back-FILLED_SKETCH.png" id="4_nrjrs"]
 [ext_resource type="PackedScene" uid="uid://di1a4po25n4y1" path="res://Scenes/weapon.tscn" id="4_uqc2v"]
 [ext_resource type="Texture2D" uid="uid://o18bucg3c0ws" path="res://Assets/sad_mask.png" id="6_aabrw"]
+[ext_resource type="Texture2D" uid="uid://dpfoq4nj53t1o" path="res://Assets/bargaining_mask.png" id="7_5r3bv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66msu"]
 radius = 16.0
@@ -78,5 +79,10 @@ position = Vector2(0, -16)
 [node name="Weapon" parent="Weapon Pivot" instance=ExtResource("4_uqc2v")]
 visible = false
 position = Vector2(40, 2.08165e-12)
+[node name="Bargaining Mask" type="Sprite2D" parent="."]
+position = Vector2(-1, -7)
+rotation = -0.502275
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("7_5r3bv")
 
 [connection signal="timeout" from="FallTimer" to="." method="_on_fall_timer_timeout"]

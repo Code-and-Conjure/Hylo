@@ -40,6 +40,9 @@ func _input(event: InputEvent) -> void:
 	
 	if GlobalDictionary.has_weapon and event.is_action_released("Attack"):
 		weapon.stop_attack()
+		
+	if GlobalDictionary.has_weapon and event.is_action_released("Parry"):
+		weapon.parry()
 	
 func save():
 	return {

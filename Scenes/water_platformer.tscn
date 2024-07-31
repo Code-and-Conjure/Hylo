@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://8mpjwxci13ok" path="res://Scenes/hylo_tileset.tres" id="2_p5gsp"]
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="3_pi02l"]
 [ext_resource type="PackedScene" uid="uid://b8pr1p3wqkov6" path="res://Scenes/drip_stalactite.tscn" id="4_stwxw"]
-[ext_resource type="PackedScene" path="res://Scenes/water_boss.tscn" id="5_1ceum"]
+[ext_resource type="PackedScene" uid="uid://bbkqo5samy7fr" path="res://Scenes/water_boss.tscn" id="5_1ceum"]
 [ext_resource type="Texture2D" uid="uid://dci0ona7e80lk" path="res://Assets/Weapon.png" id="6_1emql"]
 [ext_resource type="PackedScene" uid="uid://bx2o8dhtwq1mq" path="res://Scenes/water.tscn" id="8_rp5ls"]
 [ext_resource type="PackedScene" path="res://Scenes/sad_mask.tscn" id="9_b1sbv"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://klym2wqfqtvc"]
+[gd_scene load_steps=13 format=3 uid="uid://klym2wqfqtvc"]
 
 [ext_resource type="TileSet" uid="uid://8mpjwxci13ok" path="res://Scenes/hylo_tileset.tres" id="1_fmn51"]
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="1_q7bfo"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cg25qil1pe1mw" path="res://Scenes/yellow_boss.tscn" id="6_ylnaa"]
 [ext_resource type="PackedScene" uid="uid://bna1lt6rwe2k2" path="res://Scenes/platforming_player.tscn" id="7_gidba"]
 [ext_resource type="Script" path="res://Scripts/MessageTriggerWorldBoundary.gd" id="7_uio6w"]
+[ext_resource type="PackedScene" uid="uid://dwj5io12plxb" path="res://Scenes/earth_enemy.tscn" id="9_11h74"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kqll7"]
 
@@ -19,7 +20,7 @@
 script = ExtResource("1_tmstm")
 
 [node name="PlatformerCamera" type="Camera2D" parent="." node_paths=PackedStringArray("player", "BeginBound")]
-position = Vector2(61181, 348)
+position = Vector2(1002, 508)
 script = ExtResource("1_q7bfo")
 LockYAxis = true
 player = NodePath("../PlatformingPlayer")
@@ -73,7 +74,7 @@ rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_khi27")
 
 [node name="PlatformingPlayer" parent="." instance=ExtResource("7_gidba")]
-position = Vector2(60333, 692)
+position = Vector2(154, 852)
 JUMP_VELOCITY = -900
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -83,3 +84,7 @@ offset_left = 323.0
 offset_top = 204.0
 offset_right = 783.0
 offset_bottom = 345.0
+
+[node name="Earth Enemy" parent="." instance=ExtResource("9_11h74")]
+position = Vector2(505, 892)
+collision_mask = 9

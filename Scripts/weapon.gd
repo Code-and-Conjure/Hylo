@@ -67,6 +67,8 @@ func damage_bodies(_animation_name: String) -> void:
 	
 func remove_attack_node(node: Node2D) -> void:
 	bodies.erase(node)
+	if bodies.size() == 0:
+		$"Weapon Sprite/Suck Enemies".emitting = false
 	
 func stop_attack() -> void:
 	animation_player.play("Idle")
@@ -80,16 +82,13 @@ func stop_attack() -> void:
 	if animation_player.animation_finished.is_connected(damage_bodies):
 		animation_player.animation_finished.disconnect(damage_bodies)
 	bodies.clear()
+	$"Weapon Sprite/Suck Enemies".emitting = false
 	hit_cooldown.stop()
 	
 func attack_node(node: Node2D) -> void:
 	bodies.push_front(node)
-	
-	if node is WaterBoss:
-		node.health -= 100
-		return
-	if node.has_method("damage"):
-		node.damage(100)
+	$"Weapon Sprite/Suck Enemies".emitting = true
+	hit_nodes()
 	
 func hit_nodes() -> void:
 	for body in bodies:

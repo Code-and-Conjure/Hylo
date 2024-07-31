@@ -1,7 +1,35 @@
-[gd_scene load_steps=10 format=3 uid="uid://di1a4po25n4y1"]
+[gd_scene load_steps=15 format=3 uid="uid://di1a4po25n4y1"]
 
 [ext_resource type="Texture2D" uid="uid://dci0ona7e80lk" path="res://Assets/Weapon.png" id="1_85l4p"]
 [ext_resource type="Script" path="res://Scripts/weapon.gd" id="1_fsynr"]
+
+[sub_resource type="Gradient" id="Gradient_qt3ox"]
+offsets = PackedFloat32Array(0.661972, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1imf4"]
+gradient = SubResource("Gradient_qt3ox")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7bw15"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 4.66
+gravity = Vector3(-60, 2.08165e-12, 2.08165e-12)
+linear_accel_min = 46.27
+linear_accel_max = 100.0
+attractor_interaction_enabled = false
+scale_max = 1.27
+color_ramp = SubResource("GradientTexture1D_1imf4")
+
+[sub_resource type="Gradient" id="Gradient_q58hb"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uyws5"]
+gradient = SubResource("Gradient_q58hb")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.512821, 0.487179)
+fill_to = Vector2(0.623932, 0.320513)
 
 [sub_resource type="Animation" id="Animation_7tor8"]
 resource_name = "Attacking"
@@ -361,7 +389,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bubra"]
-size = Vector2(33, 10)
+size = Vector2(4, 10.5)
 
 [node name="Weapon" type="Node2D"]
 position = Vector2(2.08165e-12, 2.08165e-12)
@@ -372,6 +400,17 @@ position = Vector2(2.08165e-12, 2.08165e-12)
 rotation = 1.56509
 scale = Vector2(0.0880912, 0.0716458)
 texture = ExtResource("1_85l4p")
+
+[node name="Suck Enemies" type="GPUParticles2D" parent="Weapon Sprite"]
+position = Vector2(2.13767, -460.592)
+rotation = -1.56616
+scale = Vector2(13.9575, 11.352)
+skew = 0.00237501
+emitting = false
+amount = 668
+process_material = SubResource("ParticleProcessMaterial_7bw15")
+texture = SubResource("GradientTexture2D_uyws5")
+local_coords = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

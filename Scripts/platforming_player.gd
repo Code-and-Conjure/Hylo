@@ -2,7 +2,7 @@ class_name PlatformingPlayer
 extends CharacterBody2D
 
 @export var SPEED = 400
-@export var JUMP_VELOCITY = -900
+@export var JUMP_VELOCITY = -600
 var MAX_FALL_SPEED = 5000
 @export_range (.1, 1) var AttackSlowdownFactor = .5
 
@@ -19,8 +19,10 @@ var slowdown_factor: float = 1.0
 @onready var weapon_pivot: Marker2D = $"Weapon Pivot"
 @onready var weapon: Weapon = $"Weapon Pivot/Weapon"
 
-
 var is_swimming: bool = false
+var can_sneak: bool = true
+
+var sneaking_slowdown: float = 1.0
 var is_attacking: bool = false
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -50,8 +52,13 @@ func _physics_process(delta):
 			velocity.y += gravity * delta
 		velocity.y = min(MAX_FALL_SPEED, velocity.y)
 		
+	if GlobalDictionary.can_sneak and Input.is_action_pressed("Sneak") and can_sneak and is_on_floor():
+		sneaking_slowdown = 0.6
+	else:
+		sneaking_slowdown = 1.0
+		
 	if Input.is_action_pressed("jump") and (is_on_floor() or is_swimming):
-		velocity.y = JUMP_VELOCITY
+		velocity.y = JUMP_VELOCITY * sneaking_slowdown
 	if Input.is_action_pressed("ui_down", false):
 		set_collision_mask_value(2, false)
 		fall_timer.start(.2)
@@ -66,11 +73,17 @@ func _physics_process(delta):
 		localSpeed *= AttackSlowdownFactor
 	
 	if direction:
-		velocity.x = direction * localSpeed * slowdown_factor
+		velocity.x = direction * localSpeed * slowdown_factor * sneaking_slowdown
 		if direction < 0:
-			hylo.play("Walk Left")
+			if sneaking_slowdown == 1.0:
+				hylo.play("Walk Left")
+			else:
+				hylo.play("Sneaking Left")
 		else:
-			hylo.play("Walk Right")
+			if sneaking_slowdown == 1.0:
+				hylo.play("Walk Right")
+			else:
+				hylo.play("Sneaking Right")
 	else:
 		velocity.x = move_toward(velocity.x, 0, localSpeed)
 		
@@ -78,16 +91,20 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
-	if GlobalDictionary.has_weapon and event.is_action_pressed("Attack"):
-		weapon.attack()
-		is_attacking = true
-	
-	if GlobalDictionary.has_weapon and event.is_action_released("Attack"):
-		weapon.stop_attack()
-		is_attacking = false
-		
-	if GlobalDictionary.has_weapon and event.is_action_released("Parry"):
-		weapon.parry()
+	if GlobalDictionary.has_weapon:
+		if event.is_action_pressed("Attack"):
+			weapon.attack()
+			is_attacking = true
+			can_sneak = false
+		elif event.is_action_pressed("Parry"):
+			weapon.parry()
+			can_sneak = false
+		elif event.is_action_released("Attack"):
+			weapon.stop_attack()
+			is_attacking = false
+			can_sneak = true
+		elif event.is_action_released("Parry"):
+			can_sneak = true
 
 func damage(amount: int):
 	stats.health -= amount

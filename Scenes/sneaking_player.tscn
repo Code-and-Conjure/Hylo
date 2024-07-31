@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://ils0frtca4kq"]
+
+[ext_resource type="Script" path="res://Scenes/sneaking_player2.gd" id="1_djunt"]
+[ext_resource type="Texture2D" uid="uid://c1d5h6biojjti" path="res://Assets/hylo-back-FILLED_SKETCH.png" id="3_3n4ac"]
+[ext_resource type="Texture2D" uid="uid://bhygjuilmxd62" path="res://Assets/hylo-back-UNFILLED_SKETCH.png" id="3_gt5kk"]
+[ext_resource type="Texture2D" uid="uid://bxoauqa4n5mng" path="res://Assets/hylo-UNFILLED_SKETCH.png" id="4_i5nvk"]
+[ext_resource type="Texture2D" uid="uid://cmolgrwmbw3w2" path="res://Assets/hylo-FILLED_SKETCH.png" id="4_xlfe3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66msu"]
+radius = 12.0
+height = 74.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q4tk2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_gt5kk")
+}],
+"loop": true,
+"name": &"sneak_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_i5nvk")
+}],
+"loop": true,
+"name": &"sneak_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3n4ac")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_xlfe3")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uipx7"]
+radius = 12.0416
+
+[node name="SneakingPlayer" type="CharacterBody2D" groups=["Player"]]
+collision_mask = 11
+script = ExtResource("1_djunt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_66msu")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -3)
+scale = Vector2(0.075, 0.075)
+sprite_frames = SubResource("SpriteFrames_q4tk2")
+animation = &"sneak_right"
+
+[node name="FallTimer" type="Timer" parent="."]
+
+[node name="Killzone" type="Area2D" parent="."]
+collision_mask = 4
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-1, 7)
+shape = SubResource("CircleShape2D_uipx7")
+
+[connection signal="timeout" from="FallTimer" to="." method="_on_fall_timer_timeout"]
+[connection signal="body_entered" from="Killzone" to="." method="_on_killzone_body_entered"]

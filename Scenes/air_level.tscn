@@ -37,6 +37,7 @@ AdjustSpeed = 500.0
 player = NodePath("../PlatformingPlayer")
 EndBound = NodePath("../Level Bottom")
 MAX_DISTANCE = 13.617
+Player = NodePath("../PlatformingPlayer")
 
 [node name="PlatformingPlayer" parent="." instance=ExtResource("3_jldiy")]
 position = Vector2(322, 75)

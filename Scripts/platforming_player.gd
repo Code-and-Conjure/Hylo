@@ -18,11 +18,10 @@ var slowdown_factor: float = 1.0
 @onready var weapon_pivot: Marker2D = $"Weapon Pivot"
 @onready var weapon: Weapon = $"Weapon Pivot/Weapon"
 
-
 var is_swimming: bool = false
 var can_sneak: bool = true
 
-@export var sneaking_slowdown: float = 1.0
+var sneaking_slowdown: float = 1.0
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var fall_timer: Timer = $FallTimer
@@ -86,12 +85,12 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("Attack"):
 			weapon.attack()
 			can_sneak = false
-		elif event.is_action_released("Attack"):
-			weapon.stop_attack()
-			can_sneak = true
 		elif event.is_action_pressed("Parry"):
 			weapon.parry()
 			can_sneak = false
+		elif event.is_action_released("Attack"):
+			weapon.stop_attack()
+			can_sneak = true
 		elif event.is_action_released("Parry"):
 			can_sneak = true
 

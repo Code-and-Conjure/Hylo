@@ -25,6 +25,7 @@ func _on_sinking_timeout() -> void:
 		Events.lose_condition.emit()
 		sink = 0
 		print("Lost the game - restart the water level")
+		
 
 func _on_water_boss_die() -> void:
 	$"Sad Mask".visible = true

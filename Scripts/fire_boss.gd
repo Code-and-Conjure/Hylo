@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var Health: int = 100
+@export var Health: int = 10000
 @export_range (.1, 1) var AttackRandomness: float = .5
 @export var TopLeftBound: Marker2D
 @export var BottomRightBound: Marker2D

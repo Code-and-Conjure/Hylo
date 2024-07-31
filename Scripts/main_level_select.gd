@@ -8,7 +8,10 @@ extends Node2D
 func _ready():
 	load_sadness.go_to_level.connect(go_to_sadness)
 	load_bargaining.go_to_level.connect(go_to_bargaining)
-	load_denial.go_to_level.connect(go_to_denial)
+	
+	if GlobalDictionary.has_weapon:
+		load_denial.visible = true
+		load_denial.go_to_level.connect(go_to_denial)
 
 func go_to_sadness() -> void:
 	var sadness = load("res://Scenes/black_water_depression.tscn")

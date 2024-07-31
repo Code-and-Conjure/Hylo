@@ -6,7 +6,6 @@ extends Node2D
 @onready var water: Water = $PlatformerCamera/Water
 @onready var message: RichTextLabel = %Message
 
-
 @export var sink: float = 1
 
 func _ready() -> void:

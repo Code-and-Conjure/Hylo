@@ -16,3 +16,4 @@ func _on_area_2d_body_entered(_dbody: Node2D):
 
 func _on_air_boss_die() -> void:
 	$BargainingMask.visible = true
+	

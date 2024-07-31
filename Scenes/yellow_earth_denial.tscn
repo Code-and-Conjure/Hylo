@@ -78,12 +78,19 @@ JUMP_VELOCITY = -900
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Message" type="RichTextLabel" parent="CanvasLayer"]
-offset_left = 323.0
-offset_top = 204.0
-offset_right = 783.0
-offset_bottom = 345.0
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 39.54
+offset_bottom = 163.735
+grow_horizontal = 2
+
+[node name="Message" type="RichTextLabel" parent="CanvasLayer/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 theme_override_font_sizes/normal_font_size = 25
+fit_content = true
+autowrap_mode = 0
 
 [node name="EarthText4" type="Area2D" parent="."]
 script = ExtResource("7_uio6w")

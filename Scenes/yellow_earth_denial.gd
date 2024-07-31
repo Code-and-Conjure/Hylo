@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var message: RichTextLabel = $CanvasLayer/Message
+@onready var message: RichTextLabel = %Message
 
 func _ready():
 	Events.display_text.connect(set_message_text)

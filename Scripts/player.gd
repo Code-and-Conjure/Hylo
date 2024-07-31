@@ -43,6 +43,8 @@ func _input(event: InputEvent) -> void:
 		
 	if GlobalDictionary.has_weapon and event.is_action_released("Parry"):
 		weapon.parry()
+		Events.lose_condition.emit()
+	
 	
 func save():
 	return {
@@ -56,4 +58,7 @@ func save():
 func damage(amount: int):
 	stats.health -= amount
 	if stats.health <= 0:
-		print("should die")
+		die()
+		
+func die():
+	Events.lose_condition.emit()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bna1lt6rwe2k2"]
+[gd_scene load_steps=12 format=3 uid="uid://bna1lt6rwe2k2"]
 
 [ext_resource type="Script" path="res://Scripts/platforming_player.gd" id="1_elrc7"]
 [ext_resource type="Resource" uid="uid://dvqboi7fyr6su" path="res://Scripts/TestResource.tres" id="2_6yhga"]
@@ -67,7 +67,6 @@ sprite_frames = SubResource("SpriteFrames_m3bgu")
 animation = &"Sneaking Right"
 
 [node name="Sad Mask" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(-8, -4)
 rotation = -0.226135
 scale = Vector2(0.01, 0.01)
@@ -77,8 +76,8 @@ texture = ExtResource("6_aabrw")
 position = Vector2(0, -16)
 
 [node name="Weapon" parent="Weapon Pivot" instance=ExtResource("4_uqc2v")]
-visible = false
 position = Vector2(40, 2.08165e-12)
+
 [node name="Bargaining Mask" type="Sprite2D" parent="."]
 position = Vector2(-1, -7)
 rotation = -0.502275

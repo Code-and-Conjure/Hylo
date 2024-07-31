@@ -4,7 +4,8 @@ extends Node2D
 @onready var weapon_pickup = $"Weapon Pickup"
 @onready var platforming_player = $PlatformingPlayer
 @onready var water: Water = $PlatformerCamera/Water
-@onready var message: RichTextLabel = $CanvasLayer/Message
+@onready var message: RichTextLabel = %Message
+
 
 @export var sink: float = 1
 
@@ -31,3 +32,4 @@ func _on_water_boss_die() -> void:
 	
 func set_message_text(text: String) -> void:
 	message.text = text
+	

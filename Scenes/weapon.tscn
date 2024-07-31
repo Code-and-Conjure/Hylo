@@ -410,6 +410,7 @@ emitting = false
 amount = 668
 process_material = SubResource("ParticleProcessMaterial_7bw15")
 texture = SubResource("GradientTexture2D_uyws5")
+local_coords = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

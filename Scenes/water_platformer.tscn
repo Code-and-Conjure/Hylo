@@ -5,10 +5,10 @@
 [ext_resource type="TileSet" uid="uid://8mpjwxci13ok" path="res://Scenes/hylo_tileset.tres" id="2_p5gsp"]
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="3_pi02l"]
 [ext_resource type="PackedScene" uid="uid://b8pr1p3wqkov6" path="res://Scenes/drip_stalactite.tscn" id="4_stwxw"]
-[ext_resource type="PackedScene" path="res://Scenes/water_boss.tscn" id="5_1ceum"]
+[ext_resource type="PackedScene" uid="uid://bbkqo5samy7fr" path="res://Scenes/water_boss.tscn" id="5_1ceum"]
 [ext_resource type="Texture2D" uid="uid://dci0ona7e80lk" path="res://Assets/Weapon.png" id="6_1emql"]
 [ext_resource type="PackedScene" uid="uid://bx2o8dhtwq1mq" path="res://Scenes/water.tscn" id="8_rp5ls"]
-[ext_resource type="PackedScene" path="res://Scenes/sad_mask.tscn" id="9_b1sbv"]
+[ext_resource type="PackedScene" uid="uid://c1tn3ab3euqb1" path="res://Scenes/sad_mask.tscn" id="9_b1sbv"]
 [ext_resource type="Script" path="res://Scripts/MessageTriggerWorldBoundary.gd" id="10_8csu4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_me5v0"]
@@ -33,11 +33,11 @@ MAX_DISTANCE = 13.5
 position = Vector2(38, -498)
 points = 200
 dist = 5.0
+dampening = 0.009
+spread = 0.379
 depth = -1000
 impact = 0.112
 k = 0.166
-dampening = 0.009
-spread = 0.379
 metadata/_edit_lock_ = true
 
 [node name="PlatformingPlayer" parent="." instance=ExtResource("1_gr6jy")]
@@ -74,7 +74,7 @@ position = Vector2(23553.5, 888.5)
 shape = SubResource("RectangleShape2D_me5v0")
 
 [node name="Sinking" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.2
 autostart = true
 
 [node name="Sad Mask" parent="." instance=ExtResource("9_b1sbv")]
@@ -201,6 +201,23 @@ script = ExtResource("10_8csu4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterText16"]
 position = Vector2(24865, 528)
 shape = SubResource("WorldBoundaryShape2D_4n7n8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 94.0
+offset_bottom = 258.0
+grow_horizontal = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Message" type="RichTextLabel" parent="CanvasLayer/CenterContainer"]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+fit_content = true
 
 [connection signal="die" from="Water Boss" to="." method="_on_water_boss_die"]
 [connection signal="timeout" from="Sinking" to="." method="_on_sinking_timeout"]

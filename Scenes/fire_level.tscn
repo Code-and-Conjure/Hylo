@@ -1,11 +1,47 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxpmxdv4ebxpl"]
+[gd_scene load_steps=18 format=3 uid="uid://bxpmxdv4ebxpl"]
 
 [ext_resource type="TileSet" uid="uid://8mpjwxci13ok" path="res://Scenes/hylo_tileset.tres" id="1_kp6sk"]
+[ext_resource type="Script" path="res://Scenes/fire_level.gd" id="1_sj6i1"]
 [ext_resource type="PackedScene" uid="uid://bh4sora4bn0gg" path="res://Scenes/player.tscn" id="2_uouar"]
 [ext_resource type="PackedScene" uid="uid://sn6aaudfx8d8" path="res://Scenes/fire_boss.tscn" id="3_i6y1j"]
 [ext_resource type="PackedScene" uid="uid://c0qjrbnx6hw0q" path="res://Scenes/fire_bullet.tscn" id="4_rjtit"]
+[ext_resource type="Script" path="res://Scripts/MessageTriggerWorldBoundary.gd" id="6_ocnvt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t0jbm"]
+radius = 1360.06
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bnhmf"]
+radius = 909.114
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cmeb5"]
+radius = 1178.14
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ej7m1"]
+radius = 979.349
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s1guf"]
+radius = 1231.53
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rtg6w"]
+radius = 826.474
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_015tg"]
+radius = 1429.48
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ujaj"]
+radius = 823.702
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7e5b1"]
+radius = 998.988
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_to5a6"]
+radius = 694.104
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_la1ep"]
+radius = 1015.16
 
 [node name="FireLevel" type="Node2D"]
+script = ExtResource("1_sj6i1")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_kp6sk")
@@ -37,3 +73,98 @@ position = Vector2(426, 381)
 
 [node name="BottomRight" type="Marker2D" parent="."]
 position = Vector2(8269, 4563)
+
+[node name="FireText1" type="Area2D" parent="."]
+script = ExtResource("6_ocnvt")
+text = "I'm sick of everyone asking if I'm okay!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireText1"]
+position = Vector2(5325, 1437)
+shape = SubResource("CircleShape2D_t0jbm")
+
+[node name="FireText2" type="Area2D" parent="."]
+script = ExtResource("6_ocnvt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireText2"]
+position = Vector2(3735, 2613)
+shape = SubResource("CircleShape2D_bnhmf")
+
+[node name="FireText3" type="Area2D" parent="."]
+script = ExtResource("6_ocnvt")
+text = "How could I ever be okay again?"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireText3"]
+position = Vector2(6501, 4041)
+shape = SubResource("CircleShape2D_cmeb5")
+
+[node name="FireText4" type="Area2D" parent="."]
+script = ExtResource("6_ocnvt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireText4"]
+position = Vector2(7893, 3134)
+shape = SubResource("CircleShape2D_ej7m1")
+
+[node name="FireText5" type="Area2D" parent="."]
+script = ExtResource("6_ocnvt")
+text = "What even is \"okay?\""
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireText5"]
+position = Vector2(4345, 3870)
+shape = SubResource("CircleShape2D_s1guf")
+
+[node name="FireText6" type="Area2D" parent="."]
+script = ExtResource("6_ocnvt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireText6"]
+position = Vector2(2631, 4158)
+shape = SubResource("CircleShape2D_rtg6w")
+
+[node name="FireText7" type="Area2D" parent="."]
+script = ExtResource("6_ocnvt")
+text = "No one would be okay!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireText7"]
+position = Vector2(1203, 2917)
+shape = SubResource("CircleShape2D_015tg")
+
+[node name="FireText8" type="Area2D" parent="."]
+script = ExtResource("6_ocnvt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireText8"]
+position = Vector2(3295, 1105)
+shape = SubResource("CircleShape2D_0ujaj")
+
+[node name="FireText9" type="Area2D" parent="."]
+script = ExtResource("6_ocnvt")
+text = "Not if they had lost everything!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireText9"]
+position = Vector2(1231, 476)
+shape = SubResource("CircleShape2D_7e5b1")
+
+[node name="FireText10" type="Area2D" parent="."]
+script = ExtResource("6_ocnvt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireText10"]
+position = Vector2(754, 1383)
+shape = SubResource("CircleShape2D_to5a6")
+
+[node name="FireText11" type="Area2D" parent="."]
+script = ExtResource("6_ocnvt")
+text = "Not if they had lost you!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireText11"]
+position = Vector2(7498, 1616)
+shape = SubResource("CircleShape2D_la1ep")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Message" type="RichTextLabel" parent="CanvasLayer/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+fit_content = true
+autowrap_mode = 0

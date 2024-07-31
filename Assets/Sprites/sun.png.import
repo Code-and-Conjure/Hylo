@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhygjuilmxd62"
-path="res://.godot/imported/hylo-back-UNFILLED_SKETCH.png-181cd4ff8762b823c016dc4ff324adf2.ctex"
+uid="uid://dy1b3kl3u2cn3"
+path="res://.godot/imported/sun.png-2840a6ec835475deca2e0240fd41e3dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/hylo-back-UNFILLED_SKETCH.png"
-dest_files=["res://.godot/imported/hylo-back-UNFILLED_SKETCH.png-181cd4ff8762b823c016dc4ff324adf2.ctex"]
+source_file="res://Assets/Sprites/sun.png"
+dest_files=["res://.godot/imported/sun.png-2840a6ec835475deca2e0240fd41e3dc.ctex"]
 
 [params]
 

@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwj5io12plxb"]
+
+[ext_resource type="Texture2D" uid="uid://bhygjuilmxd62" path="res://Assets/hylo-back-UNFILLED_SKETCH.png" id="1_phonm"]
+[ext_resource type="Texture2D" uid="uid://bxoauqa4n5mng" path="res://Assets/hylo-UNFILLED_SKETCH.png" id="2_qsl5v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d4sq1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_phonm")
+}],
+"loop": true,
+"name": &"Walk Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qsl5v")
+}],
+"loop": true,
+"name": &"Walk Right",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7jccb"]
+radius = 14.0
+height = 82.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6i4dy"]
+radius = 366.285
+
+[node name="Earth Enemy" type="RigidBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.08, 0.08)
+sprite_frames = SubResource("SpriteFrames_d4sq1")
+animation = &"Walk Right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_7jccb")
+
+[node name="Detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+shape = SubResource("CircleShape2D_6i4dy")

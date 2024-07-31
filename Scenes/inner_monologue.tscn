@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://lrpjqnd0xycy"]
+
+[ext_resource type="Script" path="res://Scripts/InnerMonologue.gd" id="1_fbxi8"]
+
+[node name="InnerMonologue" type="CanvasLayer"]
+script = ExtResource("1_fbxi8")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

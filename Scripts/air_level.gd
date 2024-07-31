@@ -11,4 +11,9 @@ func _ready():
 
 func _on_area_2d_body_entered(_dbody: Node2D):
 	air_boss.recallThings()
-	area_2d.queue_free()
+	#area_2d.queue_free()
+
+
+func _on_air_boss_die() -> void:
+	$BargainingMask.visible = true
+	

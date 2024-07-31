@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhygjuilmxd62"
-path="res://.godot/imported/hylo-back-UNFILLED_SKETCH.png-181cd4ff8762b823c016dc4ff324adf2.ctex"
+uid="uid://dpfoq4nj53t1o"
+path="res://.godot/imported/bargaining_mask.png-2deb34ae862a3bf11ec1991ba0698a34.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/hylo-back-UNFILLED_SKETCH.png"
-dest_files=["res://.godot/imported/hylo-back-UNFILLED_SKETCH.png-181cd4ff8762b823c016dc4ff324adf2.ctex"]
+source_file="res://Assets/bargaining_mask.png"
+dest_files=["res://.godot/imported/bargaining_mask.png-2deb34ae862a3bf11ec1991ba0698a34.ctex"]
 
 [params]
 

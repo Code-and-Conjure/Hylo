@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhygjuilmxd62"
-path="res://.godot/imported/hylo-back-UNFILLED_SKETCH.png-181cd4ff8762b823c016dc4ff324adf2.ctex"
+uid="uid://dgkh4kuqib743"
+path="res://.godot/imported/hylo-denial-k.png-129bf113af359f0bf660586fa902e74c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/hylo-back-UNFILLED_SKETCH.png"
-dest_files=["res://.godot/imported/hylo-back-UNFILLED_SKETCH.png-181cd4ff8762b823c016dc4ff324adf2.ctex"]
+source_file="res://Assets/hylo-denial-k.png"
+dest_files=["res://.godot/imported/hylo-denial-k.png-129bf113af359f0bf660586fa902e74c.ctex"]
 
 [params]
 

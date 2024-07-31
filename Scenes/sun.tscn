@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq1k01yvvu6u0"]
+
+[ext_resource type="Texture2D" uid="uid://dy1b3kl3u2cn3" path="res://Assets/Sprites/sun.png" id="1_u4dxd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jscli"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_u4dxd")
+}],
+"loop": true,
+"name": &"sun",
+"speed": 5.0
+}]
+
+[node name="sun" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_jscli")
+animation = &"sun"

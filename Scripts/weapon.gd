@@ -7,8 +7,15 @@ signal attack_hit(node: Node2D)
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var danger_zone: Area2D = $DangerZone
 @onready var hit_cooldown: Timer = $"Hit Cooldown"
+@onready var slowdown_effect: Timer = $"Slowdown Effect"
 
 var bodies: Array[Node2D] = []
+
+func _ready() -> void:
+	slowdown_effect.timeout.connect(reset_engine_time)
+	
+func reset_engine_time() -> void:
+	Engine.time_scale = 1.0
 
 func parry() -> void:
 	animation_player.play("Parry")
@@ -20,7 +27,7 @@ func parry() -> void:
 	danger_zone.set_collision_mask_value(3, true)
 	danger_zone.body_entered.connect(parry_node)
 	
-func stop_parry() -> void:
+func stop_parry(_animation_name: String) -> void:
 	if danger_zone.body_entered.is_connected(parry_node):
 		danger_zone.body_entered.disconnect(parry_node)
 		
@@ -30,6 +37,8 @@ func stop_parry() -> void:
 func parry_node(node: Node2D) -> void:
 	danger_zone.body_entered.disconnect(parry_node)
 	parry_hit.emit(node)
+	Engine.time_scale = 0.7
+	slowdown_effect.start()
 	if node is HorizontalProjectile or node is PlayerSeekingProjectile:
 		node.reflect()
 	
@@ -65,6 +74,9 @@ func stop_attack() -> void:
 		danger_zone.body_exited.disconnect(remove_attack_node)
 	if hit_cooldown.timeout.is_connected(hit_nodes):
 		hit_cooldown.timeout.disconnect(hit_nodes)
+		
+	if animation_player.animation_finished.is_connected(damage_bodies):
+		animation_player.animation_finished.disconnect(damage_bodies)
 	bodies.clear()
 	hit_cooldown.stop()
 	

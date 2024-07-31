@@ -13,7 +13,6 @@ func _input(event):
 
 func _ready():
 	levelNode = get_tree().get_root().get_node("Main/Level")
-	var tmp = levelNode.get_children()
 	
 	#load_game()
 	Events.load_scene.connect(load_resource)
@@ -63,9 +62,9 @@ func load_game():
 
 	# Load the file line by line and process that dictionary to restore
 	# the object it represents.
-	var save_game = FileAccess.open("user://savegame.save", FileAccess.READ)
-	while save_game.get_position() < save_game.get_length():
-		var json_string = save_game.get_line()
+	var game_data = FileAccess.open("user://savegame.save", FileAccess.READ)
+	while game_data.get_position() < game_data.get_length():
+		var json_string = game_data.get_line()
 
 		# Creates the helper class to interact with JSON
 		var json = JSON.new()

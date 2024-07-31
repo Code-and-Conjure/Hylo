@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://y0fe8pw6i0gd"]
+[gd_scene load_steps=13 format=3 uid="uid://y0fe8pw6i0gd"]
 
 [ext_resource type="Script" path="res://Scripts/water_platformer.gd" id="1_f55gy"]
 [ext_resource type="PackedScene" uid="uid://bna1lt6rwe2k2" path="res://Scenes/platforming_player.tscn" id="1_gr6jy"]
@@ -9,9 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://dci0ona7e80lk" path="res://Assets/Weapon.png" id="6_1emql"]
 [ext_resource type="PackedScene" uid="uid://bx2o8dhtwq1mq" path="res://Scenes/water.tscn" id="8_rp5ls"]
 [ext_resource type="PackedScene" path="res://Scenes/sad_mask.tscn" id="9_b1sbv"]
+[ext_resource type="Script" path="res://Scripts/MessageTriggerWorldBoundary.gd" id="10_8csu4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_me5v0"]
 size = Vector2(41, 253)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4n7n8"]
+normal = Vector2(-1, 0)
+distance = -777.0
 
 [node name="water_platformer" type="Node2D"]
 script = ExtResource("1_f55gy")
@@ -25,7 +30,7 @@ BeginBound = NodePath("../Begin")
 MAX_DISTANCE = 13.5
 
 [node name="Water" parent="PlatformerCamera" instance=ExtResource("8_rp5ls")]
-position = Vector2(8, -510)
+position = Vector2(38, -498)
 points = 200
 dist = 5.0
 depth = -1000
@@ -33,6 +38,7 @@ impact = 0.112
 k = 0.166
 dampening = 0.009
 spread = 0.379
+metadata/_edit_lock_ = true
 
 [node name="PlatformingPlayer" parent="." instance=ExtResource("1_gr6jy")]
 position = Vector2(69, 103)
@@ -76,101 +82,125 @@ visible = false
 position = Vector2(24939, 985)
 scale = Vector2(0.5, 0.5)
 
-[node name="Drip Stalactite3" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(2799, 85)
-delay = 0.3
+[node name="WaterText1" type="Area2D" parent="."]
+script = ExtResource("10_8csu4")
+text = "I wish it had been me."
 
-[node name="Drip Stalactite4" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(4312, 75)
-delay = 0.7
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterText1"]
+position = Vector2(774, 334)
+shape = SubResource("WorldBoundaryShape2D_4n7n8")
 
-[node name="Drip Stalactite5" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(5004, 711)
-delay = 0.1
+[node name="WaterText2" type="Area2D" parent="."]
+script = ExtResource("10_8csu4")
 
-[node name="Drip Stalactite6" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(5727, 82)
-delay = 0.4
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterText2"]
+position = Vector2(2663, 428)
+shape = SubResource("WorldBoundaryShape2D_4n7n8")
 
-[node name="Drip Stalactite7" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(6128, 590)
-delay = 0.3
+[node name="WaterText3" type="Area2D" parent="."]
+script = ExtResource("10_8csu4")
+text = "I don't know how to carry on."
 
-[node name="Drip Stalactite8" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(6761, 77)
-delay = 0.6
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterText3"]
+position = Vector2(3897, 426)
+shape = SubResource("WorldBoundaryShape2D_4n7n8")
 
-[node name="Drip Stalactite9" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(7558, 588)
-delay = 0.2
+[node name="WaterText4" type="Area2D" parent="."]
+script = ExtResource("10_8csu4")
 
-[node name="Drip Stalactite10" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(8971, 76)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterText4"]
+position = Vector2(5202, 466)
+shape = SubResource("WorldBoundaryShape2D_4n7n8")
 
-[node name="Drip Stalactite11" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(9958, 79)
-delay = 0.07
+[node name="WaterText5" type="Area2D" parent="."]
+script = ExtResource("10_8csu4")
+text = "I feel like I'm drowning"
 
-[node name="Drip Stalactite12" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(10770, 838)
-delay = 0.1
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterText5"]
+position = Vector2(6586, 474)
+shape = SubResource("WorldBoundaryShape2D_4n7n8")
 
-[node name="Drip Stalactite13" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(11450, 838)
-delay = 0.5
+[node name="WaterText6" type="Area2D" parent="."]
+script = ExtResource("10_8csu4")
 
-[node name="Drip Stalactite14" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(11111, 80)
-delay = 0.9
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterText6"]
+position = Vector2(7914, 504)
+shape = SubResource("WorldBoundaryShape2D_4n7n8")
 
-[node name="Drip Stalactite15" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(11977, 79)
-delay = 0.4
+[node name="WaterText7" type="Area2D" parent="."]
+script = ExtResource("10_8csu4")
+text = "There's no one left to care about."
 
-[node name="Drip Stalactite16" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(12164, 711)
-delay = 0.5
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterText7"]
+position = Vector2(8808, 517)
+shape = SubResource("WorldBoundaryShape2D_4n7n8")
 
-[node name="Drip Stalactite17" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(14305, 453)
+[node name="WaterText8" type="Area2D" parent="."]
+script = ExtResource("10_8csu4")
 
-[node name="Drip Stalactite18" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(13650, 86)
-delay = 0.7
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterText8"]
+position = Vector2(10088, 556)
+shape = SubResource("WorldBoundaryShape2D_4n7n8")
 
-[node name="Drip Stalactite19" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(15189, 590)
-delay = 0.3
+[node name="WaterText9" type="Area2D" parent="."]
+script = ExtResource("10_8csu4")
+text = "There's no one left to care about me."
 
-[node name="Drip Stalactite20" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(16496, 73)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterText9"]
+position = Vector2(11123, 546)
+shape = SubResource("WorldBoundaryShape2D_4n7n8")
 
-[node name="Drip Stalactite21" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(17296, 76)
-delay = 0.5
+[node name="WaterText10" type="Area2D" parent="."]
+script = ExtResource("10_8csu4")
 
-[node name="Drip Stalactite22" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(18766, 67)
-delay = 0.8
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterText10"]
+position = Vector2(12830, 506)
+shape = SubResource("WorldBoundaryShape2D_4n7n8")
 
-[node name="Drip Stalactite23" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(19208, 597)
-delay = 0.5
+[node name="WaterText11" type="Area2D" parent="."]
+script = ExtResource("10_8csu4")
+text = "What's the point of anything anymore?"
 
-[node name="Drip Stalactite24" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(20185, 454)
-delay = 0.7
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterText11"]
+position = Vector2(14921, 569)
+shape = SubResource("WorldBoundaryShape2D_4n7n8")
 
-[node name="Drip Stalactite25" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(21496, 82)
-delay = 0.1
+[node name="WaterText12" type="Area2D" parent="."]
+script = ExtResource("10_8csu4")
 
-[node name="Drip Stalactite26" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(23115, 73)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterText12"]
+position = Vector2(16731, 559)
+shape = SubResource("WorldBoundaryShape2D_4n7n8")
 
-[node name="Drip Stalactite27" parent="." instance=ExtResource("4_stwxw")]
-position = Vector2(24474, 86)
-delay = 0.5
+[node name="WaterText13" type="Area2D" parent="."]
+script = ExtResource("10_8csu4")
+text = "I am no one to anyone."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterText13"]
+position = Vector2(18710, 571)
+shape = SubResource("WorldBoundaryShape2D_4n7n8")
+
+[node name="WaterText14" type="Area2D" parent="."]
+script = ExtResource("10_8csu4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterText14"]
+position = Vector2(20719, 578)
+shape = SubResource("WorldBoundaryShape2D_4n7n8")
+
+[node name="WaterText15" type="Area2D" parent="."]
+script = ExtResource("10_8csu4")
+text = "I am nothing to anything."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterText15"]
+position = Vector2(23595, 476)
+shape = SubResource("WorldBoundaryShape2D_4n7n8")
+
+[node name="WaterText16" type="Area2D" parent="."]
+script = ExtResource("10_8csu4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterText16"]
+position = Vector2(24865, 528)
+shape = SubResource("WorldBoundaryShape2D_4n7n8")
 
 [connection signal="die" from="Water Boss" to="." method="_on_water_boss_die"]
 [connection signal="timeout" from="Sinking" to="." method="_on_sinking_timeout"]

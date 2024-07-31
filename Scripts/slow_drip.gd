@@ -2,6 +2,7 @@ class_name SlowDrip
 extends Area2D
 
 var velocity: Vector2 = Vector2.ZERO
+@export_range(0.0, 1.0) var gravity_scale: float = 1.0
 
 signal should_destroy(drip: SlowDrip)
 
@@ -9,7 +10,7 @@ func _ready() -> void:
 	self.body_entered.connect(die_or_apply_status)
 	
 func _physics_process(delta: float) -> void:
-	velocity += gravity * delta * gravity_direction
+	velocity += gravity * delta * gravity_direction * gravity_scale
 	position += velocity
 	
 func die_or_apply_status(node: Node2D) -> void:

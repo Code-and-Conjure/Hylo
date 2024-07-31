@@ -12,6 +12,7 @@ const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
+	$SadMask.visible = GlobalDictionary.has_sad_mask
 	if stats:
 		print(stats.health)
 

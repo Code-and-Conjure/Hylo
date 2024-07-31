@@ -15,9 +15,13 @@ func add_weapon_to_player(player: Node2D) -> void:
 		GlobalDictionary.has_weapon = true
 		weapon_pickup.queue_free()
 
-
 func _on_sinking_timeout() -> void:
 	water.position.y += sink
+	
+	if water.position.y >= 500:
+		Events.lose_condition.emit()
+		sink = 0
+		print("Lost the game - restart the water level")
 
 func _on_water_boss_die() -> void:
 	$"Sad Mask".visible = true

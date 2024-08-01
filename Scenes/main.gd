@@ -21,9 +21,6 @@ func _ready():
 	Events.quit_game.connect(quit_game)
 	
 func lose():
-	var tmp1 = get_tree().root.get_children()
-	var tmp2 = get_children()
-	var tmp = levelNode.get_children()
 	get_tree().paused = true
 	lose_screen.show()
 	

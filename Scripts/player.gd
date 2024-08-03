@@ -22,12 +22,8 @@ func _ready():
 	if stats:
 		print(stats.health)
 		
-	if is_in_level_select:
-		level_select.show()
-		fire.hide()
-	else:
-		level_select.hide()
-		fire.show()
+	fire.disabled = is_in_level_select
+	level_select.disabled = not fire.disabled
 
 func _physics_process(delta):
 	weapon_pivot.look_at(get_global_mouse_position())

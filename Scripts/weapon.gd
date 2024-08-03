@@ -52,6 +52,7 @@ func attack() -> void:
 		return
 	animation_player.animation_finished.connect(damage_bodies)
 	
+	
 func damage_bodies(_animation_name: String) -> void:
 	animation_player.animation_finished.disconnect(damage_bodies)
 	
@@ -61,6 +62,11 @@ func damage_bodies(_animation_name: String) -> void:
 		danger_zone.body_exited.connect(remove_attack_node)
 	if not hit_cooldown.timeout.is_connected(hit_nodes):
 		hit_cooldown.timeout.connect(hit_nodes)
+	
+	bodies = danger_zone.get_overlapping_bodies()
+	if bodies.size() > 0:
+		$"Weapon Sprite/Suck Enemies".emitting = true
+		hit_nodes()
 	
 	hit_cooldown.start()
 	animation_player.play("Attacking")
@@ -96,4 +102,4 @@ func hit_nodes() -> void:
 			body.health -= 100
 			continue
 		if body.has_method("damage"):
-			body.damage(100000)
+			body.damage(100)

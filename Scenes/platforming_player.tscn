@@ -67,7 +67,7 @@ sprite_frames = SubResource("SpriteFrames_m3bgu")
 animation = &"Walk Right"
 
 [node name="Sad Mask" type="Sprite2D" parent="."]
-position = Vector2(-8, -4)
+position = Vector2(-8, -7)
 rotation = -0.226135
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("6_aabrw")
@@ -80,7 +80,7 @@ visible = false
 position = Vector2(40, 2.08165e-12)
 
 [node name="Bargaining Mask" type="Sprite2D" parent="."]
-position = Vector2(-1, -7)
+position = Vector2(-3, -13)
 rotation = -0.502275
 scale = Vector2(0.01, 0.01)
 texture = ExtResource("7_5r3bv")

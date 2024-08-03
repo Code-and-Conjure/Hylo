@@ -4,6 +4,7 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_srtfr"]
 normal = Vector2(0.0061815, 0.999981)
+distance = 1000.0
 
 [sub_resource type="Gradient" id="Gradient_5a8gy"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -23,7 +24,7 @@ scale = Vector2(1.0012, 1.00087)
 texture = ExtResource("1_61piq")
 
 [node name="Walls" type="StaticBody2D" parent="."]
-collision_mask = 0
+collision_layer = 8
 
 [node name="Top Wall" type="CollisionShape2D" parent="Walls"]
 position = Vector2(-25.8211, -541.059)
@@ -53,9 +54,3 @@ shadow_enabled = true
 shadow_item_cull_mask = 2
 texture = SubResource("GradientTexture2D_3xykp")
 offset = Vector2(-256, 256)
-
-[node name="TextureButton" type="TextureButton" parent="."]
-offset_left = 422.0
-offset_top = -288.0
-offset_right = 493.0
-offset_bottom = -204.0

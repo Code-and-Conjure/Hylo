@@ -27,6 +27,8 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 0.619608, 0.619608, 1, 0.913725, 0.3921
 gradient = SubResource("Gradient_yrcli")
 width = 16
 height = 796
+fill = 2
+fill_from = Vector2(1, 0)
 fill_to = Vector2(1, 1)
 
 [node name="yellow_earth_denial" type="Node2D"]

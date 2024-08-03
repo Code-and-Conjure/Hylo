@@ -60,7 +60,7 @@ position = Vector2(73532, 27)
 [node name="earth_boss" parent="." node_paths=PackedStringArray("target") instance=ExtResource("6_ylnaa")]
 position = Vector2(71458, 768)
 scale = Vector2(0.5, 0.5)
-target = NodePath("../PlatformingPlayer")
+target = NodePath("../CaveEntrance")
 
 [node name="EarthText1" type="Area2D" parent="."]
 script = ExtResource("7_uio6w")
